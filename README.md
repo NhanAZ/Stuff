@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-i hate poggit
-=======
 <h2>
   <a href="https://github.com/nhanaz-pm-pl/Track">
     <img align="left" src="https://github.com/nhanaz-pm-pl/Track/blob/master/icon.png" alt="Logo" width="80" height="80">
