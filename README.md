@@ -3,7 +3,7 @@
     <img align="left" src="https://github.com/nhanaz-pm-pl/Track/blob/master/icon.png" alt="Logo" width="80" height="80">
     Track
   </a>
-</h2>s
+</h2>
 <p>A plugin that allows staff to track the commands players.</p>
 <p>
   <a href="https://poggit.pmmp.io/p/Track">
