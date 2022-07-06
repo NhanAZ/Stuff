@@ -14,8 +14,8 @@ Show operator list when using `/oplist` command
 
 ## Commands
 
-| Commands | Descriptionr | Usage | Aliases | Permission | Permission Message |
-| -------- | ------------ | ----- | ------- | ---------- | ------------------ |
+| Commands | Description | Usage | Aliases | Permission | Permission Message |
+| -------- | ----------- | ----- | ------- | ---------- | ------------------ |
 | /oplist | Show list of operators | N/A | ["/ops"] | oplist.command | N/A |
 
 ## Permissions
@@ -71,6 +71,13 @@ perPage: 5
 ```
 
 </details>
+
+## Changelogs
+
+| Versions | What's new? |
+| -------- | ----------- |
+| 2.0.1 | - Code improvements<br>+ Now you can edit the message format in the configuration |
+
 
 ## Shields
 
