@@ -5,9 +5,10 @@
 [![Discord](https://img.shields.io/discord/986553214889517088?label=discord&color=7289DA&logo=discord)](https://discord.gg/j2X83ujT6c)\
 **You can contact me directly via Discord `NhanAZ#9115`**
 
----
-
 # Explain Like I'm Five
+
+<details>
+
 ## General
 Show operator list when using /oplist command
 
@@ -94,3 +95,5 @@ perPage: 5
 ## Licensing information
 [![License](https://img.shields.io/github/license/nhanaz-pm-pl/OpList)](https://github.com/nhanaz-pm-pl/OpList/blob/master/LICENSE)\
 This project is licensed under `GNU General Public License v3.0`. Please see the [LICENSE](https://github.com/nhanaz-pm-pl/OpList/blob/master/LICENSE) file for details.
+
+</details>
