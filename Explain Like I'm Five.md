@@ -23,6 +23,11 @@ Show operator list when using /oplist command
 | ----------- | ----------- | ------- |
 | oplist.command | Permission for /oplist | true |
 
+## Setup
+How to setup? Very simple! Follow the steps below:
+- Step 1: Download the plugin and put it in plugins`(~/plugins)`
+- Step 2: Start the server.
+- Step 3: Enjoy!
 
 ## Configs
 
