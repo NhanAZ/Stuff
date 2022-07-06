@@ -12,6 +12,9 @@
 ## General
 Show operator list when using `/oplist` command
 
+![image](https://user-images.githubusercontent.com/60387689/177538188-057fe95b-b938-4045-9113-374ea14dc303.png)
+
+
 ## Commands
 
 | Commands | Description | Usage | Aliases | Permission | Permission Message |
@@ -108,5 +111,13 @@ perPage: 5
 ## Licensing information
 [![License](https://img.shields.io/github/license/nhanaz-pm-pl/OpList)](https://github.com/nhanaz-pm-pl/OpList/blob/master/LICENSE)\
 This project is licensed under `GNU General Public License v3.0`. Please see the [LICENSE](https://github.com/nhanaz-pm-pl/OpList/blob/master/LICENSE) file for details.
+
+## Contributors
+
+<a href="https://github.com/nhanaz-pm-pl/OpList/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=nhanaz-pm-pl/OpList" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
 
 </details>
