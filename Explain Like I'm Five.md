@@ -9,7 +9,7 @@
 
 # Explain Like I'm Five
 ## General
-# Show operator list when using /oplist command
+Show operator list when using /oplist command
 
 ## Commands
 
