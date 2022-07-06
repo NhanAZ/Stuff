@@ -72,9 +72,9 @@ perPage: 5
 
 </details>
 
-## Changelogs
+## What's new?
 
-| Versions | What's new? |
+| Versions | Description |
 | -------- | ----------- |
 | 2.0.1 | - Code improvements<br>+ Now you can edit the message format in the configuration |
 
