@@ -18,4 +18,3 @@ Monokai (Color Scheme - Default)
 - Emmet
 - Package Control
 - SidebarEnhancement
-- zzz A File Icon zzz
