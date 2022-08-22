@@ -3,7 +3,7 @@
 ### My Crowdin profile
 - https://crowdin.com/profile/NhanAZ
 
-### I'm currently a proofreader for
+### Proofreader for ...
 - [PocketMine-MP](https://github.com/pmmp/PocketMine-MP)
 
 ### My pull requests on Github
