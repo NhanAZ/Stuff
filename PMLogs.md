@@ -2066,3 +2066,10 @@ Released 22nd August 2022.
 - Fixed `/give` accepting negative amounts or amounts larger than 32767 (vanilla max).
 - Fixed placement conditions for vines (no longer able to be placed on the side of cacti).
 - Fixed incorrect documentation of `SignText::__construct()`.
+
+# 4.8.0
+Released 9th August 2022.
+
+## General
+- Added support for Minecraft: Bedrock Edition 1.19.21.
+- Removed support for older versions.
