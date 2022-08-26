@@ -2073,3 +2073,12 @@ Released 9th August 2022.
 ## General
 - Added support for Minecraft: Bedrock Edition 1.19.21.
 - Removed support for older versions.
+
+# 4.8.1
+Released 26th August 2022.
+
+## General
+- Crashdumps now include JIT mode information for use by the Crash Archive.
+
+## Fixes
+- Fixed uninitialized offset error in `DyeColorIdMap` when given invalid dye color IDs.
