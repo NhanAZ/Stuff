@@ -10,6 +10,7 @@
 - https://github.com/dogecoin/dogecoin/pull/3060
 - https://github.com/LatamPMDevs/Minerware/pull/71
 - https://github.com/survanetwork/Worlds/pull/83
+- https://github.com/fernanACM/WorldCommandBlocker/pull/1
 
 ### My commits on Github
 - https://github.com/ReinfyTeam/ProfanityFilter/commit/ad9cfea99acbe8125fe2ea8d51771b8d9ecd4477
