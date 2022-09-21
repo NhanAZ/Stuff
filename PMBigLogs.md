@@ -2082,3 +2082,10 @@ Released 26th August 2022.
 
 ## Fixes
 - Fixed uninitialized offset error in `DyeColorIdMap` when given invalid dye color IDs.
+
+# 4.9.0
+Released 20th September 2022.
+
+## General
+- Added support for Minecraft: Bedrock Edition 1.19.30.
+- Removed support for older versions.
