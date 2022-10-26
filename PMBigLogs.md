@@ -2111,3 +2111,10 @@ Released 11th October 2022.
 - Fixed an edge case in `InventoryManager->removeWindow()`. This bug didn't have any effect on stable versions, but caused a `next-minor` development version to crash.
 - `Item`s returned by event getters are now cloned if modifying the result will have no useful side effects.
 - Updated `pocketmine/bedrock-data` to [`1.11.1`](https://github.com/pmmp/BedrockData/tree/1.11.1%2Bbedrock-1.19.30), which reduces bandwidth consumption during logins by not sending useless biome generation data.
+
+# 4.10.0
+Released 26th October 2022.
+
+## General
+- Added support for Minecraft: Bedrock Edition 1.19.40.
+- Removed support for older versions.
