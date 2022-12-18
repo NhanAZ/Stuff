@@ -2241,3 +2241,28 @@ Released 25th November 2022.
 - `ConsoleCommandSender` is no longer responsible for relaying broadcast messages to `MainLogger`. A new `BroadcastLoggerForwarder` has been added, which is subscribed to the appropriate server broadcast channels in order to relay messages. This ensures that chat messages and command audit messages are logged.
 - `DelegateInventory` now uses `WeakReference` to track its inventory listener. This allows the delegate to be reused.
 - Non-arrow projectile damage is now unscaled. Scaling according to velocity is only applied to arrows. This currently doesn't cause any observable change in behaviour, but is required for future additions.
+
+# 4.12.0
+Released 30th November 2022.
+
+## General
+- Added support for Minecraft: Bedrock Edition 1.19.50.
+- Removed support for older versions.
+
+# 4.12.1
+Released 4th December 2022.
+
+## Fixes
+- Fixed items glitching when dragging a stack of items across the crafting grid (desync issues).
+
+# 4.12.2
+Released 15th December 2022.
+
+## Fixes
+- Folder used for plugins (optionally specified by `--plugins`) is no longer required to be writable.
+- Fixed broken writable check for server data folder (`is_writable()` broken on NFS and similar filesystems).
+- `Filesystem::createLockFile()` exceptions now include more information about why the lock file could not be created.
+- Fixed client-side item predictions not being rolled back when cancelling events such as `PlayerItemUseEvent`.
+
+## Dependencies
+- Updated BedrockProtocol to [17.1.0](https://github.com/pmmp/BedrockProtocol/releases/tag/17.1.0+bedrock-1.19.50). This adds some missing `LevelSoundEvent` constants and fixes the values for `ContainerUIIds`.
