@@ -14,6 +14,7 @@
 - https://github.com/mcsim415/WParkour/pull/7
 - https://github.com/cooldogedev/BuildBattle/pull/5
 - https://github.com/platz1de/EasyEdit/pull/29
+- https://github.com/andriycraft/GreenFrogMCBE/pull/24
 
 ### My commits on Github
 - https://github.com/ReinfyTeam/ProfanityFilter/commit/ad9cfea99acbe8125fe2ea8d51771b8d9ecd4477
