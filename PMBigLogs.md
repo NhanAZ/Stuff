@@ -1,5 +1,3404 @@
-# 4.0.0
+# 1.3.3
+- Minecraft: Pocket Edition alpha 0.7.2 compatible!
+- Unicode support
+- Fixed /difficulty command
+- Fixed a few flying kicks
+- Fixed async. operations thread
+- Added whitelist enabled property to Query
 
+# 1.3.4
+**This is a compatibility update for Minecraft: Pocket Edition v0.7.3 alpha.**
+
+Double chests do not work yet, we will fix more bugs and add them when MCPE 0.7.4 is released. There were too many bugs in 0.7.3 to test double chests properly.
+
+#### Including in this release:
+- Fixed armor crash
+- Fixed ghost armor
+- Fixed packets being received after player disconnection
+- Fixed player count bug
+- Added compatibility with encrypted login
+- Fixed flying check on fences
+- Fixed players connecting with empty usernames
+- Fixed several crashes related to Items
+- Added temporal water flowing. Really buggy
+- Automatic recovery of index-corrupted maps
+- Fixed hotbar reset when changing armor
+- Fixed some hotbar reset bugs on block placement
+- Added basic tool durability and breaking
+- Chests now have opening/closing animation.
+- Fixed /difficulty
+- In-game player list is now handled correctly
+- Player entities are saved in all worlds to remove join/leave spam
+- Quartz slabs
+
+# 1.3.5
+#### Including in this release:
+- Fixed block durability (blocks being replaced)
+- Added armor replacing (changing the armor while you have other)
+- Added proper Player object cleanups as a fix to a memory leak
+
+# 1.3.7
+**This update is compatible with Minecraft: Pocket Edition v0.7.4 alpha.** Older versions won't work.
+
+In Minecraft: PE 0.7.4 you can add External servers directly. [How to add servers](https://github.com/PocketMine/PocketMine-MP/wiki/How-to-add-servers)
+
+![](http://i.imgur.com/ltBJgmUl.png)
+
+### Changelog
+- **Updated for 0.7.4 alpha**
+- **New API version 10**
+  - Adds Tile methods
+  - Changes message events to use new Minecraft protocol
+  - Added Level::getSafeSpawn()
+- Linux now uses PHP 5.5.3
+- Removed water updating
+- Fixes for Player teleporting
+- Removed invalid Cookie and fish items
+- Fixed Stone brick and quartz slab recipes
+- Shears now are used to drop leaves
+- Fixed a crash on Windows XP
+- Cake is removed when the bottom block is broken
+- Added new NBT parser/writer
+- Fixed chests and furnaces drops when broken.
+- Fixed signs not spawning on world load
+- Fixed actions not being deleted (memory leak)
+- Chests now are spawned correctly
+- Double chests
+- Added random x,z offset to item drops
+
+# 1.3.8
+This release consists of a few bugfixes and several features added. It is compatible with MCPE 0.7.4 and 0.7.5
+
+**Changelog:**
+- No API changes
+- Fixed x,y,z indexes when opening a Furnace
+- Fixed invalid fix for CPU usage limiter on idle
+- Fixed cross-compiling
+- Fixed some Stonecutter recipes
+- Fixed a few items stack sizes
+- Fixed TimeAPI bugs
+- Forces position on teleport, blocks fast teleport mods
+- Fixed some blocks havin a send lag on place/break
+- Fixed Sign Posts not deleting the Tile data when broken by update
+- Fixed Ice converting to Water on creative mode
+- Added beds
+- Added scheduled teleport on spawn to fix spawning underground
+- Added date to console logs
+
+# 1.3.9
+This release is compatible with MCPE 0.7.4 and 0.7.5.
+
+**Changelog:**
+- Fixed server crash related to beds
+- Player movement is less laggy
+- Added new text formatting system for future updates
+- New Terminal Emulator for Windows
+  - More colors! Less warnings!
+
+# 1.3.10
+**Changelog:**
+- Added door sounds
+- Fixed bed sleeping position offset
+- Added explosions
+- Flint & Steel on Creative Mode (replaces Eggs)
+- Changed the Sword and Hoe to the diamond tier on the Creative inventory
+- Fixed colors on MacOS
+- Water flow
+- Fixed Windows console input not being accepted when using special keys
+- Added a way to disable console colors
+- Updated PHP to 5.5.6, pthreads to 0.0.55, and cURL
+- Armor drops
+- Fixed plugin issues
+- Fixed some block drops
+- Fixed a crash when @all is used in console, and only usable for OPs
+- Fixed some issues regarding teleporting
+- deop no longer op the player again
+
+# 1.3.11
+And here it comes the stable release for **MCPE v0.8.1 alpha**. We decided to remove the improved networking that was delaying this release, but you should see it in the next one. Minecarts couldn't be added for the same reason as mobs, but we will try to implement "fake" minecarts that behave correctly inside rails, but not outside of them.
+
+Starting with this release, all PocketMine-MP versions will be given a codename. This one received the codename 「甘いビートルート」_(Amai Beetroot)_.
+
+**Changelog:**
+- Fixed existing Packets of Death
+- Fixed lots of bugs related to crafting
+- Fixed block placement bugs
+- Redstone ore drops redstone dust
+- Sideway logs
+- Sponges
+- Added new wooden planks & stairs
+- Added iron bars, cobblestone walls and pumpkins
+- Added carpets, hay bales and coal blocks
+- Added potatoes, carrots and beetroots
+- Additional tall grass drops
+- Achievements
+- Added multiple orders for _/gamemode_ command
+- Chat plugins can work with each other #975
+- Fixed internal world chunks bug
+- Private messages are now hidden on console except when the console is the target/origin
+- PHP plugins are now loaded with include()
+- Fixed plugin paths
+- Added source SHA1 sum to crash reports
+- Added Level::startTime() and Level::stopTime()
+- Fixed server not being able to start on several OS when offline
+- More small fixes and small additions
+
+For more information, check the [complete changelog](https://github.com/PocketMine/PocketMine-MP/compare/Alpha_1.3.10...Alpha_1.3.11).
+
+# 1.3.12
+Before starting to rewrite even more parts of the code, we are releasing the last version of the Alpha_1.3.x Amai Beetroot「甘いビートルート」. Next one will be Alpha_1.4 with more rewrite!
+We have included the new Event API that will be used on the next release, but now it is only used to hook on packets.
+
+**API Changelog:**
+- **Full network rewrite.** Plugins can work with packets easily now.
+- **New Event API,** only implemented for packets right now.
+- Added player.block.place.bypass and player.block.break.bypass
+- Level included in data for event item.drop
+- Added Utils::getUniqueID()
+- **Added default support in PHP binaries for MySQLi**
+- Removed Spyc
+- Call Plugin::__destruct() on PluginAPI::__destruct()
+- Added more OS detection on Utils::getOS()
+
+**Changelog:**
+- New set-up wizard in multiple languages. Help translate it to more languages on http://translate.pocketmine.net/
+- Updated pthreads and PHP binaries
+- New font for MinTTY console on Windows
+- Send partial hotbar history
+- Fixed Tile saving indexes
+- Fixed a few teleport bugs
+- Improved crash dumps
+- Increased apple health restore
+- Fixed players being invincible after death
+- Fixed Level::unloadChunk() not using saveEnabled
+- Show player name on bad username kick
+- Fixed item duplication on void #1100
+- OPs can bypass the player limit
+- Fixed item replacing on furnace #1114
+- Fixed multiple small bugs #1058 #1032 #854 #823 #1135 #1150 #1172 #1173 #486 #466 #483
+- Fixed PHP compilation on 64-bit linux #519 #861 #940 #505 #590 #761 #129
+- Included OPCache to optimize opcodes
+
+If you are on Linux, you can use `wget -q -O - http://cdn.pocketmine.net/installer.sh | bash -s - -v Alpha_1.3.12` to update. If you are on a MacOS, use `curl -sL http://cdn.pocketmine.net/installer.sh | bash -s - -v Alpha_1.3.12`
+
+# 1.4dev-228
+**For Minecraft: PE v0.9.0 alpha**
+
+Since the latest release, 786 commits have been done, 942 files have been changed (almost every file), and ~200.000 lines have been modified during the last 6 months.
+
+This is the first beta in the 1.4 series. This is a complete rewrite of PocketMine-MP, so only plugins developed for this new API will work.
+
+**Main features:**
+- Physics!
+- New plugin API!
+- Infinite worlds
+- Multithreading!
+- New efficient threaded networking library, [RakLib](https://github.com/PocketMine/RakLib)
+- Supports Minecraft: PE 0.9.0!
+
+**Other features:**
+- Permission system
+- New event system
+- Separation of network code and server logic, allows custom interfaces _(RakLib, BigBrother, RubberBand)_
+- Advanced settings on pocketmine.yml file!
+- Auto updater notifications
+- Support for Anvil worlds (import your PC worlds)
+
+**Not implemented:**
+Please do not report lacking features to the bug tracker, only report bugs on implemented features.
+- No entities except dropped items (and no spawning)
+- No liquid flow
+- No support for LevelDB worlds (0.9.0 format)
+- No conversion for old levels (will be added later)
+- No Minecarts
+- Not all items are implemented
+- Generated worlds use a basic generator
+
+# 1.4dev-277
+**For Minecraft: PE v0.9.1 alpha**
+
+This is the second beta for 1.4, and includes lots of fixes and a few new features since the beta1.
+
+This beta changes the API version to 1.1.0 (backwards-compatible) due to fixes and the new timings feature being added. All plugins that use API 1.0.0 are compatible and do not need changes. If your plugin works on API 1.0.0, please do not set the API version to 1.1.0, that will only refuse to load where it can work.
+
+**Main features:**
+- Updated RakLib to 0.2.0
+  - Fixes high CPU load issues
+  - Fixes players not quitting on timeout
+  - Fixes abusive bandwidth usage when a player timeouts
+- Fixed abusive CPU and memory usage on normal operation
+- Added Timings (read more on #1634)
+
+**Fixes and additions:**
+- Updated lava and fire causes #1581
+- Fixed #1570 Plugins can't be loaded on folders with periods
+- Fixed #1583 Scheduled Tasks getting repeated
+- Entity health is now saved and restored
+- Fixed #1584 duplicated death messages
+- RakLib is now blocking, less CPU usage
+- Updated plugin enable/disable event type #1585
+- Fixed #1578 Memory leak on chunk garbage collection
+- Fixed #1591 Players die when they leave the game
+- Fixed /kick player name
+- Fixed #1595 Undefined variable on QueryHandler
+- Improved entity attack push
+- Added more damage sources
+- Fixed #1598 spawning on index-corrupted chunks
+- Added settings.query-plugins to pocketmine.yml
+- Added deprecation warning on plugin events
+- Fixed /list now showing the correct player count
+- Fixed #1609
+- Fixed #1604 Items fly upwards
+- Added upload/download speed on title bar
+- Fixed unsigned fields read as signed, fixes not being able to use ports bigger than 2^15
+- Fixed #1622 /kick crashes the server on offline players
+- Fixed #1616 Players now use the world spawn by default
+- Fixed #1615 Players on creative mode can die of falling
+- Added core timings, plugin timings, and /timings command
+- New API version 1.1.0 (backwards-compatible)
+- Fixed #1642 Server crashing on invalid entities
+- Fixed #1641 Players not having a proper timeout
+- Added proper comments to Vector3::add() and Vector3::substract() #1649
+- Workaround for clients teleporting randomly
+- Workaround for clients crashing in the server
+- Workaround for certain AsyncTask not getting collected by the pthreads Pool
+- Fixed memory leak in AsyncTask collection
+- Improved random block ticking
+- Fixed #1640
+- Fixed #1636
+- Fixed #1590
+- Fixed #1573
+
+**Not implemented and known issues:**
+Please do not report lacking features to the bug tracker, only report bugs on implemented features.
+- CPU usage is high during player join (Anvil -> MCPE network chunk conversion)
+- Chunks can be generated empty sometimes, even on spawn chunks
+- No entities except dropped items (and no spawning)
+- Entity AI
+- RCON
+- No liquid flow
+- No support for LevelDB worlds (0.9.0 format)
+- No conversion for old levels (will be added later)
+- No Minecarts
+- Not all items are implemented
+- Generated worlds use a basic generator
+
+# 1.4dev-413
+**For Minecraft: PE v0.9.5 alpha**
+
+This is the third beta for 1.4, with a lot of changes since the last beta.
+
+This beta changes the API version to 1.2.0 (backwards-compatible) due to changes in how level formats are handled, Thread management. All plugins that use API 1.0.0 or 1.1.0 are compatible and do not need changes. If your plugin works on API 1.0.0 or 1.1.0, please do not set the API version to 1.2.0, that will only refuse to load where it can work.
+
+**Main features:**
+- Crash reports and automatic reporting
+- Added multiple Level format support
+- Use McRegion format to improve chunk sending CPU usage
+- Loaded chunks use 50% less memory than before
+- Void chunks have been fixed
+- RCON is now working
+
+**Fixes and additions:**
+- Added far-generated chunk garbage collection
+- Fixed #1628 #1671 invalid sender x,y,z on /spawnpoint
+- Use Player::getDisplayName() on more commands
+- Fixed crash on /stop
+- Fixed being killed on teleport
+- Fixed inventory being sent before spawning
+- Fixed #1614 #1678 #1711 Some blocks cannot be placed, stone has incorrect ID
+- Fixed #1668 Only allow one thread per property
+- Implemented new crash dumps
+- Added count(Enum), for NBT
+- Fixed Level::useBreakOn() when Item was null
+- Fixed an error related to AIR constant
+- Updated Stick crafting recipe to give x4
+- Fix for thrown EmptyChunkSection modification exception
+- Fixed player creative inventory
+- Fixed crash when placing water or lava
+- Fixed crash when cactus was updated
+- Fixed crash when using Level scheduled block update ReversePriorityQueue
+- Added new exception when a plugin creates an orphaned PluginTask
+- Throw exception when an invalid chunk is set as the parent of a Tile/Entity
+- Added McRegion detection to Anvil
+- Added multiple format support
+- Added McRegion level format
+- API version bumped to 1.2.0
+- Added block order detection, added support for non-sectioned level formats
+- Fixed #1659 PvP settings not working
+- Fixed loading invalid plugins crashing the server
+- Removed SimpleChunk from generator, core, use binary representation of chunks
+- Fixed #1807 #1794 #1740 #1741 #1685 Tuned generator to use a better way to process chunks
+- Fixed crash on chunks that are used by an entity after generation
+- Improved memory usage when chunks are saved/generated
+- Added worlds directive to pocketmine.yml to load extra worlds or use a plugin-provided generator
+- Disabled chunk ticking while it is being worked on
+- Added getExecutor() and setExecutor() method to PluginCommand
+- Updated Installer wizard language
+- Added proper Entity->__toString()
+- Added ChunkLoadEvent, ChunkUnloadEvent, ChunkPopulateEvent
+- Fixed /tell command not having spaces
+- Added Position::fromObject() strong reference parameter
+- Modified how chunks handle level providers
+- Added a Thread manager
+- Fixed #1842 Players are now moved using the head
+- Fixed source servers getting invalid AutoUpdater notifications
+- Made AsyncTask::onCompletion() implementation optional
+- Fixed RCON usage
+
+**Not implemented and known issues:**
+Please do not report lacking features to the bug tracker, only report bugs on implemented features.
+- World generation is slower than in older builds
+- No entities except dropped items (and no spawning)
+- Entity AI
+- No liquid flow
+- No support for LevelDB worlds (0.9.0 format)
+- No conversion for old levels (will be added later)
+- No Minecarts
+- Not all items are implemented
+- Generated worlds use a basic generator
+
+# 1.4dev-449
+**For Minecraft: PE v0.9.5 alpha**
+
+This is the fourth beta for 1.4. From now on, beta builds will be released faster with less changes between them, So we'll focus on adding new features on each build. New features will be buggy, but we hope to receive feedback to fix them soon. Old features will be more stable on each build.
+
+This beta changes the API version to 1.3.0 (backwards-compatible), improving level chunk sending and adding new plugin events for developers. All plugins that target older APIs are compatible and do not need changes. If your plugin works on older API versions, please do not set the API version to 1.2.0, that will only refuse to load where it can work.
+
+**Main features:**
+- Improved player movement
+- Fixed player actions lagging behind the server
+- Implemented circular chunk sending / view distance
+- Generation works correctly with multiple worlds
+- Creative and survival hotbar works better
+- Better wooden tool crafting
+- Players will drop their inventory on death
+
+**Fixes and additions:**
+- Level formats can send chunks to players directly without implementing an AsyncTask
+- Implemented circular chunk sending / view distance, as Johan commented on the IRC
+- Fixed AddMobPacket (x,y,z from float to int)
+- Generated levels create chunks starting from the spawn, instead of the corner
+- Added exception handling to level loading
+- Player movement is sent as direct packets, decreases lag
+- Fixed #1883 Release strong weak references on close
+- Throw exception when null chunk is passed to a Tile/Entity instead of crashing
+- Fixed crash caused by a race condition on Query
+- Throw invalid event exception when a plugin tries to declare an abstract event
+- Stop submission of plugin syntax error crashes
+- Fixed crash on tile unloading
+- Load later plugins with custom loader, fixes API
+- Fixed #1882 Race-condition on multiple world generation, causing lock up
+- Alternate chunk generation between multiple levels
+- Fixed #1901, EmptyChunkSection gets replaced by invalid Section
+- Added SignChangeEvent
+- Added RemoteServerCommandEvent
+- Bump API version to 1.3.0
+- Removed PHP_VERSION constant on pocketmine namespace
+- Added Chiseled stone brick, red sand
+- Added item activation
+- Added Zombie spawn egg
+- Added Villager spawn egg
+- Fixed AddEntityPacket (type byte -> int)
+- Added base Arrow
+- Check if player is online before showing it to other players
+- Creative and survival hotbar works better
+- Workaround crash when placing paintings
+- Fixed crashes when default level is not loaded
+- Modified chunk generation garbage collector
+- Fixed #1674 Wooden tools only craft with Oak wood
+- Fixed #1889 Players drop their inventory when they die
+- Fixed #1703 In-game action lag
+- Fixed level data not being saved
+- Improved server shutdown
+- Improved player spawning, closes #1890
+- Added End Stone, End Portal, Mycelium, Monster Spawner and Podzol blocks.
+
+**Not implemented or known issues:**
+Please do not report lacking features to the bug tracker, only report bugs on implemented features.
+- World generation is slower than in older builds
+- Server can use more memory than specified
+- Chunks are not freed correctly from the generation thread
+- Spawning lots of entities causes massive lag
+- Entities / Entity AI
+- No liquid flow
+- No support for LevelDB worlds (0.9.0 format)
+- No conversion for old levels (will be added later)
+- No Minecarts
+- Not all items are implemented
+- Generated worlds use a basic generator
+
+# 1.4dev-478
+**For Minecraft: PE v0.9.5 alpha**
+
+This is the fifth beta for 1.4, and we have focused on improving the overall performance of the server.
+
+This beta changes the API version to 1.3.1 (only fixes), so there are no notable changes for plugins.
+
+**Main features:**
+- Fixed player movement glitch
+- Overall performance improvements
+- Server requires PHP 5.5 or greater (drops Windows XP support)
+- Reactivated chunk ticking _(can be disabled via pocketmine.yml)_
+- Beds! Furnaces!
+
+**Fixes and additions:**
+- Fixed potential Mycelium crash. PR #1944
+- Fixed #1948 /whitelist list not working
+- Deprecated Server::loadPlugin(Plugin) in favor of Server::enablePlugin(Plugin)
+- Removed hardcoded Server name from source
+- Added --enable-profiler parameter to use with @krakjoe profiler
+- Require PHP >= 5.5
+- Performance improvements in NBT reading/writing
+- Performance improvements in blocks and Entities
+- Improved Level::getBlock()
+- Improved Air block collision check
+- Updated blocks bounding boxes
+- Added RakLib port checking option
+- Implemented correct time offsets and speed
+- Implemented beds
+- Fixed #1967 Glowstone dust -> Glowstone recipe
+- Added teleport flag to MovePlayerPacket, improves player movement
+- Removed unloaded chunk check
+- Improved player onGround collision check
+- Improved NBT IntArray read/write
+- Improved Block selection and construction performance
+- Fixed #1970 Breaking blocks does not remove tile entities
+- Fixed Chests/Furnaces not dropping contents when broken
+- Workaround BaseChunk::setBlock() recursion issues
+- Moved spl to [PocketMine-SPL](https://github.com/PocketMine/PocketMine-MP)
+- Ctrl+C handling and kill signals are working again
+- Fixed #1953 Increased item PickupDelay to 2.5 seconds
+- Fixed #1879 Tile entities were not saved on chunk unload
+- Fixed #1911 Implemented FurnaceInventory callback
+- Added Furnace progress fire
+- Fixed undefined index on furnace recipes
+- Fixed furnace achievement check
+- Improved chunk sending
+- Improved chunk ticking, enabled again. _Disable it setting chunk-ticking.per-tick to 0_
+- Dropped items and arrows get deleted on Y < 0
+- Fixed #1926 Teleport to non-generated chunks
+
+**Not implemented or known issues:**
+Please do not report lacking features to the bug tracker, only report bugs on implemented features.
+- Server can use more memory than specified
+- Idle servers will increase its CPU usage as time goes on
+- Chunks are not freed correctly from the generation thread
+- Spawning lots of entities causes unexpected lag
+- Entities / Entity AI
+- No liquid flow
+- No support for LevelDB worlds (0.9.0 format)
+- No conversion for old levels (will be added later)
+- No Minecarts
+- Not all items are implemented
+- Generated worlds use a basic generator
+
+# 1.4dev-491
+**For Minecraft: PE v0.9.5 alpha**
+
+This is the sixth beta for 1.4, upgrading to PHP 5.6 features and fixing entity physics!
+
+There are no API changes
+
+**Main features:**
+- Server requires PHP 5.6, improves performace
+- Fixed fatal error on startup
+- Fixed entity physics, fixed cause of lag
+
+**Fixes and additions:**
+- Fixed #1983 Check player online status
+- Fixed #1980 Fatal error on server load
+- Initial PHP 5.6 features support
+- Improved safe_var_dump(), Inventory::addItem() Inventory::removeItem() using argument unpacking
+- Improved performance of Item::get()
+- Removed cli_set_process_title() check
+- Added entity id names
+- Fixed Item after-clone behavior
+- Fixed possible Level::getBlock() crash
+- Improved unloaded tile entity handling
+- Fixed #1966 Face Lit Pumkins correctly
+- Fixed entity physics and AxisAlignedBB
+
+**Not implemented or known issues:**
+Please do not report lacking features to the bug tracker, only report bugs on implemented features.
+- Server can use more memory than specified
+- Chunks are not freed correctly from the generation thread
+- Entities / Entity AI
+- No liquid flow
+- No support for LevelDB worlds (0.9.0 format)
+- No conversion for old levels (will be added later)
+- No Minecarts
+- Not all items are implemented
+- Generated worlds use a basic generator
+
+# 1.4dev-576
+**For Minecraft: PE v0.9.5 alpha**
+
+This is the seventh beta for 1.4, getting near the stable release.
+
+The API version has been bumped to 1.4.0 (backwards-compatible) due to new features being added and bugs in the API being patched.
+
+**Main features:**
+- New pthreads version required, thanks to @krakjoe for fixing lots of bugs!
+- Performance improvements in RakLib & thread communication
+- Better physics & bounding boxes
+- Added working bow & arrows
+- Better timings reports
+- Improved server ticks per second
+- Improved world and block saving
+- Added more damage sources
+
+**API changes**
+- Implemented NBT::getArray() and NBT::setArray()
+- Made EntityDamageByEntityEvent call EntityDamageEvent handlers
+- Added EntityShootBowEvent
+- Added extra documentation to Level::setBlock()
+- Added Server::getTickUsage()
+- Fixed PermissionAttachment not recalculating its Permissible permissions
+- Fixed EntityMoveEvent not being cancelled correctly on players
+- Fixed Permissible::setPermission() not using the correct order on replacement
+- Added PermissionAttachment::setPermissions()
+- Added PermissionAttachment::unsetPermissions(), PermissionAttachment::clearPermissions()
+- Custom threading is less buggy now due to pthreads fixes
+
+**Fixes and additions:**
+- Renamed Item\Block to Item\ItemBlock, fixes several crashes
+- Fixed physics sneak flag
+- Use Entity::move() as player movement, protect against noclip cheat
+- Fixed double physics calculation
+- Fixed armor crafting recipes
+- Added Bed bounding box
+- Added Chest bounding box
+- Added Carpet bounding box
+- Added Slab bounding box
+- Added Wooden Slab bounding box
+- Fixed entity partial block moving
+- Disable RakLib port checking by default
+- Added survival check to movements
+- Added check for invalid entity attack
+- Added arrow and suicide death messages
+- Added stairs bounding box
+- Added cactus bounding box
+- Added End Portal frame bounding box
+- Added Farmland bounding box
+- Added Fence bounding box
+- Added Fence Gate bounding box
+- Added Glass Pane bounding box
+- Added Iron bars bounding box
+- Added Doors bounding boxes
+- Added Cake bounding box
+- Added Ladder bounding box
+- Added Soul Sand bounding box
+- Added Cobble Wall bounding box
+- Added Trapdoor bounding box
+- Fixed infinite Entity recursion on chunk load
+- Fixed creative players dropping their inventory
+- Player creative check refactor
+- Fixed timings name
+- Fixed timings ticks getting reset
+- Tick entities on Level, show correct timing reports
+- Fixed crash when chests are closed with viewers
+- Fixed #2032 Do not set Level to null
+- Improved CallbackTask timings data
+- Added __debugInfo() to Server and Level
+- Fixed dropped items going too fast
+- Do not report E_PARSE or E_COMPILE_ERROR crashes
+- Improved server ticking.
+- Fixed Server::getTicksPerSecond()
+- Possible fix for level save issues, related to #1985 #1982 #1758
+- Implemented Falling Sand
+- Fixed possible Player crash on save
+- Fixed Level::setBlock() old calls
+- Added cactus neighbour block check
+- Implemented attack cooldown
+- Fixed HeldItem were swapped in mining
+- Fixed Player's slot[0] disappears on logging in
+- Added --disable-readline CLI argument
+- Fixed Item drop delay
+- Updated RakLib path
+- TPS measurement improvement, moved interface handling to tick
+- Possible fix for #2061
+- Added binary reading optimizations, faster 64-bit reading
+- Normalized Player pitch/yaw
+- Added Pumpkin & Lit Pumpkin rotation
+- Removed pthreads workarounds
+- Fixed #2077 Block changes not being saved
+- Fixed #2075 Door bounding boxes
+- Added forced position strong check for Player
+- Fixed #2035 Invalid Fence Gate bounding box
+- Added Player->forceMovement check on teleport
+- Enabled default PHP GC on generator thread
+- Optimized server sleep times
+- Added Permission/Permissible calculation timings
+- Level generators can be set in server.properties
+- Improved Player last damage check
+- Added Fire, Lava damage
+- Show fire to other clients
+- Cobweb, Ladders and Water won't cause fall damage
+- Added suffocation, drowning damage. Closes #1908
+- Added more death messages
+- Added Cactus damage
+
+**Not implemented or known issues:**
+Please do not report lacking features to the bug tracker, only report bugs on implemented features.
+- Server can use more memory than specified
+- Chunks are not freed correctly from the generation thread
+- Entities / Entity AI
+- No liquid flow
+- No support for LevelDB worlds (0.9.0 format)
+- No conversion for old levels (will be added later)
+- No Minecarts
+- Not all items are implemented
+- Generated worlds use a basic generator
+
+# 1.4dev-599
+**For Minecraft: PE v0.9.5 alpha**
+
+This is the eighth beta for 1.4!
+
+There are no important API changes in this build.
+
+**Main features:**
+- Faster RakLib processing
+- Server won't hang up when stopping
+- Fixed usage sending issues
+- Decreased memory issues on Generation Thread
+- Fixed entity issues on negative coordinates
+
+**API changes**
+- Improved event checking on PlayerInteractEvent
+- Throw exception when Server::dispatchCommand() is called with an invalid CommandSender
+- Documented tool usage in Level::useBreakOn()
+
+**Fixes and additions:**
+- RakLib patches
+- Handle force parameter properly on Level::unload()
+- Remove level locks
+- Removed embedded class names
+- Fixed #2046
+- Fixed date_default_timezone_set E_NOTICE
+- Send build number on usage
+- Send project name on usage
+- Block more player actions when dead, fixes #2102
+- Fixed #2104 Can't place blocks where non-solid entities exist
+- Fixed Utils::getUniqueID() on Linux due to /proc/cpuinfo
+- Protect against \0 attacks on name checking
+- Added TPS load to /status
+- Possible fix for #1920
+- Fixed #2114 Removed Player collisions with other entities
+- Fixed Entity/Block issues on negative coordinates, fixes #2100
+- Fixed #1750 cannot place slabs against blocks
+
+**Not implemented or known issues:**
+Please do not report lacking features to the bug tracker, only report bugs on implemented features.
+- Server can use more memory than specified
+- Entities / Entity AI
+- No liquid flow
+- No support for LevelDB worlds (0.9.0 format)
+- No conversion for old levels (will be added later)
+- No Minecarts
+- Not all items are implemented
+- Generated worlds use a basic generator
+
+# 1.4dev-659
+**For Minecraft: PE v0.9.5 alpha**
+
+This is the 9th beta for 1.4!
+
+There are no important API changes in this build, just behavior fixes so the API version has been bumped to 1.4.1
+
+**Main features:**
+- Added non-threaded chunk generation, toggleable on pocketmine.yml
+- Added Liquid flow
+- Fixed Double Chests
+- Auto-save property is now working
+- Implemented Arrow pick up
+- Implement Armor changes as Transactions
+- Compatibility with pthreads > 2.0.8
+- Entities / Tile Entities are handled more reliable on worlds
+- Implemented flying protection
+
+**API changes**
+- Deprecated Level->getChunkAt() in favor of Level->getChunk()
+- Allow setting the player spawnpoint via events before PlayerJoinEvent
+- Fixed PlayerChatEvent::setRecipients() being useless
+- Fixed #2153 Cancelling an EntityDamageEvent has no effect for lava damage
+
+**Fixes and additions:**
+- Add valid position difference back to Player entities
+- Torches can now be crafted using charcoal
+- Fixed players getting Suffocation damage inside transparent blocks
+- Send player metadata on respawn
+- Improved Level::getSafeSpawn()
+- Improved knockback motion
+- Improved player movement, check once per tick
+- Improved chunk unload queue
+- Added non-threaded chunk generation, toggleable on pocketmine.yml
+- Fixed #2121 Players' heads flip upside down and back around after going past pitch = 0
+- Fixed Level->scheduleUpdate() tick calculation
+- Improved Level block update scheduling for repeated updates
+- Added torch drop
+- Basic entity motion on water
+- Improved Player generation queue
+- Fixed #2126 Items drop twice from tile entities
+- Fixed Double Chests
+- Fixed server crash when Tile Entities / Entities were loaded and requested the same chunk
+- Fixed auto-save configuration, made it global
+- RakLib update
+- Fixed #2055 Extra packet data sent on armor change
+- Improved single-threaded chunk generation efficiency
+- Improved entity base ticks
+- Improved entity movement updates
+- Implemented Arrow pick up
+- Fixed Anvil levels duplicating saved entities
+- Improved Chunk entity loading
+- Improved exponentiation
+- Added armor change $source parameter
+- Improved PlayerInventory->setItemInHand() $source call, fixed Tool durability
+- Implement Armor changes as Transactions
+- Fixed entities getting OnGround default to true
+- Added individual object timings to Entities / Tile Entities
+- Compatibility with pthreads > 2.0.8
+- Reliable timezone detection
+- Fixed Server->unloadLevel() not removing objects from memory
+- Moved connected flag up in the Player disconnect process
+- Improved initial chunk loading, do not skip near chunks, fixes world loading getting stuck
+- Changed base block classes to abstract, closes #2159
+- Implement crop growth levels properly, fixes #2002, closes #2160
+- Implemented flying protection
+- Fixed Player movement collision checks
+- Removed parse errors from AutoReporting
+- Improved entity ticking
+- Fixed Level->getCollidingEntities() when called with a null Entity
+- Removed selectors on Player->sendMessage()
+
+**Not implemented or known issues:**
+Please do not report lacking features to the bug tracker, only report bugs on implemented features.
+- Entities / Entity AI
+- No support for LevelDB worlds (0.9.0 format)
+- No conversion for old levels (will be added later)
+- No Minecarts
+- Not all items are implemented
+- Generated worlds use a basic generator
+
+# 1.4dev-665
+**For Minecraft: PE v0.9.5 alpha**
+
+There are new additions to the API (backwards-compatible), and the API version has been bumped to 1.5.0
+
+**Main features:**
+- Fixed issues with latest beta
+- Explosions!
+- Added Vines
+- Plugins can now change Query data
+
+**API changes**
+- Added new Tool type selection constants
+- Implemented QueryRegenerateEvent
+- API 1.5.0
+
+**Fixes and additions:**
+- Do not spawn dead entities to players, fixes #2157, possible fix for #2139
+- Unload entities from chunks, possible fix for #2157, fixes #2165
+- Added Vine blocks, closes #2162
+- Spawnable->spawnToAll() now uses the actual chunk instead of the entire level to spawn
+- Implemented Explosion and PrimedTNT, closes #2139
+
+**Not implemented or known issues:**
+Please do not report lacking features to the bug tracker, only report bugs on implemented features.
+- Entities / Entity AI
+- No support for LevelDB worlds (0.9.0 format)
+- No conversion for old levels (will be added later)
+- No Minecarts
+- Not all items are implemented
+- Generated worlds use a basic generator
+
+# 1.4dev-707
+**For Minecraft: PE v0.9.5 alpha**
+
+This release includes lots of backwards-compatible API changes, so the API version has been bumped to 1.6.0
+
+**Main features:**
+- Overall performance improvement
+- Lots of new events for the plugin API
+- Level Block caching, improves performance
+- Removed dead code and ported old functionality on item drops
+- Implemented scheduled and partial entity updates, improves performance
+- Only modified chunks are saved
+
+**API changes**
+- API 1.6.0
+- New PlayerMoveEvent, improved player movement event firing
+- **Deprecated EntityMoveEvent**
+- Fixed arrow damage not getting overridden by the event result
+- Added EntityCombustEvent and children
+- Added EntityDamageByBlockEvent (child of EntityDamageEvent)
+- Improved EntityRegainHealthEvent
+- Improved EntityShootBowEvent
+- Added ExplosionPrimeEvent
+- Added ItemDespawnEvent
+- Added ItemSpawnEvent
+- Added ProjectileLaunchEvent
+- Added ProjectileHitEvent
+- Added PlayerBedEnterEvent and PlayerBedLeaveEvent
+- Added PlayerDeathEvent methods for inventory keeping
+- Added Tile->getBlock() method
+- Added FurnaceBurnEvent
+- Added FurnaceSmeltEvent
+- Added Living->getTargetBlock(), Living->getLineOfSight(), Vector3 side constants, Vector3::getOppositeSide()
+- Deprecated Level->getSpawn() in favor of Level->getSpawnLocation()
+- Added LeavesDecayEvent
+- Added BlockSpreadEvent
+- Added BlockGrowEvent
+- Added EntityBlockChangeEvent
+- Added PlayerBucketEvent and children, improved Bucket usage and Liquid placing
+- Removed Generic block class
+- Updated PluginManager event deprecation message
+- Added BlockUpdateEvent
+- Throw CRITICAL error message on unhandled Exception on plugin events instead of crashing
+- Throw CRITICAL error message on unhandled Exception on commands instead of crashing
+- Fixed Inventory->removeItem()
+- Fixed AxisAlignedBB->setBB()
+
+**Fixes and additions:**
+- Updated RakLib, better player join
+- Fixed issues with Entity::heal() method
+- Removed unused imports
+- Updated fuel duration to ticks
+- Improved liquid performance
+- Removed old OS detection code
+- Added TextWrapper
+- Increased Player->stepHeight to 0.6, closes #2156
+- Removed workaround on flying check due to physics calculation fix, closes #2169
+- Workaround for entities glitching through the floor on the client-side
+- Improved Living entity ticking
+- Removed unused code, fixed undefined variables
+- Added global block cache
+- Made Wheat crops extend Crop class
+- Removed old Player->timeout property
+- Fixed Level->getCollidingEntities()
+- Save block bounding boxes, improves block cache
+- Removed a bunch of TODO and fixed item drops on block update
+- Improved item drop spawning
+- Improved Entity extinguish operations and packet spam
+- Increased Player->forceMovement check radius
+- Improved player movement event firing & corrections
+- Fixed Level->getNearbyEntities(), fixes item drops not being picked up
+- RakLib update, PING/PONG handling
+- Implemented scheduled and partial entity updates
+- Micro-optimizations
+- Fixed player using an invalid spawn chunk
+- Implemented saving modified chunks
+- Fixes entities not being saved and tile entities having an incorrect field, closes #1661
+- Match Player pickup area with Minecraft
+- Fixed RegionLoader not creating default index on first load
+- Do not block when killing workers
+- Fixed error_handler trace generation on higher debug levels
+- Do not wrap text if unknown characters are found.
+- Fixed Tasks deleting their Timings reports
+- Added extra Entity metadata
+- Optimized Player->orderChunks() and chunk sending ordering algorithm
+- Improved chunk loading and order refresh times
+- Fixed #2183
+- Improved broadcast packet encoding
+
+**Not implemented or known issues:**
+Please do not report lacking features to the bug tracker, only report bugs on implemented features.
+- Entities / Entity AI
+- No support for LevelDB worlds (0.9.0 format)
+- No conversion for old levels (will be added later)
+- No Minecarts
+- Not all items are implemented
+- Generated worlds use a basic generator
+
+# 1.4dev-822
+**For Minecraft: PE v0.9.5 alpha**
+
+This should be the last beta version for Minecraft: PE v0.9.5, the next release will be for Minecraft: PE 0.10. It is already ready, so we aim to release it on the same day as it is released for iOS and Android.
+This release includes lots of backwards-compatible API changes, so the API version has been bumped to 1.7.0
+
+**Main features:**
+- Overall performance improvements
+- Fixes lots of problems related to inventory
+- Snowballs!
+- Added Error -> Exception handling
+- Fixed lots of crafting recipes
+- Builds are now optimized on creation time
+- Added /time start and /time stop
+- Improved networking code and binary I/O methods
+
+**API changes**
+- API 1.7.0
+- Fixed Level->getMetadata() and similar, removed extra references
+- Fixes get and set armor
+- Fixed Inventory->removeItem()
+- New way to spawn entities/tiles using a global register table, allow overriding default entity/tile classes via classes
+- Added Error -> Exception handling
+- Added extra Exceptions
+- Fixed InventoryPickupItemEvent
+- EntityDamageEvent and children now only fire if the attack is possible, moved event trigger to Entity->attack()
+- Added InventoryPickupArrowEvent
+- Fixed Event name being null
+- Fixed some inventory events not firing on players
+- Fire PlayerInteractEvent on 0xff face
+- Added EntityDamageByChildEntityEvent
+- Allow passing a Player source as last parameter on Inventory->addItem() and Inventory->removeItem()
+- Return proper BlockIterator index, throw more exceptions, improved blockQueue performance
+- Use proper indexes on Living->getLineOfSight() when a max length is set
+
+**Fixes and additions:**
+- Fixed inventory changes getting the wrong window, closes #2187
+- Improved Level object deallocation
+- Improved inventory and window allocation, fixes #2200
+- Fixed entities not being pushed out of blocks
+- Improved Player->onGround checking
+- Improved Explosion item drop position
+- Added explosion death message
+- Fixed crash when doing var_dump() of anything that contains the Server object
+- Removed extra ; from if, fixes #2205
+- Possible fix for entities not closing correctly
+- Fixed #2207 Server crashing if players are closed before logging in
+- Fixed red sand not falling correctly
+- Drop invalid entities / tile entities on chunk loading
+- Fixed entities not getting ticks on movement
+- Fixed /setworldspawn changing sender data
+- Mark chunk to be saved when removing invalid entities/tiles
+- Updated RakLib
+- Improved network packets allocation
+- Improve #2238, do not crash when an invalid/corrupt RCON stop event happens
+- Disallow further modification of Signs by its creator after load/unload
+- Added Snowballs
+- Fixed UseItemPacket being able to be sent before spawning
+- Fixed plugins crashing the server when teleporting players on an invalid event
+- Use Player->forceMovement on MovePlayerPacket non-tick revert
+- Added Entity->onGround setting when entities keep moving without checks
+- Remove chunks from advanced cache after setting
+- Fixed Trapdoor recipe
+- Fixed Bowl recipe
+- Fixed Stonecutter recipe
+- Fixed Double Chest behavior
+- Fixed Chest->unpair()
+- Blocks now save their bounding box, fixed entity block collision check
+- Added extra chunk sending timings
+- Added preprocessor optimizations
+- Fixed players not loading chunks when stuck on a unloaded chunk
+- Optimized networking code & AxisAlignedBB
+- Improved freeing chunks
+- Fixed #2204
+- Added packet exception handling
+- Fixed crashing server not stopping
+- Fixed Entity being set position after being closed
+- Fixed Query-related crash
+- Despawn entities correctly from clients as they move
+- Improved level switching for players
+- Added /time start and /time stop
+- Fixed server not using the correct provided path if it did not exist
+- Fixed random block updates not firing
+- Updated timings command, give direct link to results
+- Use SplFixedArray for improved performance
+- Fixed player viewer list including themselves
+- Improved inventory sending, send single slots instead of full inventory as much as possible
+- Fixed unloading chunks
+- Automatically set Entity / Tile entity save identifiers
+- Added vertical and horizontal collision detection to Entities
+- Fixed bonemeal recipe, closes #2260
+- Fixed Snow block recipe
+- Fixed String -> Wool recipe
+- Fixed ladder recipe
+- Fixed red sand smelting recipe
+- Improved Level->getTile() to a direct lookup instead of linear search
+- Reenabled collision against entities on move
+
+**Not implemented or known issues:**
+Please do not report lacking features to the bug tracker, only report bugs on implemented features.
+- Entities / Entity AI
+- No support for LevelDB worlds (0.9.0 format)
+- No conversion for old levels (will be added later)
+- No Minecarts
+- Not all items are implemented
+- Generated worlds use a basic generator
+
+# 1.4dev-834
+**For Minecraft: PE v0.10.0 alpha**
+
+**Main features:**
+- Minecraft: PE v0.10 support!
+- Fixed some crafting recipes
+- Fixed some memory leaks
+- Fixed issues with tile entities
+
+**API changes**
+- API 1.7.1
+- Fixed PlayerInventory->setItem() with null items
+- Fixed Level->getTile()
+
+**Fixes and additions:**
+- Bumped protocol version to 20
+- Added different Fences, new Fence crafting recipes
+- Added different Fence Gates, new Fence Gate crafting recipes
+- Added new fences and fence gates to fuel types
+- Updated UseItemPacket
+- Updated time steps from x2.5 to x1.25
+- Fixed Chunk tile indexes
+- Get timezone directly. Fixes #2287.
+- Bumped weakref version, fixes travis builds
+- Fixed Acacia / Dark Oak logs crafting recipes
+- Fixed version message color
+- Fixed tile entities not being placed in the correct array
+- Fixed permission-related memory leak
+- Improved and fixed command exception message, closes #2301
+- Fixed #1969
+- Possible fix for #2297
+
+**Not implemented or known issues:**
+Please do not report lacking features to the bug tracker, only report bugs on implemented features.
+- Entities / Entity AI
+- No support for LevelDB worlds (0.9.0 format)
+- No conversion for old levels (will be added later)
+- No Minecarts
+- Not all items are implemented
+- Generated worlds use a basic generator
+
+# 1.4dev-842
+**For Minecraft: PE v0.10.4 alpha**
+
+**Main features:**
+- Improved chunk loading
+- Catch more exceptions and give extra debug messages
+- Recreates / fixes corrupt chunks with a huge amount of tile entities
+
+**API changes**
+- Improved exception handling and debugging
+
+**Fixes and additions:**
+- Improved chunk loading/unloading
+- Protect permission removal against bad plugins
+- Remove duplicated tiles from chunk table automatically
+- Regenerate corrupt player data if invalid data is found
+- Catch corrupted chunk data errors
+- Increased Fence, Fence Gate and Stone Wall Y bounding box
+- Bumped Minecraft: PE version string
+- Removed old trigger_error() calls, closes #2335
+- Properly close inventory windows from Players
+- Catch exceptions when chunks are unloaded
+- Possible fix for #2267, #2314
+- Improved player spawn item in hand sending
+- Improved global entity motion encoding using per-player queues
+
+**Not implemented or known issues:**
+Please do not report lacking features to the bug tracker, only report bugs on implemented features.
+- Issues with spawnpoint
+- Entities / Entity AI
+- No support for LevelDB worlds (0.9.0 format)
+- No conversion for old levels (will be added later)
+- No Minecarts
+- Not all items are implemented
+- Generated worlds use a basic generator
+
+# 1.4dev-847
+**For Minecraft: PE v0.10.4 alpha**
+
+**Main features:**
+- Fixed a crash introduced on the last beta
+- Improved inventory handling
+
+**API changes**
+- Fixed Inventory->addItem()
+- Removed unused Block->isLiquid property
+
+**Fixes and additions:**
+- Fixed #2340
+- Improved Inventory->addItem(), fixed breaking containers duplicating the last slot, removed not necessary slot changes
+- Fixed ladder crafting recipe
+
+**Not implemented or known issues:**
+Please do not report lacking features to the bug tracker, only report bugs on implemented features.
+- Entities / Entity AI
+- No support for LevelDB worlds (0.9.0 format)
+- No conversion for old levels (will be added later)
+- No Minecarts
+- Not all items are implemented
+- Generated worlds use a basic generator
+
+# 1.4dev-855
+**For Minecraft: PE v0.10.4 alpha**
+
+This version has API changes, some additions and fixes, bumping the version to 1.8.0. These changes are detailed below.
+
+**Main features:**
+- Fixed some duplication issues
+- Added light spreading
+- Less glitched PlayerMoveEvent handling by plugins
+
+**API changes**
+- API 1.8.0
+- Added Level->getFullLight()
+- Updated player movement processing and event handling
+
+**Fixes and additions:**
+- Fixed armor dropping twice
+- Fixed invalid worlds property being set by users
+- Removed temporal pthreads workaround
+- Implemented light population
+- Removed old revert flag from Player->processMovement()
+- Enabled batch block sending again
+
+**Not implemented or known issues:**
+Please do not report lacking features to the bug tracker, only report bugs on implemented features.
+- Entities / Entity AI
+- No support for LevelDB worlds (0.9.0 format)
+- No conversion for old levels (will be added later)
+- No Minecarts
+- Not all items are implemented
+- Generated worlds use a basic generator
+
+# 1.4dev-900
+**For Minecraft: PE v0.10.4 alpha**
+
+This version has API changes, some additions and fixes, bumping the version to 1.9.0. These changes are detailed below.
+
+**Main features:**
+- Global optimizations
+- New block/item creation and handling system
+- Multiple non-ordered hotbar slots
+- Added death animations
+- Updated RakLib: proper recovery queues and packet reordering
+- Experimental LevelDB worlds support
+
+**API changes**
+- API 1.9.0
+- Added internal use warning for TaskHandler::cancel()
+- Implemented no damage ticks
+- Added Config->getNested(key) and Config->setNested(key, value)
+- Added HeightMap get/set methods on chunks, Level
+- Do not quiet error messages when parsing config files
+- Added Level->getFullBlock()
+- Added FullChunk->getFullBlock()
+- Added Chunk->getFullBlock()
+- Added ChunkSection->getFullBlock()
+- Deprecated FullChunk->getBlock()
+- Deprecated Chunk->getBlock()
+- Deprecated ChunkSection->getBlock()
+- Added trait autoloading
+- Fixed #2392
+- Fixed #2394
+- Allow $base in knockback() to be dynamic and getters/setters in EntityDamageByEntityEvent
+- Update documentation of PluginBase::getCommand() for IDEs' auto completion
+- Added default parameter to Config getters, implements #2398
+- Added optional parameter for multiple NBT read
+
+**Fixes and additions:**
+- Change last X/Y/Z/Yaw/Pitch on teleport
+- Added armor items and max stack size for them.
+- Force player setting their new position
+- Block creating and property handling rewrite
+- Fix CPU issue when starting without STDIN
+- Use squared distance on movement handling
+- Renamed old getID() calls to getId()
+- Improved Item property handling
+- Handle a hotbar queue to allow using more than the first slot (won't save order due to the protocol)
+- Collect unallocated chunks from the Level provider
+- Faster Level provider chunk unloading
+- Improved block reading
+- Created global block states array
+- Improved Level->getBlock() using block states
+- Improved Level->getBlock() for 64-bit systems
+- Better block creation on Level
+- Added Player death animations, improved spawning behavior to correct invisible players, fixed players getting stuck when dead, closes #2304
+- Replaced some instanceof to null checks
+- Fixed players not getting sound when they are harmed
+- Level optimization, added new chunk/block hashes
+- Optimized Liquid spreading, optimized light updates, improved side block get/update, fixed raw set not cleaning Block cache (TNT explosions)
+- Updated RakLib: Implemented packet reordering, fixed packet recovery in both sides, errors are now debug level, workarounds possible CPU-hog DoS attack over ACK/NACK packets
+- Changed some Entity move AABB calls
+- Snow layer recipe added: Fix for #2400
+- Added World Generation timings
+- Added experimental LevelDB support, fixed a few issues with NBT, spawning and Binary R/W
+- Fixed #2423
+- Added Double Plant block, fixes damage walking inside it.
+- Added Chest recreation on imported levels
+- Fixed possible memory leak when hiding players from each other
+- Fixed server.log created in two different places on path changed
+- Increased transaction timeout, not needed anymore due to packet ordering
+- Improved block breaking time and event handling
+
+**Not implemented or known issues:**
+Please do not report lacking features to the bug tracker, only report bugs on implemented features.
+- Entities / Entity AI
+- No conversion for old levels (will be added later)
+- No Minecarts
+- Not all items are implemented
+- Generated worlds use a basic generator
+
+# 1.4dev-916
+**For Minecraft: PE v0.10.4 alpha**
+
+This version has API changes, bumping the version to 1.10.0. These changes are detailed below.
+
+**Main features:**
+- New version format (drops the stage part)
+- Added automatic/manual IP blocking
+- Increased chunk defaults
+- Improved speed of several generation steps
+- Fixed some memory leaks on 32-bit hosts
+- Improved exception handling and trace creation
+
+**API changes**
+- API 1.10.0
+- Changed RakLib network interface implementation
+
+**Fixes and additions:**
+- Bitmask block state
+- New version format
+- Possible workaround for some PHP bug related to resources and threads
+- Players won't take damage 60 ticks after spawning / respawning.
+- Fixed #2446
+- Added automatic/manual RakLib IP address, block addresses when exceptions are thrown
+- Move Query exceptions to debug level > 1
+- Block IP addresses on ban-ip
+- Added typehints to HelpCommand
+- Corrected fence crafting recipes, closes #2457
+- Improved Normal generator speed
+- Fixed memory leak issues on chunk generation under 32-bit hosts. Closes #2419, fixes #2308
+- Fixed issue with generated chunks not having a provider. Closes #2421
+- Higher chunk defaults
+- Improved Simplex 2D noise
+- Added chunk check on Level
+- Detect really big corrupted chunks, closes #2471
+- Improved exception handling and trace creation
+- Fixed players not calculating onGround correctly
+
+**Not implemented or known issues:**
+Please do not report lacking features to the bug tracker, only report bugs on implemented features.
+- Entities / Entity AI
+- No conversion for old levels (will be added later)
+- No Minecarts
+- Not all items are implemented
+- Generated worlds use a basic generator
+
+# 1.4.0
+**For Minecraft: PE v0.10.4 alpha**
+
+This is the first stable build of PocketMine-MP 1.4. Lots of changes have happened since 1.3.12, and they won't be detailed here. You can find them on the release list here on GitHub.
+
+Old worlds won't be converted automatically, and you can find it lacking some features. These will be implemented in a future update, as the release was pushed ahead due to the old "stable" release being completely outdated and no features being offered by it.
+
+This version has API changes, bumping the version to 1.10.0. These changes are detailed below.
+
+**Main features:**
+- New version format (drops the stage part)
+- Added automatic/manual IP blocking
+- Increased chunk defaults
+- Improved speed of several generation steps
+- Fixed some memory leaks on 32-bit hosts
+- Improved exception handling and trace creation
+
+**API changes**
+- API 1.10.0
+- Changed RakLib network interface implementation
+
+**Fixes and additions:**
+- Bitmask block state
+- New version format
+- Possible workaround for some PHP bug related to resources and threads
+- Players won't take damage 60 ticks after spawning / respawning.
+- Fixed #2446
+- Added automatic/manual RakLib IP address, block addresses when exceptions are thrown
+- Move Query exceptions to debug level > 1
+- Block IP addresses on ban-ip
+- Added typehints to HelpCommand
+- Corrected fence crafting recipes, closes #2457
+- Improved Normal generator speed
+- Fixed memory leak issues on chunk generation under 32-bit hosts. Closes #2419, fixes #2308
+- Fixed issue with generated chunks not having a provider. Closes #2421
+- Higher chunk defaults
+- Improved Simplex 2D noise
+- Added chunk check on Level
+- Detect really big corrupted chunks, closes #2471
+- Improved exception handling and trace creation
+- Fixed players not calculating onGround correctly
+
+**Not implemented or known issues:**
+Please do not report lacking features to the bug tracker, only report bugs on implemented features.
+- Entities / Entity AI
+- No conversion for old levels (will be added later)
+- No Minecarts
+- Not all items are implemented
+- Generated worlds use a basic generator
+
+# 1.4.1dev-936
+**For Minecraft: PE v0.10.4 alpha**
+
+This version has API changes, bumping the version to 1.11.0, and it won't be bumped again until a stable build is released. These changes are detailed below.
+
+**Main features:**
+- Improved chunk saving and reduced world corruption
+- Fixed some strange crashes on broken systems
+- Improved movement and block placing
+- Automatic resource freeing on Region-based worlds
+
+**API changes**
+- API 1.11.0
+- Added PlayerCreationEvent
+- Added Level->getChunks(), fixed some Doc Comments
+- Added Async Task crash warning
+- Fixed issue where plugins schedule a Player update before log in
+
+**Fixes and additions:**
+- Improved threading and resource usage, new defaults
+- Removed all @mkdir() calls
+- Catch exceptions on level generation
+- Fixed some crashes related to crashing
+- Fixed messages and default settings
+- Fixed #2488 Player suffocates when putting blocks to climb higher
+- Fixed #2489 Falling Sand drops as an item when not expected
+- Cleaned up BanEntry creation
+- Fixed phar check
+- Fixed visual typo in /ban-ip, closes #2503
+- Improved chunk saving times by not marking it as changed when Players are added/removed
+- Fixed #2511
+- Catch more corruption issues in Region-based worlds, fixed first chunk being generated on an invalid sector
+- Fixed Entities being placed in recreated chunks
+- Fixed Flat generator on existing chunks, region issues
+- Unload unused regions after 5 minutes
+- Improved file resource usage
+- Added GarbageCollectionTask, workaround for weird PHP behaviour when using --disable-ansi
+
+**Not implemented or known issues:**
+Please do not report lacking features to the bug tracker, only report bugs on implemented features.
+- Entities / Entity AI
+- No conversion for old levels (will be added later)
+- No Minecarts
+- Not all items are implemented
+- Generated worlds use a basic generator
+
+# 1.4.1
+**For Minecraft: PE v0.10.5 alpha**
+
+This version has API changes, bumping the version to 1.11.0, and it won't be bumped again until a stable build is released. These changes are detailed below.
+
+**Main features:**
+- Improved chunk saving and reduced world corruption
+- Fixed some strange crashes on broken systems
+- Improved movement and block placing
+- Automatic resource freeing on Region-based worlds
+- Ignore spawn protection when no ops are set
+- Improved flight cheat protection
+- Fixed chunk corruptions
+
+**API changes**
+- API 1.11.0
+- Added PlayerCreationEvent
+- Added Level->getChunks(), fixed some Doc Comments
+- Added Async Task crash warning
+- Fixed issue where plugins schedule a Player update before log in
+- Added new predictive flight protection
+- Added Location::__toString()
+- Added Entity->resetFallDistance()
+- Fixed #2619 BlockMetadataStore
+- Added Entity->fastMove() for players and direct-controlled entities
+- Implemented Threaded ClassLoader, improves class loading while on different threads (no need to synchronize states)
+- Allow plugins to cancel some kicks better, closes #2743
+
+**Fixes and additions:**
+- Improved threading and resource usage, new defaults
+- Removed all @mkdir() calls
+- Implemented proportional armor modifier, applied armor in other damage types and consume armor when player is damaged
+- Implemented hardcore banning, closes #2574
+- Implemented double chest fix, closes #2744, fixes #2493
+- Catch exceptions on level generation
+- Changed generator choosing logic, add proper preset if needed, fixes #2751
+- Fixed some crashes related to crashing
+- Fixed messages and default settings
+- Fixed #2488 Player suffocates when putting blocks to climb higher
+- Fixed #2489 Falling Sand drops as an item when not expected
+- Cleaned up BanEntry creation
+- Fixed phar check
+- Fixed visual typo in /ban-ip, closes #2503
+- Improved chunk saving times by not marking it as changed when Players are added/removed
+- Fixed #2511
+- Catch more corruption issues in Region-based worlds, fixed first chunk being generated on an invalid sector
+- Fixed Entities being placed in recreated chunks
+- Fixed Flat generator on existing chunks, region issues
+- Unload unused regions after 5 minutes
+- Improved file resource usage
+- Added GarbageCollectionTask, workaround for weird PHP behaviour when using --disable-ansi
+- Fixed /timings off
+- Fixed fences not showing up
+- Improved chunk ticking
+- Block saving chunks too big
+- Changed max speed per tick from 100 to 10 blocks
+- Added outdated event static properties
+- Allow placing Snow Layers on top of solid transparent blocks
+- Fixed PHPRC env. variable being set
+- Throw exception when RakLib crashes
+- Added rotation transformations to remaining packet
+- Fixed #2557
+- Fixed #2541 server not saving chunks on chunk unloading
+- Return on Level->getSafeSpawn() in case of invalid position
+- Fixed #2565
+- Falling sand will become block when in contact with a Liquid
+- Fixed Iron bar, Stonecutter drops
+- TallGrass blocks should be only placed on grass blocks
+- Fixed #2615
+- Fixed players getting kicked for flying when going through special blocks
+- Future workaround for #2626
+- Catch file saving exceptions
+- Added basic speed protection
+- Fixed Dark Oak Fence's name
+- Fixed #2762
+- Fixed Anvil lighting issues
+- Fix some Chunk corruption due to Chunk overlap
+- Fixed constructors, default memory to -1, default async generator
+- Fixed NBT IntArray off-by-one reading
+- Fixed falling sand breaking on full BB partial blocks, closes #2770
+
+**Not implemented or known issues:**
+Please do not report lacking features to the bug tracker, only report bugs on implemented features.
+- Entities / Entity AI
+- No conversion for old levels (will be added later)
+- No Minecarts
+- Not all items are implemented
+- Generated worlds use a basic generator
+
+# 1.6.1dev-87
+**For Minecraft PE 0.16.0.5 alpha**
+
+**THIS IS A PRE RELEASE. Do not use it in production unless you are sure you know what you are doing.**
+
+Only changes since the 1.6dev tag will be documented here. Changes between 1.4.1 and 1.6dev are far too extensive to document effectively.
+
+## Core
+- New RNG, based on XorShift128 from the php-random library. This fixes issue with repeating terrain on 32-bit systems. _Note however that new generation into existing worlds will not be seamless._
+- Block and Item IDs have been moved to interfaces for better consistency
+- Better method for synchronisation of client/server time (less packet spam)
+- Utils::getRandomBytes() has been deprecated in favour of php7's random_bytes() function.
+- `<player>.dat` saving/reading can now be disabled in `pocketmine.yml` (set `player.save-player-data` to `false`)
+
+## Gameplay/game features
+- Added Flower Pots
+- Containers can now be opened in creative
+- Trapdoors can now be placed without a supporting block
+
+## API
+
+This release has API changes, bumping the version to 2.1.0.
+
+### Entity metadata (0.16)
+
+Many changes have been made to entity metadata. Many true/false data properties are now entity status flags, such as NoAI, NametagVisible and various others. Entity status flags can be set using:
+`$entity->setDataFlag(Entity::DATA_FLAGS, Entity::INSERT_DATA_FLAG_NAME, true/false);`
+
+**Breaking** changes are detailed here. Additions are not documented. https://gist.github.com/dktapps/76b291b7a861762b54f7a8b834389883
+
+**NOTE: It's strongly recommended to use provided API methods where possible instead of tampering with metadata directly.**
+
+### AsyncTask API additions
+- Main thread local storage: Developers can pass any data including objects to the constructor of AsyncTask such that the data can be retrieved after the AsyncTask completes using the new `AsyncTask::fetchLocal()` method, or use the `AsyncTask::peekLocal()` method to get the data without removing it.
+- Progress updates: Developers can use the new `AsyncTask::publishProgress() method and override`AsyncTask::onProgressUpdated()` to handle AsyncTask progress information in the main thread.
+
+Refer to #1 and #100 for details.
+
+### WeakPosition
+
+WeakPosition was added in 1.6.1 to fix bugs with unloading levels which have player spawn points set in them. This type of position holds a level ID instead of a direct reference. Use this when your position may outlive the level it is in.
+
+### Removal of Item/NBT circular dependency
+
+Refer to #121 for details.
+
+### Other
+- Added Player->sendWhisper() (#73).
+- Removed LargeExplodeParticle due to incorrect name - use HugeExplodeParticle. Added HugeExplodeSeedParticle and BlockForceFieldParticle (7314aaf7f7bdae582f674c085c7ae879985bf847)
+
+## Fixes
+- Fixed the infamous hotbar spaz bug
+- Creative/spectator inventory now sends correctly
+- Fixed spectator flight controls
+- Fixed issues with items going past the end of the regular inventory
+- Fixed furnace client crashes
+- Fixed inventory windows for anvils and enchanting tables
+- Fixed kicked for walking on lily pads (#blameshoghicp)
+- Fixed a nasty entity-related memory leak on chunk unload
+- Fixed sleeping players floating above beds and teleportation of sleeping players.
+- Fixed a bug in Level::updateAround() where only one block would update
+- Fixed some slab placement issues (#31)
+- Fixed crash loading 1.11 worlds (#32)
+- Fixed broken `--disable-readline` command-line option (#34)
+- Fixed world unload crash when players have spawnpoints set in that world (#24)
+- Fixed start.sh detection of system PHP binaries (#66)
+- Fixed anvil rotation when placed and variant drops (d696049a0ad5e3b878a8f902e4ef75f19ec8cecc)
+- /timings command is now more verbose about paste errors (#95)
+- Fixed server crash at shutdown when RCON is enabled (#101)
+- Fixed server name is always "Minecraft: PE Server" when running setup wizard (92bd1a755d4b171b687538db83893b9bd9c70420)
+- Fixed CraftItemEvent->getInput() does not return used items (7eb9530346e953d1555623ff871086f85447b6c6)
+- Fixed useless ServerKiller (#122)
+
+**For Minecraft: Bedrock Edition 1.4.0**
+
+Plugin scheduler rewrite, RCON rewrite, performance improvements, improved idle memory usage
+
+**While this release is nominally not an alpha, it is still not feature complete and does not include all gameplay features. Please do not create issues for missing gameplay features.**
+
+This build has breaking API changes.
+This release is the first to use the new merged versioning system. The PocketMine-MP version and the API version are now one and the same.
+
+Please use our issue tracker to report bugs.
+
+# 3.0.0
+## Core
+### General
+- This release introduces a new dependency library called `Snooze`, which PocketMine-MP utilizes for managing notifications between threads. This library is currently utilized by command reading, RCON and RakLib, allowing faster response times to commands, reduced network latency, and better performance due to lack of need for polling.
+- Fixed race condition causing `ServerKiller` to sometimes kill the server for no reason on shutdown.
+
+### Dependency libraries
+Requires the following libraries:
+- [`pocketmine/raklib` `^0.12.0`](https://github.com/pmmp/RakLib/releases/0.12.0)
+- [`pocketmine/spl` `^0.3.0`](https://github.com/pmmp/SPL/releases/0.3.0)
+- [`pocketmine/binaryutils` `^0.1.0`](https://github.com/pmmp/BinaryUtils/releases/0.1.0)
+- [`pocketmine/nbt` `^0.2.0`](https://github.com/pmmp/NBT/releases/0.2.0)
+- [`pocketmine/math` `^0.2.0`](https://github.com/pmmp/Math/releases/0.2.0)
+- [`pocketmine/snooze` `^0.1.0`](https://github.com/pmmp/Snooze/releases/0.1.0)
+
+These libraries may individually have changes which are not recorded here. See their independent repository releases for their changelogs.
+
+### Async pooling
+- Async workers are now started dynamically when they are needed only, instead of being started immediately on startup. This allows reducing idle memory usage.
+- AsyncPool now appropriately shuts down the workers when instructed to, instead of leaving it up to the ThreadManager to clean it up. This eliminates debug messages of shutting down async workers on server shutdown.
+- Default maximum async worker memory limit has been lowered from 1024MB to 256MB.
+- Async workers are now started using the options `PTHREADS_INHERIT_CONSTANTS | PTHREADS_INHERIT_INI`, which reduces idle memory wastage and works around some bugs in pthreads.
+
+### Entities
+- Fixed entities not being despawned when flagged, if they weren't scheduled for an update.
+
+### Levels
+- Seed handling is now always consistent between `pocketmine.yml` and `server.properties`.
+- Fixed generation bugs in imported LevelDB worlds where the classpath was saved into level.dat.
+- Generators for levels are no longer created on the main thread, reducing memory usage.
+
+### Plugins
+- Plugin data is now stored under `<data dir>/plugin_data` by default on new installations, instead of in `<plugins dir>`. This behaviour does not affect existing installations by default - if you want to enable it, set `plugins.legacy-data-dir` to `false` in `pocketmine.yml`.
+
+### RCON
+RCON has been almost completely rewritten in this release.
+- Now event-driven (using Snooze) instead of poll-based, improving performance.
+- Fixed segmentation fault when stopping the server with RCON enabled.
+
+## API
+**WARNING: Dependency library API changes are not listed here. See their individual release notes for changes (linked above in the Core section).**
+
+### API versioning changes for plugins
+The way that the API versioning is done has changed. Now the API version is synonymous with the PocketMine-MP version.
+Plugin compatibility is determined by the following:
+- Take the base version, and strip any metadata (everything after the `+` sign, for example `3.0.0+dev.1191` becomes `3.0.0`).
+- Assert that:
+  - The major versions is the same
+  - The server's minor version is greater than or equal to the plugin's
+  - The server's patch version is greater than or equal to the plugin's
+
+Currently there is no support for locking version by metadata, although this could be implemented if it is a wanted feature.
+
+### General
+- `Server->getCodename()` and `\pocketmine\CODENAME` have been removed.
+- Added API method `Server->getTickSleeper()`, which returns a `\pocketmine\snooze\SleeperHandler` instance.
+- `Server->getIp()` now returns `0.0.0.0` if not set.
+
+### Block
+- Added `Block->getXpDropForTool()`.
+
+### Entity
+- Calling `scheduleUpdate()` on an `Entity` after it has been `close()`d will now cause an exception to be thrown.
+- `Entity->motionX`, `Entity->motionY` `Entity->motionZ` have been removed in favour of an `Entity->motion` `Vector3` field. This also applies for the `lastMotion` fields.
+- `Entity->isInsideOfWater()` has been renamed to `isUnderwater()`.
+
+### Events
+- Added support for `@softDepend` annotation on event handlers, which allows the event handler to not be registered if the dependency plugin is not loaded.
+- Added support for `@notHandler` annotation for `Listener` methods to indicate that such methods are not event handlers.
+- Typehints have been applied to the events API to PHP 7.2 standards.
+- Fixed preventing effect expiry using `EntityEffectRemoveEvent` not being reflected on the client.
+- `EntityDamageEvent` API has significant changes. The general purpose of this is to split up base damage from modifiers.
+  - Added methods `getBaseDamage()`, `setBaseDamage()`, `getOriginalBaseDamage()`, `getModifiers()`, `getOriginalModifiers()`
+  - `setDamage()` renamed to `setModifier()`, and type parameter is now mandatory
+  - `getDamage()` renamed to `getModifier()`, and type parameter is now mandatory
+  - `getOriginalDamage()` renamed to `getOriginalModifier()`, and type parameter is now mandatory
+  - Removed `MODIFIER_BASE` constant
+  - Constructors now accept: `float baseDamage`, `float[] modifiers` instead of just `float[] modifiers`
+- Added `BlockBreakEvent->getXpDropAmount()` and `BlockBreakEvent->setXpDropAmount()`.
+
+### Inventory
+- `InventoryTransaction->getCreationTime()` has been removed.
+- `EntityInventoryChangeEvent` and `EntityArmorChangeEvent` are no longer fired during entity inventory intialization.
+
+### Item
+- Methods `isPickaxe()`, `isAxe()`, `isSword()`, `isShovel()`, `isHoe()`, `isShears()` have been removed. These should be replaced with `instanceof` checks for the relevant classes.
+- Removed `Item->useOn()`. This has been superseded by new methods used for handling durability changes.
+- Added hooks `Item->onDestroyBlock()` and `Item->onAttackEntity()`. These are called when a player uses the item to destroy a block or attack an entity respectively. This is used in the core code for updating durability.
+- `Item->pop()` now accepts an optional count parameter.
+- `Enchantment` now has separated primary items (which can be enchanted directly) and secondary items (which can be enchanted on an anvil). The constructor of `Enchantment` has been updated to reflect this.
+  - Removed `Enchantment->getSlot()` and `Enchantment->hasSlot()`.
+  - Added `Enchantment->getPrimaryItemFlags()`, `Enchantment->hasPrimaryItemFlag()`, `Enchantment->getSecondaryItemFlags()` and `Enchantment->hasSecondaryItemFlag()`
+
+### Level
+- `Biome` classes have been moved to `pocketmine\level\biome` namespace. This is in preparation for future work on Levels which requires biome information (such as weather conditions).
+- `WeakPosition` has been removed.
+- Added `Level->getBiome()`.
+- `Level->getSafeSpawn()` now always returns a `Position` instance.
+- `Level->getBlockExtraData()` and `Level->setBlockExtraData()` have been removed (as well as their associated `Chunk` methods).
+- `ChunkManager->isInWorld()` now accepts integers instead of floats.
+- Added `SubChunkIteratorManager->invalidate()`.
+
+#### Generator
+- `BiomeSelector` has been refactored to make it simpler and more robust.
+- Generator-management methods `registerDefaultGenerators()`, `addGenerator()`, `getGeneratorList()`, `getGenerator()`, and `getGeneratorName()` have been moved from `Generator` to a new `GeneratorManager` class.
+- Static noise functions in the `Generator` base class have been moved to `Noise` instance methods.
+- Added static method `Generator::convertSeed()`, which converts an int or string into a numeric seed for generation.
+
+### Network
+- `SourceInterface->process()` no longer returns a value.
+
+### Plugin
+- `PluginBase->getResources()` now returns an associative array where the index is the path to the resource relative to the plugin's `resources` directory.
+- `PluginLoader`s have been almost completely rewritten to make them simpler and more robust.
+  - `PluginManager->registerInterface()` does not return anything, and now accepts a `PluginLoader` instance instead of a `string`.
+  - `PluginLoader`:
+    - `getPluginFilters()`, `enablePlugin()` and `disablePlugin()` are removed.
+    - `loadPlugin()` responsibilities are now solely confined to doing whatever is necessary to make the plugin's classes visible by the server, and does not emit log messages or check for data directories.
+    - Added method `getAccessProtocol()` which determines what prefix to apply to the plugin path to access the files inside it (for example `phar://`).
+  - `PluginBase->init()` and `PluginBase->isInitialized()` have been removed.
+  - `Plugin` interface now declares a signature for the constructor which implementations must comply with.
+  - `Plugin` interface now declares `setEnabled()`.
+- It is now possible to create a custom `Plugin` implementation without requiring a custom `PluginLoader`.
+
+### Scheduler
+This release features major changes to how plugin task scheduling works.
+- Removed `Server->getScheduler()`. All plugins now have their own scheduler which is accessible using `Plugin->getScheduler()`. Aside from being syntactically more concise and pleasant, this also allows much more effective management of tasks when plugins are disabled.
+- Removed `PluginTask` class, because it's now unnecessary. Previously it was required to allow the server to delete tasks associated with a plugin when the plugin was disabled. With plugin-owned schedulers, this is no longer a requirement. Plugins may now utilize the `Task` class as a base if they like.
+- Added `Server->getAsyncPool()`. Since the global scheduler does not exist any more, it does not manage the server's `AsyncPool` any more. Additionally, `ServerScheduler` was previously bloated by a lot of `AsyncTask` related methods, which are now not necessary because direct access to `AsyncPool` is granted instead.
+- `ServerScheduler`:
+  - `ServerScheduler` has been renamed to `TaskScheduler` since it is now a general-purpose task scheduler which is non-dependent on the user. This allows much greater flexibility and also makes it possible to unit-test.
+  - All `AsyncTask`/`AsyncPool` related methods have been removed - the task scheduler does not manage the async pool anymore.
+    - Calls to `Server->getScheduler()->scheduleAsyncTask()` should be replaced with `Server->getAsyncPool()->submitTask()`.
+    - Calls to `Server->getScheduler()->scheduleAsyncTaskToWorker()` should be replaced with and `Server->getAsyncPool()->submitTaskToWorker()`.
+
+### Tile
+- Calling `scheduleUpdate()` on a `Tile` after it has been `close()`d will now cause an exception to be thrown.
+- Tile NBT is now ephemeral and is not retained after creating the tile.
+  - `Tile->namedtag` has been removed.
+  - `Tile->saveNBT()` now returns a new `CompoundTag` containing saved data.
+  - Added new protected methods `Tile->readSaveData()` and `Tile->writeSaveData()`. These should be overridden to add or read tile-specific data, instead of overriding `saveNBT()` and `__construct()`.
+
+### Utils
+- Added `MainLogger->getFormat()` and `MainLogger->setFormat()` to allow manipulating console output format.
+
+## Gameplay
+### General
+- Fixed a range of block collision issues stemming from off-by-one errors when fetching areas.
+
+### Blocks
+- Fixed a crash which occurred when leaving a bed which was broken and replaced during sleep.
+- Fixed dark oak and acacia saplings growing into oak trees - now they will not grow at all (they need to be implemented).
+- Saplings now take light level into account when trying to grow.
+- Ores and other blocks now drop experience when broken with an appropriate tool.
+
+### Entities
+- Fixed dropped items not being correctly destroyed by fire, cacti and other damage sources.
+
+### Generation
+- Grass no longer generates as the top layer of ground cover in river biomes.
+- Ocean biomes now use gravel instead of grass+dirt for ground cover.
+- Reduced maximum elevation of plains biomes to make them less bumpy.
+- Snow layers and other can-be-flowed-into blocks no longer generate underwater.
+
+### Items
+- Buckets are no longer able to delete any block by replacing it with water.
+- Dried Kelp, Bleach, Nautilus Shell and Heart of the Sea items are registered (although crafting recipes for these are not yet available).
+- Implemented `Vanishing` enchantment.
+- Implemented Totems.
+
+### World
+- Fixed explosions sometimes leaving behind air blocks with non-zero damage values.
+
+# 3.0.1
+- Fixed error when players move things around in the crafting grid after plugins cancel `PlayerInteractEvent` on crafting tables.
+
+# 3.0.2
+- Fixed memory dumps not showing private properties of parent classes.
+- Fixed a memory leak when cancelling all tasks in the `TaskScheduler`.
+- Fixed scheduled task timings showing `Unknown` as the plugin name.
+
+# 3.0.3
+- Fixed possible crash in Sign when placed by a plugin.
+- Fixed slightly-damaged and very-damaged anvils dropping incorrect items.
+- `Living->applyPostDamageEffects()` is no longer called if the mob died from an attack.
+- Cooldown for mob attack is now reset prior to applying post-damage effects.
+- Added constant `ItemIds::MUTTON` to resolve crashes using PC worlds.
+- Fixed emerald ore not dropping XP when broken with a valid tool.
+- Fixed mobs getting crazy vertical knockback if attacked while airborne.
+- Fixed XP orbs continuing to follow dead players.
+
+# 3.0.4
+- Fixed RCON spamming the console when a client does not disconnect correctly.
+- Fixed dropping chunk cache unnecessarily when no blocks need to be updated on a chunk.
+- Fixed outdated block updates getting sent on chunks replaced using `setBlock()`.
+
+# 3.0.5
+- Fixed not being able to place blocks where a player died and has not yet respawned (#2265).
+- Fixed mob death animation not being played when `Entity->kill()` is called directly or `/kill` is used.
+- Fixed viewers of different halves of double chests not seeing changes made by viewers who opened the other half (#2261).
+- Fixed bugs setting items into wrong indexes when double chest halves have differently sized inventories.
+- Fixed `getConfig()` crashing when called when the plugin's data directory doesn't exist.
+- Fixed a possible exploit with keychain signing for XBL login.
+
+# 3.0.6
+- Fixed invalid keys in `.properties` config files being considered as invalid strings.
+- Fixed whitespace between key and value `key = value` being invalid in `.properties` config files.
+- Fixed a bug in exception message when an invalid permission type is written for a command in plugin.yml.
+- Properly fixed newline issues when parsing event handler annotations - `@notHandler` will now work as expected when CRLF line endings are used.
+- Fixed `PluginManager->registerEvents()` registering functions as event handlers declared by parent classes which are not `Listener` instances (#2293).
+
+# 3.0.7
+- Fixed setting spawn points in un-generated chunks causing the player to fall out of the world.
+- Fixed spawn protection deactivating when there are no ops set (this was an unwanted/unexpected feature, so it's considered a bug).
+- Fixed cursor items not getting dropped when closing the inventory or dying.
+- Fixed more issues with blocks with invalid metadata appearing as update! blocks.
+- `Entity->setNameTagAlwaysVisible()` now works (although nametags will still not be shown if the entity is invisible, due to a behavioural change in Minecraft PE).
+- Fixed errors passing zero motions to projectiles in some cases.
+
+# 3.0.8
+- Fixed player on-ground state not updating when moving horizontally. This allowed fly hacks with the built in anti-cheat, and also affected some third party anti-cheat plugins due to the effect on `inAirTicks`.
+- Fixed knockback. PC 1.9-style knockback was mistakenly introduced in 3.0.3. This has now been reverted back to the old 1.8-style behaviour.
+
+# 3.0.9
+- Cleaned up odd behaviour of `/kill` due to old broken code.
+- Fixed patch level check for plugin APIs not allowing lesser patch versions on greater minor versions.
+- Fixed `/timings paste`. This now reports directly to the timings host instead of using Ubuntu Pastebin.
+- Minor code cleanups in various places.
+- Zip resource packs will now give slightly less useless errors - errors for broken manifest have been separated from those with fields missing, and now reports why decoding failed if it failed.
+
+# 3.0.10
+- Syntax error crashdumps will no longer be reported to the crash archive.
+- Chunk sending is now fault-tolerant. Before this release, any error on a worker during async chunk sending (such as memory errors caused by pthreads) would cause that chunk to never get sent, resulting in invisible and missing chunks. Levels will now attempt to retry chunk prepare when a task crashes, which should fix most invisible chunk bugs.
+- `MainLogger` now logs exception stack traces in a synchronized block to ensure that they are coherent when log messages are emitted from multiple threads at once.
+- `AsyncTask->isCrashed()` now returns `true` if a fatal error occurred during the task execution.
+
+# 3.0.11
+- `DropItemAction` will now consider itself invalid if attempting to drop a null item.
+- Fixed leaking globally broadcasted Level packets when no players are on the server.
+- Fixed title bar not being cleared on server stop on some terminals.
+- Fixed `FallingBlock` saving corrupted data.
+- Fixed the structure of `GuiDataPickItemPacket`.
+- Cleaned up some code in `OfflinePlayer`.
+- Splash potions no longer apply effects to dead (but not yet respawned) players.
+- Coal ore no longer drops XP when mined with a silk touch tool.
+- Item entities now cannot be picked up when a negative pickup delay is used.
+
+# 3.0.12
+- `Config` keys which are considered bools by YAML 1.1 will no longer be transformed into 1 or 0.
+- Fixed painting motives not getting saved.
+- Fixed cacti spewing items when placed in some invalid locations.
+- Fixed entity fire damage not applying in the void.
+- Fixed entities not getting updated appropriately in some conditions.
+
+**For Minecraft: Bedrock Edition 1.5.0**
+
+### Note
+Plugins compatible with any previous 3.x.y version will also run on this build and do not need API bumps. Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**This build contains changes to the **protocol** which are not covered by the API version. To lock your plugin to a specific protocol version, declare the `mcpe-protocol` attribute in your `plugin.yml`.
+
+# 3.1.0
+- Support for Minecraft: Bedrock Edition version 1.5.0
+
+# 3.1.1
+- Fixed player on-ground state not updating when moving horizontally. This allowed fly hacks with the built in anti-cheat, and also affected some third party anti-cheat plugins due to the effect on `inAirTicks`.
+- Fixed knockback. PC 1.9-style knockback was mistakenly introduced in 3.0.3. This has now been reverted back to the old 1.8-style behaviour.
+
+# 3.1.2
+- Cleaned up odd behaviour of `/kill` due to old broken code.
+- Fixed patch level check for plugin APIs not allowing lesser patch versions on greater minor versions.
+- Fixed `/timings paste`. This now reports directly to the timings host instead of using Ubuntu Pastebin.
+- Minor code cleanups in various places.
+- Zip resource packs will now give slightly less useless errors - errors for broken manifest have been separated from those with fields missing, and now reports why decoding failed if it failed.
+- Added constant `Entity::DATA_FLAG_SHOW_TRIDENT_ROPE`.
+
+# 3.1.3
+- Syntax error crashdumps will no longer be reported to the crash archive.
+- Chunk sending is now fault-tolerant. Before this release, any error on a worker during async chunk sending (such as memory errors caused by pthreads) would cause that chunk to never get sent, resulting in invisible and missing chunks. Levels will now attempt to retry chunk prepare when a task crashes, which should fix most invisible chunk bugs.
+- `MainLogger` now logs exception stack traces in a synchronized block to ensure that they are coherent when log messages are emitted from multiple threads at once.
+- `AsyncTask->isCrashed()` now returns `true` if a fatal error occurred during the task execution.
+
+# 3.1.4
+- `DropItemAction` will now consider itself invalid if attempting to drop a null item.
+- Fixed leaking globally broadcasted Level packets when no players are on the server.
+- Fixed title bar not being cleared on server stop on some terminals.
+- Fixed `FallingBlock` saving corrupted data.
+- Fixed the structure of `GuiDataPickItemPacket`.
+- Cleaned up some code in `OfflinePlayer`.
+- Splash potions no longer apply effects to dead (but not yet respawned) players.
+- Coal ore no longer drops XP when mined with a silk touch tool.
+- Item entities now cannot be picked up when a negative pickup delay is used.
+- Fixed extra byte at the end of `PlayerSkinPacket` not being read (1.5 protocol change that somehow got lost).
+
+# 3.1.5
+- `Config` keys which are considered bools by YAML 1.1 will no longer be transformed into 1 or 0.
+- Fixed painting motives not getting saved.
+- Fixed cacti spewing items when placed in some invalid locations.
+- Fixed entity fire damage not applying in the void.
+- Fixed entities not getting updated appropriately in some conditions.
+
+# 3.1.6
+- Fixed players disconnected during login verification getting leaked and not destroyed correctly.
+- Updated NBT dependency to 0.2.1 to receive bug fixes (see https://github.com/pmmp/NBT/releases/tag/0.2.1).
+
+# 3.1.7
+- Errors thrown during level tick will now crash the server instead of spamming the console.
+- Fixed arrows despawning too soon after hitting the ground.
+- Fixed projectiles despawning before colliding if they were airborne for > 60 seconds.
+
+# 3.1.8
+- Fixed levels unloaded during an earlier level's tick on the same tick causing a crash.
+- PermissibleBase->clearPermissions() now properly unsubscribes from all permissions.
+- Fixed incorrect break check for standing torch.
+- Fixed drops for brewing stand.
+- Fixed block picking brewing stand, bed, double slab, cake, farmland, and mob heads giving the wrong items.
+- Fixed blocks not placing correctly when clicking on redstone ore.
+- Fixed unknown PC items in tile inventories crashing the server - now they'll be quietly removed instead.
+- Fixed server freezing when eating chorus fruit from high altitude.
+- `readline` is now disabled by default on Windows and must be explicitly enabled with `--enable-readline` due to thread-safety issues.
+- Fixed server crash when trying to use non-implemented splash potions.
+- Removed incorrect maximum region file size cap which may have caused some worlds to be incorrectly detected as corrupted.
+
+**For Minecraft: Bedrock Edition 1.6.0**
+
+This is a minor feature release, including support for Minecraft Bedrock 1.6.0, some new minor gameplay features and some API deprecations and additions.
+
+### Note
+Plugins compatible with any previous 3.x.y version will also run on this build and do not need API bumps.
+
+However, some API features have been deprecated in this version. Plugin developers do not need to do anything about these deprecations immediately, however they may raise harmless warnings if used.
+
+Features marked **`@deprecated`** are **recommended** not to be used, but will continue to work for any future 3.x.y versions. They will be removed in the next major release (4.0).
+
+# 3.2.0
+### Core
+- `Level` generators are now registered only when needed instead of as soon as a worker starts. This drastically reduces memory consumption on servers with lots of workers.
+- Async workers are now garbage-collected along with everything else on the default schedule. Idle workers with 0 queued tasks will be shutdown and removed from the pool to reduce memory usage.
+- UPnP error messages are now more informative of troubleshooting steps.
+- Errors are no longer caught in cases where they are unrecoverable.
+
+### API
+#### Entity
+- Arrow pickup mode can now be controlled via `Arrow->setPickupMode()`. This accepts one of three `Arrow` constants: `PICKUP_NONE`, `PICKUP_ANY`, `PICKUP_CREATIVE`.
+- Added new API methods `Projectile->getBaseDamage()` and `Projectile->setBaseDamage()`.
+- Added new API methods `Entity->getScoreTag()` and `Entity->setScoreTag()`.
+
+#### Events
+- The `Listener` interface has now received in-depth documentation about its behaviour and uses. See the top of the `Listener` class to read it.
+- It is now possible to declare `@ignoreCancelled` on an event handler without specifying `true` or `false`. If no value is found, `true` will be assumed.
+- `ServerCommandEvent` and `RemoteServerCommandEvent` are now **`@deprecated`** and their usage discouraged. A new generic `CommandEvent` has been introduced in its place, which allows capturing commands from any type of command sender. This was done in response to difficulties of code duplication when wanting to intercept commands from both console and players.
+- `EntityDamageEvent`
+  - Added `MODIFIER_WEAPON_ENCHANTMENTS` constant for attack damage bonuses due to enchantments like Sharpness.
+  - Added new API methods `getAttackCooldown()` and `setAttackCooldown()` to allow controlling Living entities attack cooldown times (default 10 ticks).
+- `PlayerDeathEvent`: Added new static method `deriveMessage()`.
+- `PlayerKickEvent`: Added new method `setReason()`.
+
+#### Forms
+- Added a new `pocketmine\form\Form` interface. Implementing this interface permits custom form implementations to make use of `Player->sendForm()`, eliminating the need to handle packets directly and also solving the form ID collision problem.
+
+#### Items
+- `Item` and `ItemFactory` now support negative item IDs (needed for future extended blocks support).
+- Updated `ItemIds` interface with new constants.
+
+#### Permission
+- Added a new `PermissionManager` class which encapsulates all of the permission-management functionality originally bloating `PluginManager`. The API is identical to that of `PluginManager`'s permission API. All methods moved to `PermissionManager` have **`@deprecated`** redirects remaining behind in `PluginManager`, which will be removed in the next major release (4.0).
+
+#### Plugin
+- `PluginBase->getConfig()` will now automatically save the default config if it does not already exist.
+- Plugin data directories will now be automatically created on plugin load, eliminating the need for boilerplate `@mkdir($this->getDataFolder())` calls at the top of every plugin.
+
+#### Tile
+- `Tile::createNBT()` will now throw a `BadMethodCallException` when called directly.
+
+#### Utils
+- `Utils::getURL()`, `Utils::postURL()`, `Utils::simpleCurl()` and `Utils::getIP()` have been moved to a new `pocketmine\utils\Internet` class. The original methods are **`@deprecated`** and will be removed for the next major version (4.0).
+- Removed the ability for `Config` to be asynchronously saved. This was discussed for removal because of various problems that it causes. It was deemed not worth fixing since `Config` saving should not be significant enough to cause problems anyway. See #2298 for details.
+
+#### Server
+- Deprecated `level` parameter of `findEntity()`. This parameter was premature optimization. Code using it will continue to work as before.
+
+### Gameplay
+#### General
+- Air bubbles are now regenerated at the same speed as vanilla UpdateAquatic, instead of instantly when leaving water.
+- Implemented Conduit Power effect.
+
+#### Enchantments
+- Implemented the following enchantments: Thorns, Sharpness, Knockback, Fire Aspect, Power, Punch, Flame, Infinity, Mending.
+
+#### Items
+- Added the following new items: `Scute`
+
+# 3.2.1
+- Fixed `VerifyLoginTask` completion bug when players get disconnected prior to the task completing.
+- Fixed client crash issue due to outdated runtime ID mappings.
+
+# 3.2.2
+- Updated NBT dependency to 0.2.1 to receive bug fixes (see https://github.com/pmmp/NBT/releases/tag/0.2.1).
+
+# 3.2.3
+- Errors thrown during level tick will now crash the server instead of spamming the console.
+- Fixed arrows despawning too soon after hitting the ground.
+- Fixed projectiles despawning before colliding if they were airborne for > 60 seconds.
+- Fixed crash related to Flame enchantment when the player shooting the arrow was on fire.
+
+# 3.2.4
+- Fixed levels unloaded during an earlier level's tick on the same tick causing a crash.
+- PermissibleBase->clearPermissions() now properly unsubscribes from all permissions.
+- Fixed incorrect break check for standing torch.
+- Fixed drops for brewing stand.
+- Fixed block picking brewing stand, bed, double slab, cake, farmland, and mob heads giving the wrong items.
+- Fixed blocks not placing correctly when clicking on redstone ore.
+- Fixed unknown PC items in tile inventories crashing the server - now they'll be quietly removed instead.
+- Fixed server freezing when eating chorus fruit from high altitude.
+- `readline` is now disabled by default on Windows and must be explicitly enabled with `--enable-readline` due to thread-safety issues.
+- Fixed server crash when trying to use non-implemented splash potions.
+- Removed incorrect maximum region file size cap which may have caused some worlds to be incorrectly detected as corrupted.
+
+# 3.2.5
+- `Player->sendForm()` now throws a proper exception when failing to JSON-encode `Form` objects given to it.
+- Fixed crash when handling later packets in a batch when an earlier packet triggered termination of the player's connection.
+- Fixed a race condition causing progress updates in `AsyncTasks` to be lost when published near completion.
+- Fixed bad decoding for some packets with unsupported structures.
+- Crash dumps no longer report 20 empty lines when an error occurs in `eval()`'d code.
+- `pocketmine/nbt` dependency updated to `0.2.2` to fix bugs (see NBT repo for changelog).
+
+# 3.2.6
+- Chunk ticking no longer occurs in chunks which have an adjacent unloaded chunks, fixing things like grass ticking triggering unintentional chunk loading.
+- Fixed some lighting propagation issues where step count is the same but light level is different.
+- Fixed full-chunk light repopulation producing broken lighting when the generator hasn't been registered on a worker.
+- Fixed a missing field in `MoveEntityDeltaPacket`.
+- Added client-sided rate limiting for crashdump reporting to mitigate involuntary DDoS of the crash archive.
+- Fixed a bug in `start.cmd` where quotes would appear around the "couldn't find installation" message.
+
+# 3.2.7
+- Added a network-layer check for item NBT size to avoid unexplained client-sided crashes due to length overflow.
+- Fixed some desync bugs with double chests when one half of a double chest is unloaded.
+- Anonymous class timings will now have a cleaned path for the identifier relative to the plugins directory.
+- Anonymous class timings now render correctly on timings.pmmp.io.
+- Fixed empty garbage subchunks not getting removed from long-life chunks.
+- `start.ps1`, `start.sh` and `start.cmd` no longer recognize source-code installations. Since source-code installations should only be used by developers who know what they are doing anyway, this was considered unwise to keep.
+- Fixed a bug/oversight in network chunk preparation that caused chunk prepare to be 4x slower than necessary.
+- `Chunk->fastSerialize()` now doesn't serialize useless data (data is omitted based on chunk flags). This significantly reduces the amount of useless data getting copied for generation, population and light calculation.
+- `TaskHandler->cancel()` was incorrectly marked as `@internal` in 2014. This has been fixed. Plugin developers should in fact prefer `TaskHandler->cancel()` since it does not require a task to have a circular dependency on its own executor.
+
+**For Minecraft: Bedrock Edition 1.7.0**
+
+### Note
+Plugins compatible with any previous 3.x.y version will also run on these releases and do not need API bumps. Plugin developers should **only** update their required API to this version if you need the bug fixes in this build.
+
+# 3.3.0
+- Compatibility with Minecraft: Bedrock Edition 1.7.0
+- Removed compatibility with 1.6.0
+- `Player->sendForm()` now throws a proper exception when failing to JSON-encode `Form` objects given to it.
+- Fixed crash when handling later packets in a batch when an earlier packet triggered termination of the player's connection.
+- Fixed a race condition causing progress updates in `AsyncTasks` to be lost when published near completion.
+- Fixed bad decoding for some packets with unsupported structures.
+- Crash dumps no longer report 20 empty lines when an error occurs in `eval()`'d code.
+- `pocketmine/nbt` dependency updated to `0.2.2` to fix bugs (see NBT repo for changelog).
+
+# 3.3.1
+- Chunk ticking no longer occurs in chunks which have an adjacent unloaded chunks, fixing things like grass ticking triggering unintentional chunk loading.
+- Fixed some lighting propagation issues where step count is the same but light level is different.
+- Fixed full-chunk light repopulation producing broken lighting when the generator hasn't been registered on a worker.
+- Fixed a missing field in `MoveEntityDeltaPacket`.
+- Added client-sided rate limiting for crashdump reporting to mitigate involuntary DDoS of the crash archive.
+- Fixed a bug in `start.cmd` where quotes would appear around the "couldn't find installation" message.
+
+# 3.3.2
+- Added a network-layer check for item NBT size to avoid unexplained client-sided crashes due to length overflow.
+- Fixed some desync bugs with double chests when one half of a double chest is unloaded.
+- Anonymous class timings will now have a cleaned path for the identifier relative to the plugins directory.
+- Anonymous class timings now render correctly on timings.pmmp.io.
+- Fixed empty garbage subchunks not getting removed from long-life chunks.
+- `start.ps1`, `start.sh` and `start.cmd` no longer recognize source-code installations. Since source-code installations should only be used by developers who know what they are doing anyway, this was considered unwise to keep.
+- Fixed a bug/oversight in network chunk preparation that caused chunk prepare to be 4x slower than necessary.
+- `Chunk->fastSerialize()` now doesn't serialize useless data (data is omitted based on chunk flags). This significantly reduces the amount of useless data getting copied for generation, population and light calculation.
+- `TaskHandler->cancel()` was incorrectly marked as `@internal` in 2014. This has been fixed. Plugin developers should in fact prefer `TaskHandler->cancel()` since it does not require a task to have a circular dependency on its own executor.
+
+# 3.3.3
+- Development build error messages are now more user friendly.
+- Fixed meta-only changes not getting saved correctly in `SubChunk->setBlock()`.
+- Server will now sleep for up to 120 seconds on a crash if the uptime was less than 120 seconds. This delay is intended to reduce crash archive spam and can be skipped by the user if attended by pressing CTRL+C.
+- Fixed preprocessed builds sometimes having `new ` calls treated as function calls.
+- Fixed a rare corruption case where player data could be written incorrectly due to a race condition.
+- `DataPacket` will now throw errors when attempting to read/write nonexisting fields to make it easier to debug protocol change errors.
+
+# 3.3.4
+- Fixed an undefined `DataPacket` field making the previous release unusable.
+
+**For Minecraft: Bedrock Edition 1.7.0**
+
+This is a cumulative minor release featuring performance improvements, memory usage improvements, some new minor gameplay features, some API deprecations and additions, and significant changes to error handling.
+
+### Note
+Plugins compatible with any previous 3.x.y version will also run on these releases and do not need API bumps.
+
+However, some API features have been deprecated in this version. Plugin developers do not need to do anything about these deprecations immediately, however they may raise harmless warnings if used.
+
+Features marked **`@deprecated`** are **recommended** not to be used, but will continue to work for any future 3.x.y versions. They will be removed in the next major release (4.0).
+
+# 3.4.0
+## Core changes
+### Performance & memory improvements
+- Entity `EXHAUSTION` attribute is no longer synced to the client, which reduces network traffic for survival players and reduces client-sided lag.
+- A redundant call was removed from an `Event` call hot path which improves event calling performance by ~15% per event handler executed.
+- Light updates are now batched together and executed on the end of each tick. The effects of this are noticeable when setting a large number of blocks in a close area - significant performance improvements should be noticeable for world editors (the ones that didn't disable light updates) and liquid flow is now significantly less expensive.
+- Internal enhancements have been made to subchunk light array interfacing to reduce branching and improve access performance.
+- Memory usage of most chunks has dropped by ~30-40% due to some improvements to internal storage of unlit subchunks. In real terms this translates to ~30% memory usage reduction for a freshly generated world.
+
+### Error handling
+The most notable core change in this release revolves around error handling. Internals have been cleaned up substantially to improve the server behaviour under occurrence of unexpected behaviour. The goal of this is to improve consistency and quality while reducing undefined runtime behaviour.
+The following changes have been made:
+- Throwing **unexpected** `Throwable`s in the following cases will now cause a server crash (except on network (this will be changed in the future)):
+  - Event handlers
+  - `Task->onRun()` on a scheduler
+  - `AsyncTask->onCompletion()`
+  - `Command->execute()` and `CommandExecutor->onCommand()`
+- Unexpected `Throwable`s thrown during packet handling will now cause the target player to be disconnected with an `Internal server error` message.
+
+### Other changes
+- Anti-flight has been removed, along with the `allow-flight` directive in `server.properties`.
+- Server language is now controlled by the `language` directive in `server.properties`.
+- Added `unban` and `unban-ip` as aliases of `pardon` and `pardon-ip` commands respectively.
+
+## API changes
+### Block
+- `BlockSpreadEvent` is now fired when lava or water tries to flow into a block.
+- `BlockFormEvent` is now fired when lava and water collide to form cobblestone, obsidian or stone.
+
+### Event
+- Added new method `Event->call()`. This should be used instead of `PluginManager->callEvent()` in plugins only supporting 3.4+.
+- `PluginManager->callEvent()` has been `@deprecated`.
+
+### Level
+- Attempting to unload a level during its tick will now throw an `InvalidStateException`.
+- Added the following new methods:
+  - `Level->broadcastPacketToViewers()`
+  - `Level->getViewersForPosition()`
+  - `Level->broadcastGlobalPacket()`
+  - `Level->getChunkAtPosition()`
+  - `Level->isInLoadedTerrain()`
+- `Level->addGlobalPacket()` has been `@deprecated`.
+- `LightUpdate` now allows calling `setAndUpdateLight()` for the same position multiple times (needed for light update batching).
+
+### Permission
+- `Permission::getByName()` now throws an exception on invalid values instead of silently returning `DEFAULT_FALSE`. This may cause new errors to appear if your plugins had broken permission defaults in `plugin.yml`.
+
+### Player
+- `addWindow()` now has stricter validity checks and will now throw exceptions in the following cases: No window IDs left to use, and when a forced window ID collides with an existing window.
+- The public `$speed` field has been removed (this was only used by anti-cheat which has now been removed).
+
+### Scheduler
+- `AsyncTask->setResult()` has had the `$serialize` parameter removed - now it will automatically serialize (or not) as appropriate.
+- Added a new `ClosureTask` which allows concisely scheduling closure execution on a `TaskScheduler`.
+- `TaskScheduler->__construct()` `$logger` parameter has been `@deprecated` and will be removed in a future major version.
+
+### Server
+- Added new method `Server->hasOfflinePlayerData(string $name) : bool`.
+- `Server->getAllowFlight()` has been `@deprecated`.
+
+### Utils
+- `Config->save()` will no longer catch unexpected exceptions thrown while encoding data.
+
+## Gameplay changes
+### Blocks
+- Rail connectivity has been implemented for normal, powered, detector and activator rails (but there are currently no minecarts).
+
+# 3.4.1
+- Updated crashdump format to be compatible with newest CA. This version or newer is required if you want to be able to submit crashdumps to crash.pmmp.io.
+
+# 3.4.2
+- `DataPacket` errors when writing to undefined fields are now more clear.
+- Fixed trees being able to overwrite the log parts of other trees.
+- Fixed `Player->sendForm()` not working during `PlayerJoinEvent`.
+- `Entity->setScale()` now explicitly requires a scale larger than 0.
+- Adding invisible `FloatingTextParticle` to a level no longer causes an error.
+
+# 3.4.3
+- Fixed burning TNT setting hurt entities on fire when exploding.
+- `~` relative coordinates now work in the `/particle` command.
+- Various boring fixes to error stack trace reporting.
+- `Level->setChunk()` no longer deletes tiles and entities when replacing a chunk with itself.
+- Fixed a generator race condition causing rare appearances of half-trees on the client in freshly generated terrain.
+- `Attribute->resetToDefault()` now fits the default per the min/max bounds, fixing crashes when the bounds are changed to exclude the default.
+- Fixed a crash with LevelDB worlds when the `TAG_2D_MAPS` tag is missing.
+- Fixed `Utils::getCoreCount()` crashing on some Debian variants.
+
+**For Minecraft: Bedrock Edition 1.8.0**
+
+### Note
+Plugins compatible with any previous 3.x.y version will also run on these releases and do not need API bumps. Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+# 3.5.0
+- Compatibility with Minecraft: Bedrock Edition 1.8.0
+- Removed compatibility with 1.7.0
+
+# 3.5.1
+- Fixed internal server errors when attempting to craft.
+- `DataPacket` errors when writing to undefined fields are now more clear.
+- Fixed trees being able to overwrite the log parts of other trees.
+- Fixed `Player->sendForm()` not working during `PlayerJoinEvent`.
+- `Entity->setScale()` now explicitly requires a scale larger than 0.
+- Adding invisible `FloatingTextParticle` to a level no longer causes an error.
+
+# 3.5.2
+- Updated some misc protocol magic numbers.
+- Fixed burning TNT setting hurt entities on fire when exploding.
+- `~` relative coordinates now work in the `/particle` command.
+- Various boring fixes to error stack trace reporting.
+- `Level->setChunk()` no longer deletes tiles and entities when replacing a chunk with itself.
+- Fixed a generator race condition causing rare appearances of half-trees on the client in freshly generated terrain.
+- `Attribute->resetToDefault()` now fits the default per the min/max bounds, fixing crashes when the bounds are changed to exclude the default.
+- Fixed a crash with LevelDB worlds when the `TAG_2D_MAPS` tag is missing.
+- Fixed `Utils::getCoreCount()` crashing on some Debian variants.
+
+# 3.5.3
+- Rewritten documentation of `PlayerPreLoginEvent`, `PlayerLoginEvent` and `PlayerJoinEvent`. They are now much more detailed and no longer misleading.
+- Chest items block-picked from double chests will no longer place chests that crash the server when opened.
+- Ender chests now make the correct sounds when opening and closing.
+- Fixed Sign errors when a buggy or malicious client sent broken NBT with the wrong tags or wrong number of lines.
+- Resource packs with comments in the manifest will now load correctly. (MOJANG!!!)
+- Placement of unknown blocks is now disallowed. This solves a range of problems with invalid blocks in the world, such as #2260 .
+- Errors thrown during `PlayerQuitEvent` or other `Player->close()` errors will now crash the server instead of causing cryptic bugs later on.
+- Fixed large chunks (>= 1044476 bytes) becoming corrupted when saved in Region-based worlds - now an exception is thrown instead.
+- Reduced the range of exceptions caught during chunk loading. Now, only chunk corruption errors are caught, and anything else will produce a crash.
+- Removed catch-all block on chunk saving. Unexpected errors thrown during chunk save will now create a crash.
+- Fixed some asserts in packet decode methods.
+- `Attribute` now throws exceptions with more informative messages on errors.
+- Properly handled some remaining `Uninitialized string offset` bugs when decoding packets.
+- Fixed chunk updates taking several seconds to show up on the client. This bug was most apparent during generation and some world editing tools using asynchronous tasks.
+- Fixed CPU waste ordering chunks for non-moving players.
+
+# 3.5.4
+### Fixes
+- Fixed server crash when a block update occurs on a torch with corrupted metadata.
+- Added a hack to mitigate client-side right-click spam bug. This mostly eliminates spam of `PlayerInteractEvent` on right-click.
+- Players will no longer see commands they don't have permission to use in client-sided hints when typing a `/` in the chat window.
+- `Event->isCancelled()` and `Event->setCancelled()` now throw more informative errors.
+- Errors thrown during a network interface processing will now _actually_ crash the server.
+
+### API changes
+- Deprecated `NetworkInterfaceCrashEvent`. Nobody should have been using this anyway.
+- Deprecated `Network->processInterface()`
+- Deprecated `SourceInterface->emergencyShutdown()`
+
+# 3.5.5
+- Mobs no longer spawn with their heads facing a different direction to their bodies.
+- Added a console message when the crash strangler sleeps to stop crash spam.
+- Fixed crash in `/title` command `times` subcommand when not enough arguments were passed.
+- AsyncWorkers will now not be shut down on GC unless they have not been used for the last 5 minutes. This reduces lag spikes on garbage collection.
+- Fixed some unhandled error cases in `AddEntityPacket` encoding.
+- Fixed `LogicException` descendents being thrown from some packet decoding methods when encountering bad userdata.
+- Player network inventory transaction processing now catches more specific errors.
+- Fixed missing decode for `TakeItemEntityPacket`.
+- Fixed `/gc` and `/status` truncating memory statistics - now they report to 0.01 precision.
+- Global functions and constants are now imported to improve performance.
+- Fixed a typo in `pocketmine.command.op.take` description.
+- Ice no longer creates water when a creative player breaks it.
+- `spawn-mobs` and `spawn-animals` no longer appear in generated `server.properties` on a newly-installed server.
+- Added a hack to disable pre-spawn client-sided movement.
+- Assertions enabled warning now always shows when `zend.assertions` is not `-1`. The config option to disable this warning has been removed.
+- `/status`,`/dumpmemory` and `/gc` are now enabled by default. The `debug.commands` config option has been removed.
+- Crash dumps are now more thorough at catching plugin-related crashes.
+
+# 3.5.6
+- Fixed `#`-commenting properties in `.properties` files not working.
+- `pocketmine.yml` now permits writing `worldname:` with no generation settings in the `worlds` section to force a world to be loaded.
+- Fixed Bow force being too low - now it's consistent with Minecraft Java (but not with Bedrock due to a vanilla bug).
+- Fixed `recursion detected` bug when encoding crashdumps in some cases.
+- Items with too-large NBT tags on network will now have their tags ignored when sending over network, instead of crashing the server. This is a workaround for a protocol bug which will be addressed in a future Minecraft release.
+- `/enchant` no longer crashes the server when out-of-bounds enchantment levels are used.
+- Fixed some crashes loading Region-based worlds when encountering unexpected EOF.
+- `Entity->fireTicks` is now protected (but accessible by magic method for BC purposes) and will now throw an exception when written to if the value is > 32767 or < 0.
+- Fixed Signs asserting on corrupted world data with more than 4 lines of text per sign.
+
+# 3.5.7
+- Fixed several bugs in RCON packet receive that would allow an attacker to block or crash the RCON thread, denying service to other legitimate RCON clients.
+- Fixed RCON connections not working (timing out with no response) on some platforms.
+- Logins are now permitted to have up to 60 seconds clock drift on the `nbf` and `exp` timestamps in the login JWT.
+- Fixed XP orbs following players who switched to a location spatially nearby in a different world.
+- `Player->removeWindow()` now throws `InvalidArgumentException` instead of `BadMethodCallException` when trying to non-forcefully remove a fixed window ID.
+
+# 3.5.8
+- Fixed player XP not dropping if a player was fast enough to respawn.
+- Player XP drop amount now matches vanilla (7x level points, incurs some loss of points for higher levels)
+- Fixed Doxygen configuration including test sources.
+- Improved performance of block-cache accesses.
+- Improved performance of random block-ticking.
+- Closure tasks will now show the correctly formatted name on timings.
+- Fixed a crash when a local update happens next to an `ItemFrame` with invalid metadata.
+- Fixed player being subscribed to broadcast permissions too early when permissions are modified before spawn.
+- Block-picking is now disallowed on unknown blocks.
+- Internal IP detection now works correctly on all platforms.
+- Fixed UPnP portforwarding not working correctly when multiple network adapters are installed.
+- Starting or stopping flight now resets fall distance and in-air ticks.
+- Fixed falling causing starvation.
+- Fixed crops consuming bone meal when fully grown.
+- Users are no longer able to avoid agreeing to the license by restarting the server.
+- Explosions no longer create broken double chests which crash the server. Existing chests affected by this bug will continue to crash. This will be addressed in a future release.
+- Cactus and sugarcane no longer grow through non-air blocks.
+- Fixed a memory leak in `setChunk()` when the `unload` parameter is true.
+- Generator will now crash if preset is invalid, instead of producing unexpected results.
+
+# 3.5.9
+- Fixed a `setChunk()` bug introduced by 3.5.8.
+- Applied a hack to disable client-sided automatic regeneration.
+- `Level->getChunkPlayers()` is now deprecated.
+
+# 3.5.10
+- Some internal `Level` functions are now correctly marked `@internal`.
+- Fixed splash potion distance being measured from player feet instead of eye height.
+- Fixed tall grass being unplaceable on dirt.
+- A debug message is now recorded when a chunk is loaded with no associated loaders.
+- Composer dependencies have been updated to fix bugs in some dependencies.
+
+# 3.5.11
+- Fixed crashing when items with negative IDs are found in the inventory (caused by downgrading from dev builds).
+- Updated creative inventory and crafting recipes.
+
+# 3.5.12
+- Fixed crash when too-large values are given to `/effect` for duration.
+- `/op` and other commands no longer crash when an invalid player name is given.
+- Startup time no longer includes the time spent in the setup wizard.
+- `TextFormat::clean()` is now UTF-8 aware, and will scrub any invalid UTF-8 characters from the given string.
+- Fixed `TextFormat::clean()` not fully removing ANSI escape codes in some cases.
+- Fixed Korean command arguments failing to parse.
+- `Sign->setText()` and `Sign->setLine()` now enforce that the given text must be UTF-8 text, or an exception will be thrown.
+- Sign text is now processed by `mb_scrub()` immediately after loading to remove invalid UTF-8 characters that could crash the client.
+- `Human->exhaust()` no longer underflows when the hunger attribute has a fractional value.
+
+# 3.5.13
+- Added a hack to disable client sided AI for non-moving entities. This fixes items floating in water despite it not being implemented server-side yet.
+- Fixed max health not working as expected on respawn if changed by plugins.
+- Fixed Item Frame hardness (0.25 instead of 0).
+- Fire Aspect tools will now light TNT when right-clicked with.
+- Fixed incorrect nullable typehints on `TaskScheduler` return values.
+
+**For Minecraft: Bedrock Edition 1.9.0**
+
+### Note
+Plugins compatible with any previous 3.x.y version will also run on these releases and do not need API bumps. Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+This changelog **does not account for protocol changes**. If your plugin uses the protocol, you're not shielded by API change constraints.
+
+# 3.6.0
+- Compatibility with Minecraft: Bedrock Edition 1.9.0
+- Removed compatibility with 1.8.0
+- `Item->getCompoundTag()` is now `@deprecated`.
+- `Item->setCompoundTag()` now accepts NULL as a possible value.
+- `ItemFactory::fromString()` now accepts NULL for the `tags` parameter.
+
+# 3.6.1
+- Fixed crashing when items with negative IDs are found in the inventory (caused by downgrading from dev builds).
+- Updated creative inventory and crafting recipes.
+- Fixed handling for some new blocks which magically appeared without appropriate implementations (extra meta values).
+
+# 3.6.2
+- Fixed client-sided crash when upper-case letters appear in command names.
+- Fixed crash when too-large values are given to `/effect` for duration.
+- `/op` and other commands no longer crash when an invalid player name is given.
+- Startup time no longer includes the time spent in the setup wizard.
+- `TextFormat::clean()` is now UTF-8 aware, and will scrub any invalid UTF-8 characters from the given string.
+- Fixed `TextFormat::clean()` not fully removing ANSI escape codes in some cases.
+- Fixed Korean command arguments failing to parse.
+- `Sign->setText()` and `Sign->setLine()` now enforce that the given text must be UTF-8 text, or an exception will be thrown.
+- Sign text is now processed by `mb_scrub()` immediately after loading to remove invalid UTF-8 characters that could crash the client.
+- `Human->exhaust()` no longer underflows when the hunger attribute has a fractional value.
+
+# 3.6.3
+- Added a hack to disable client sided AI for non-moving entities. This fixes items floating in water despite it not being implemented server-side yet.
+- Fixed max health not working as expected on respawn if changed by plugins.
+- Fixed Item Frame hardness (0.25 instead of 0).
+- Fire Aspect tools will now light TNT when right-clicked with.
+- Fixed incorrect nullable typehints on `TaskScheduler` return values.
+
+# 3.6.4
+- `NetworkStackLatencyPacket` unhandled debug has been silenced.
+- Fixed `Player->removeWindow()` removing GUI or crashing clients when removing a window which was not added.
+- Fixed packed ice dropping itself when mined without a silk touch pickaxe.
+- Fixed players not taking fall damage when falling off the side of a ladder when their AABB was intersecting with the ladder's full block area.
+- Fixed arrows reloaded from disk never despawning.
+- Fixed player XP not dropping on death.
+- Fixed player's held slot being out of sync when respawning.
+- Fixed items with different NBT being considered stackable in some cases by `BaseInventory->canAddItem()`.
+
+# 3.6.5
+- Fixed stdout silence on crash if a crash occurs when PHP output buffering is enabled.
+- Fixed `RegionLoader` considering a range of invalid chunk coordinates as valid.
+- Fixed `RegionLoader` causing region header corruption when an oversized chunk was discovered. This was causing entire regions to be discarded next time they were freshly loaded.
+- Fixed performance issue loading old LevelDB worlds (from before MCPE 1.0) due to unmodified chunks being converted every time they were loaded.
+- Added new debug messages when a world takes too long (longer than 50ms) to complete a tick.
+- Debug messages are now logged when autosave kicks in (with time measurements), which helps debugging unexplained lag spikes.
+- Level "auto tick rate" anti-feature and its associated `pocketmine.yml` settings have been removed (see #2665). The settings will persist in old configurations, but will be ignored by this version and future versions.
+- The `/save-all` command now outputs custom (non-vanilla) messages informing the user how long it took to complete autosaving.
+- The word `level` has been replaced with `world` (where appropriate) throughout language strings and general user interface messages.
+
+# 3.6.6
+- Fixed protocol argument types for commands.
+- Autosave debug message will now report in milliseconds when the time taken is less than 1 second.
+- Flatworld presets now allow `*` as a multiplier symbol (fixes PC compatibility).
+- Network runtimeIDs for blocks are now randomized to prevent things (like plugins) relying on them.
+- Updated NBT dependency to 0.2.7 for some bug fixes.
+
+**For Minecraft: Bedrock Edition 1.10.0**
+
+### Note
+Plugins compatible with any previous 3.x.y version will also run on these releases and do not need API bumps. Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+This changelog **does not account for protocol changes**. If your plugin uses the protocol, you're not shielded by API change constraints.
+
+# 3.7.0
+- Compatibility with Minecraft: Bedrock Edition 1.10.0
+- Removed compatibility with 1.9.0
+
+# 3.7.1
+- Fixed protocol argument types for commands.
+- Autosave debug message will now report in milliseconds when the time taken is less than 1 second.
+- Flatworld presets now allow `*` as a multiplier symbol (fixes PC compatibility).
+- Network runtimeIDs for blocks are now randomized to prevent things (like plugins) relying on them.
+- Updated NBT dependency to 0.2.7 for some bug fixes.
+
+# 3.7.2
+- Fixed a memory leak when `PlayerLoginEvent` is cancelled.
+- Fixed permissions `pocketmine.command.ban.list`, `pocketmine.command.difficulty`, `pocketmine.command.whitelist.enable` and `pocketmine.command.whitelist.disable` always being granted to operators.
+- Fixed some commands outputting `commands.generic.permission` instead of the proper message when running commands that the sender doesn't have permission to use.
+- Worlds with unknown generator types will now refuse to load instead of getting incorrect terrain generation ruining them.
+- `TextFormat::tokenize()` no longer corrupts Unicode sequences.
+- `TextFormat::clean()` now removes non-printable Unicode code points in the private-use area.
+- Running two servers in the same data directory is no longer allowed and will gracefully halt instead of corrupting your data.
+- Sign text length is now soft-capped at 1000 characters.
+
+# 3.7.3
+- World save timings now include saves that are triggered by chunk unloading.
+- Fixed several network denial-of-service bugs.
+- A warning is now emitted when the `ChunkUtils` extension is not loaded.
+- Moved version constants to a separate `VersionInfo` file for easier parsing and handling.
+
+**For Minecraft: Bedrock Edition 1.11.0**
+
+### Note
+Plugins compatible with any previous 3.x.y version will also run on these releases and do not need API bumps. Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+This changelog **does not account for protocol changes**. If your plugin uses the protocol, you're not shielded by API change constraints.
+
+# 3.8.0
+- Compatibility with Minecraft: Bedrock Edition 1.11.0
+- Removed compatibility with 1.10.0
+
+# 3.8.1
+- Fixed furnace smelting recipes not working.
+- Reduced legacy hacks dealing with `BatchPacket` to fix possible ID collisions.
+- Reduced release phar size by minifying JSON data blobs.
+- Moved some MCPE-specific JSON blobs to submodule.
+
+# 3.8.2
+- Fixed --enable-ansi and --disable-ansi not being respected on threads.
+- Fixed a crash that could occur when decoding `AvailableCommandsPacket`.
+- Fixed a crash when loading worlds with entities with missing `Motion` NBT tag.
+- Fixed a crash when world time overflows signed int64 max.
+- Fixed world generators and providers being registered too late (this was causing plugin issues).
+- Updated RakLib version to get a security fix.
+- Fixed errors when custom clients fill the wrong information in `ResourcePackClientResponsePacket`.
+- Fixed `setImmobile()` getting overridden directly after `PlayerJoinEvent`.
+- Fixed air being breakable by creative players.
+- Fixed performance loss caused by bugs in the preprocessor.
+
+# 3.8.3
+- Fixed infinite recursion when using `Entity->close()` during `EntityDespawnEvent`.
+- Fixed crash reports caused by folder plugins being reported to the crash archive.
+- Fixed spawning entities on unloaded chunks during spawn sequence (possible client crash cause).
+- Fixed `/time query` output message.
+- Fixed `Server->hasOfflinePlayerData()` being case-sensitive.
+- Improved error messages for skin validation in some places.
+- Fixed classic stonecutter hardness.
+- Fixed iron trapdoors being considered a valid furnace fuel.
+- Fixed apple dropping from leaves happening less frequently than intended.
+- Fixed tall plants like sunflower being replaceable by the top half.
+
+# 3.8.4
+- Plugin load order is now randomised to remove the ability to implicitly depend on filesystem-specific ordering.
+- Packet logging in debug messages now uses base64 instead of hex (uses less space).
+- Array and string size are now shown in error stack trace logs.
+- Stack traces now render a maximum of 80 characters when making string parameters printable.
+- Improved documentation for some transaction classes.
+- Action order in inventory transactions is now randomised to prevent dependencies on any accidental or client-dependent ordering. Since the transaction system is specifically designed to avoid depending on order, this does not affect any core functionality.
+
+# 3.8.5
+- Moved preprocessor to build/ directory.
+- Added documentation for `Server->getPlayer()`, `Server->getPlayerExact()` and `Server->matchPlayer()`.
+- `server.lock` now contains the PID of the currently-running server.
+- PID of server is now reported in the error message when attempting to run two servers from the same data directory at once.
+- Fixed sluggish playercount updating on MOTD.
+- Added new MultiRecipe UUIDs.
+- Added an extra field to `StartGamePacket` to resolve minor incompatibility issues on different 1.11.x patch versions.
+
+# 3.8.6
+- Fixed `Entity->isNameTagAlwaysVisible()` not working.
+- Log messages are now cleaned of invalid UTF-8 sequences before emitting them.
+- Fixed negative integers being considered as strings for world seeds.
+- Fixed out-of-bounds access on invalid inventory data in player data saves.
+- Fixed crash when custom liquids have flow decays which aren't factors of 4.
+- Fixed `Entity->noDamageTicks` not working when the entity had no previous damage cause.
+
+# 3.8.7
+- Improved documentation of `Player->getDisplayName()` and `Player::isValidUserName()`.
+- Fixed a bug in `SetScorePacket` decoding causing the entry list to always be empty.
+
+**For Minecraft: Bedrock Edition 1.12.0**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 3.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
+# 3.9.0
+- Added support for Minecraft: Bedrock Edition 1.12.0
+- Removed compatibility with 1.11.0
+
+## Protocol
+- The following classes in the `\pocketmine\network\mcpe\protocol` namespace have been renamed:
+  - `AddEntityPacket` -> `AddActorPacket`
+  - `AddItemEntityPacket` -> `AddItemActorPacket`
+  - `AvailableEntityIdentifiersPacket` -> `AvailableActorIdentifiersPacket`
+  - `BlockEntityDataPacket` -> `BlockActorDataPacket`
+  - `EntityEventPacket` -> `ActorEventPacket`
+  - `EntityFallPacket` -> `ActorFallPacket`
+  - `EntityPickRequestPacket` -> `ActorPickRequestPacket`
+  - `MoveEntityAbsolutePacket` -> `MoveActorAbsolutePacket`
+  - `MoveEntityDeltaPacket` -> `MoveActorDeltaPacket`
+  - `RemoveEntityPacket` -> `RemoveActorPacket`
+  - `SetEntityDataPacket` -> `SetActorDataPacket`
+  - `SetEntityLinkPacket` -> `SetActorLinkPacket`
+  - `SetEntityMotionPacket` -> `SetActorMotionPacket`
+  - `TakeItemEntityPacket` -> `TakeItemActorPacket`
+- The following classes in the `\pocketmine\network\mcpe\protocol` namespace have been removed:
+  - `FullChunkDataPacket`
+- The following classes in the `\pocketmine\network\mcpe\protocol` namespace have been added:
+  - `AddEntityPacket` (not to be confused with the old one)
+  - `ClientCacheBlobStatusPacket`
+  - `ClientCacheMissResponsePacket`
+  - `ClientCacheStatusPacket`
+  - `LevelChunkPacket`
+  - `RemoveEntityPacket` (not to be confused with the old one)
+  - `StructureTemplateDataExportRequestPacket`
+  - `StructureTemplateDataExportResponsePacket`
+
+# 3.9.1
+- Fixed resource packs not working on 1.12 clients.
+- Fixed some particles displaying incorrectly (some still don't render at all).
+- Fixed `Entity->setFireTicks()` with a value of `0` setting the on-fire flag.
+- Silenced a debug message which appeared every time a player right-clicked a block.
+- Updated constants for `LevelSoundEventPacket`.
+
+# 3.9.2
+- Logger warnings for illegal player movements have been lowered to debug.
+- TNT explosions now start from the center instead of the base. This fixes unexpected results when TNT is lit on top of obsidian.
+- Fixed the `loadbefore` directive in `plugin.yml` sometimes being ignored.
+- Fixed `Item->setCustomName()` with an empty string leaving behind an empty tag.
+- Fixed incorrect positioning of bucket empty sound.
+- Fixed some incorrect tag parsing in `/give` involving quoted numbers.
+
+# 3.9.3
+- Fixed a memory leak on async task removal in error conditions.
+- Fixed scheduled block updates (for example liquid) triggering chunk reloading. This could cause a significant performance issue in some conditions.
+- Fixed some minor cosmetic issues in documentation.
+
+# 3.9.4
+- Fixed a memory leak when scheduled updates were pending on a chunk being unloaded.
+- Fixed plugin detection in crashdumps. Previously `src/pocketmine` anywhere in the path would cause the error to be considered a core crash, regardless of the preceding path.
+- Fixed entity metadata types for 1.12. The SLOT type was removed and a COMPOUND_TAG type added. This change involves changes to internal API which may break plugins. **See the warning at the top of this changelog about API versioning.**
+- Fixed random and base populator amounts of trees and tallgrass never being initialized. This bug had no obvious effect, but may have become a problem in future PHP versions.
+- The following internal methods have been marked as `@deprecated` and documentation warnings added:
+  - `Entity->getBlocksAround()`
+  - `Entity->despawnFrom()`
+  - `Entity->despawnFromAll()`
+- Fixed plugin `softdepend` not influencing load order when a soft-depended plugin had an unresolved soft dependency of its own.
+- Fixed endless falling of sand on top of fences.
+
+# 3.9.5
+- Fixed some issues with multiple consecutive commas inside quotes in form responses.
+- Fixed server crash when the manifest json does not contain a json object in a resource pack.
+- Ender pearls no longer collide with blocks that do not have any collision boxes.
+
+# 3.9.6
+- Updated Composer dependencies to their latest versions.
+- Prevent clients repeating the resource pack sequence. This fixes error spam with bugged 1.12 clients.
+- `Internet::simpleCurl()` now includes the PocketMine-MP version in the user-agent string.
+- Spawn protection is now disabled by default in the setup wizard.
+- Default difficulty is now NORMAL(2) instead of EASY(1).
+- Fixed crashing on corrupted world manifest and unsupported world formats.
+- Fixed `/transferserver` being usable without appropriate permissions.
+- `RegionLoader->removeChunk()` now writes the region header as appropriate.
+- Fixed performance issue when loading large regions (bug in header validation).
+- Fixed skin geometry being removed when the JSON contained comments.
+- Added new constants to `EventPacket`.
+- Added encode/decode for `StructureTemplateDataExportRequestPacket` and `StructureTemplateDataExportResponsePacket`.
+- Fixed broken type asserts in `LevelChunkPacket::withCache()` and `ClientCacheMissResponsePacket::create()`.
+- `types\CommandParameter` field `byte1` has been renamed to `flags`.
+- Cleaned up public interface of `AvailableCommandsPacket`, removing fields which exposed details of the encoding scheme.
+- Improved documentation for the following API methods:
+  - `pocketmine\item\Item`:
+    - `addCreativeItem()`
+    - `removeCreativeItem()`
+    - `clearCreativeItems()`
+  - `pocketmine\level\Explosion`:
+    - `explodeA()`
+    - `explodeB()`
+- Fixed various cosmetic documentation inconsistencies in the core and dependencies.
+
+# 3.9.7
+- Fixed a crash that could occur during timezone detection.
+- Squid no longer spin around constantly in enclosed spaces. Their performance impact is reduced.
+- Cleaned up the bootstrap file.
+
+# 3.9.8
+- Added [PHPStan](https://github.com/phpstan/phpstan) configuration. PHPStan is now used on CI for automated QA, which should improve stability and quality going forward.
+- The following constants are now autoloaded when loading the Composer autoloader:
+  - `pocketmine\NAME`
+  - `pocketmine\BASE_VERSION`
+  - `pocketmine\IS_DEVELOPMENT_BUILD`
+  - `pocketmine\BUILD_NUMBER`
+  - `INT32_MIN`
+  - `INT32_MAX`
+  - `INT32_MASK`
+- Fixed memory leaks and crashes caused by plugin use of `Player->showPlayer()` and `Entity->spawnTo()`.
+- Fixed crashes that could occur when tile classes were overridden with classes incompatible with the originals.
+- Fixed improper handling of non-Compound root NBT tags on network itemstack decoding.
+- Fixed paintings dropping multiple items when destroyed by block updates.
+- Fixed `var_dump()` not showing private and protected properties of `DataPacket` subclasses.
+- Fixed overloads with zero arguments being missing when decoding `AvailableCommandsPacket`.
+- `CraftingDataPacket` now retains the `cleanRecipes` field when decoding.
+- Fixed `Block->getMetadata()` returning null (non-iterable).
+- `PlayerChatEvent` documentation has been updated to specify that `CommandSender` recipients are accepted. This behaviour was already present in previous versions, but incorrectly documented.
+- Fixed various issues with PHPDoc comments reported by PHPStan.
+- Fixed various minor code nits reported by PHPStan.
+
+**For Minecraft: Bedrock Edition 1.13.0**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 3.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
+# 3.10.0
+- Added support for Minecraft: Bedrock Edition 1.13.0
+- Removed compatibility with 1.12.0
+
+## Note about skins
+PocketMine-MP **does not support skins made in the Charactor Creator** (known as Persona skins), due to technical changes which would require premature backwards compatibility breaks. The dev team has decided not to support Persona yet.
+These skins will be **replaced with a random solid-colour skin. This is not a bug.**
+Skins chosen from the Classic tab (classic skins) will continue to work as normal.
+
+# 3.10.1
+- Fixed custom plugin-created skins being invisible when no geometry name was specified.
+- Updated RakLib to 0.12.6 to fix security bugs.
+
+**For Minecraft: Bedrock Edition 1.14.0**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 3.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
+# 3.11.0
+- Added support for Minecraft: Bedrock Edition 1.14.0
+- Removed compatibility with 1.13.0
+
+# 3.11.1
+- Fixed blocks with incorrect properties when placed or interacted with.
+
+# 3.11.2
+## Core
+- PHPStan 0.12.3 with level 5 is now used for automated static analysis.
+- Fixed a possible crash when plugins override the `EnderChest` tile class with something incompatible.
+- Fixed disconnected players being considered as never played.
+- Fixed enchantments with IDs outside the range 0-255 in item NBT crashing the server.
+- Fixed particles rendering incorrectly.
+- Timings handlers are no longer able to underflow; they now throw exceptions when attempting to be stopped more times than they were started.
+- Fixed explosion rays getting stuck in empty subchunks (possible incorrect behaviour in large caves).
+- Fixed bad tile/entity NBT data being propagated from world providers in some cases.
+- Fixed a possible crash when detecting timezone on CentOS.
+- Fixed many cases of incorrectly documented types in the API found by PHPStan.
+- Generation tasks no longer assume that generator instances stored in TLS are always valid, fixing a possible crash.
+
+## Protocol
+- Fixed skin animation image corruption in LoginPacket handling caused by incorrect data handling.
+- Fixed skin animation extra data not being decoded from LoginPacket.
+- `SkinImage` now throws `InvalidArgumentException` if it receives an unexpected amount of bytes for the given image heigh/width.
+- Fixed broken code in `PlayerAuthInputPacket::create()`.
+- Removed some dead constants from `NetworkInventoryAction`.
+
+# 3.11.3
+- Fixed some PHPStan false-positives in release builds.
+- Git hash is now correctly detected for source builds when the working directory is not the repository root.
+- Added a specialized build script `build/server-phar.php` for creating server phars.
+- Fixed timings crashing the server.
+- Timings chains now work correctly.
+- Fixed some minor timing errors in chained timings.
+- Forcing resource packs no longer causes removal of client-sided resource packs. If this behaviour is desired, use a vanilla resource pack at the bottom of your resource stack (as was necessary for non-forced packs).
+- Added documentation to the API to clarify that effect durations are in ticks.
+
+# 3.11.4
+- Fixed performance issue in leaf decay.
+- Fixed entity position desync when entities stop moving, but still have velocity on the client.
+- Fixed a crash when encountering truncated `level.dat` files in LevelDB worlds.
+- Core code is now analyzed using PHPStan level 6.
+- The core constants `pocketmine\PATH` and `pocketmine\RESOURCE_PATH` are now unconditionally available when including the Composer autoloader.
+- Populate type information in lots of places where it was previously missing; this will improve the quality of static analysis for plugins.
+- `MainLogger::logException()` now logs previous exceptions recursively.
+- `MainLogger::logException()` now always logs exceptions as `critical`.
+
+# 3.11.5
+- PHPStan and PHPUnit are now managed as Composer dev dependencies.
+- Core code is now analyzed using PHPStan level 6 (full, including iterable types checking).
+- Improved type information available to PHPStan in many areas.
+- Mass-removal of useless PHPDoc.
+- Fixed incorrect documentation of `Internet::getURL()`, `Internet::postURL()` and `Internet::simpleCurl()`.
+- Fixed crash on use of case-mismatched recursive command aliases.
+- Basic build instructions are now provided in `BUILDING.md`.
+- `build/server-phar.php` now uses GZIP compression on created phars, providing a 75% size reduction.
+- `ClientboundMapItemDataPacket` now uses `MapDecoration` objects for decorations instead of associative arrays.
+- Updated Composer dependencies to get bug fixes in `pocketmine/nbt` and other libraries.
+- Packages `pocketmine/classloader` and `pocketmine/log` are now required; these provide classes previously part of `pocketmine/spl`. This change has no effect on API compatibility.
+
+# 3.11.6
+- Core code, tests and build scripts are now analyzed using `phpstan-strict-rules` and `phpstan-phpunit` rules.
+- Added more PHPStan-specific type annotations to improve static analysis.
+- Fixed more incorrect PHPDoc types.
+- Added a workaround for player movement not working since 1.14.30.
+- Fixed lava and water buckets being edible since 1.13.
+- `AutoUpdater` is now created before any plugins are loaded.
+- Fixed trees not generating below y=2 in custom generators.
+- Fixed crash when opening a chest improperly unpaired from its pair (destroyed, setBlock(), unloaded, etc.).
+- `ThreadManager` is now lazily initialized.
+- Removed raw NBT storage from `Item` internals. The following methods are now deprecated:
+  - `Item::setCompoundTag()`
+
+# 3.11.7
+- Build system: Fixed crash reports of Jenkins builds being rejected by the crash archive as invalid.
+- Introduced a new dependency on `pocketmine/log-pthreads`, which contains classes separated from `pocketmine/log`.
+- Fixed minimum composer stability preventing any newer version of `pocketmine/pocketmine-mp` being installed than 3.3.4 by replacing `daverandom/callback-validator` with [`pocketmine/callback-validator`](https://github.com/pmmp/CallbackValidator).
+- Fixed every player seeing eating particles when any player eats.
+- Fixed setting held item not working during `BlockBreakEvent`, `PlayerInteractEvent` and `EntityDamageEvent`.
+- Fixed some incorrect documented types in `PlayerQuitEvent` reported by PHPStan.
+- Fixed documentation of `Item->pop()` return value.
+- Fixed server crash on encountering corrupted compressed data stored in region files.
+- Protocol: Split screen header is now properly accounted for during decoding. Note that split screen is still not supported natively, but their packets can be decoded properly now.
+- Protocol: Fixed wrong order of fields in `UpdateTradePacket`.
+- Protocol: Fixed loss of `fullSkinId` when decoding network skins.
+- Fixed RCON not being able to bind to port after a fast server restart.
+
+**For Minecraft: Bedrock Edition 1.14.60**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 3.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
+# 3.12.0
+- Added support for Minecraft: Bedrock Edition 1.14.60
+- Removed compatibility with 1.14.0-1.14.30
+
+# 3.12.1
+- Fixed parsing of single-line doc comments for event handlers, e.g. `/** @ignoreCancelled */` should now work correctly.
+- The server will no longer crash on failure to load `level.dat` contents, but will gracefully shutdown instead without producing a crashdump.
+- Fixed some bugs in login verification that could cause undefined behaviour.
+- Fixed item-use behaviour when sneaking - sneaking and clicking a block with an empty hand, and sneaking and using an item, both now follow vanilla behaviour.
+- `start.sh` will now work on platforms where `/bin/bash` is not available, as long as `/usr/bin/env` knows where bash is.
+
+# 3.12.2
+- Fixed permission default timings not being reported in timings reports (they were never stopped, only started).
+- Resource packs with a directory tree like `pack.zip/MyPack/manifest.json` are now supported. Note that the manifest closest to the root will be used.
+- Fixed `SkinImage` height and width being inverted at the protocol layer.
+- Fixed blocks being able to be placed inside the spawn protection radius by clicking the side of a block outside the radius.
+- Fixed server crash when `network.compression-level` is overridden by a CLI parameter.
+- Fixed moving entities spawning themselves to players registered on chunks when the players haven't received the chunk yet.
+- Cocoa pods now drop cocoa beans when broken instead of the block itself.
+
+# 3.12.3
+- Core code is now analyzed using PHPStan level 8 (using baselines). While not all the code is level 8 compliant, this does mean that new code will be held to a higher standard, ensuring quality going forwards.
+- Players no longer burn when melee-attacked by other players. (vanilla parity)
+- Arrows shot by burning players are no longer on fire. (vanilla parity)
+- Fixed a crash that could occur with plugins on Unix filesystems that had backslashes in their names.
+- Cleaned up a whole bunch of unknowns in the protocol layer. Many new constants have been added.
+- Fixed player walking sounds.
+- Default generation queue size has been raised to 32 (previously 8). The previous default was selected in a time when PHP was much less performant than it is today, and in today's world it just needlessly slows things down.
+- Double plants are now burned away by fire.
+- Snow layers can now be stacked. (vanilla parity)
+- Resource pack sending chunk size has been reduced to 128 KB (previously 1 MB). This change was made after analyzing the effects that larger pack chunk sizes have on RakNet. Given the technical evidence, a smaller size, while slightly less bandwidth-efficient, should be more manageable for RakNet due to lower split reassembly overhead and reduced memory pressure.
+- Fixed "switching" (an exploit often complained about by PvP players). Now, the previous damage is subtracted from current damage when an entity is attacked while on cooldown. This means that attacking with a wooden sword and then diamond sword while attack cooldown is active will only deal as much damage as the diamond sword would have, instead of the combined total. This can be controlled using the `EntityDamageEvent::MODIFIER_PREVIOUS_DAMAGE_COOLDOWN` modifier. (vanilla parity)
+- Fixed projectiles knocking mobs back in unexpected directions on collision.
+- Fixed inventories not being synchronized on failed inventory transactions.
+- Vector3s decoded from packets are no longer rounded directly. Instead, the player movement handler takes responsibility for rounding the coordinates to prevent anti cheat doing something it's not supposed to.
+- `mobflame` particle can now be spawned using the `/particle` command.
+- Fixed several internal errors that could occur while modifying writable books.
+- Fixed swapping writable book pages not working in some cases.
+- `WritableBook->getPageText()` no longer throws an exception when the page doesn't exist, but returns null (as it was originally intended to).
+
+# 3.12.4
+- Fixed absorption hearts not being consumed.
+
+# 3.12.5
+- Fixed broken attack cooldowns.
+
+# 3.12.6
+- Fixed entities not getting movement updates after teleports.
+- Fixed slow flight in spectator mode when starting from the ground and after teleportation.
+- Errors communicating with the crash archive on automatic crash submission are now logged.
+
+**For Minecraft: Bedrock Edition 1.14.60**
+
+This is a feature release, containing various minor API additions, deprecations and a few minor features.
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 3.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
+# 3.13.0
+## Core
+- PHP 7.3.0 or newer is now required.
+- Player movement processing has been revamped. It's now more tolerant of network lag and doesn't have as many problems with falling.
+
+## User Interface
+- `/time` now supports additional aliases `noon`, `sunset`, `midnight` and `sunrise`.
+- Removed warnings when a plugin registers a handler for a deprecated event. Since this warning is developer-focused, and too specific to be useful, it just caused annoyance and confusion to users who didn't know what it meant.
+
+## API
+### General
+- It's now possible to require a specific operating system using the `os` directive in `plugin.yml`. More information about this directive can be found in the [developer documentation](https://github.com/pmmp/DeveloperDocs).
+
+### Player
+- `Player->resetItemCooldown()` now accepts a second parameter, allowing plugins to provide a custom duration.
+- The following methods have been deprecated and have recommended replacements:
+  - `Player->addTitle()` -> `Player->sendTitle()`
+  - `Player->addSubTitle()` -> `Player->sendSubTitle()`
+  - `Player->addActionBarMessage()` -> `Player->sendActionBarMessage()`
+
+### Event
+- The following methods have been deprecated:
+  - `EntityDespawnEvent->getType()`
+  - `EntityDespawnEvent->getPosition()`
+  - `EntityDespawnEvent->isCreature()`
+  - `EntityDespawnEvent->isHuman()`
+  - `EntityDespawnEvent->isProjectile()`
+  - `EntityDespawnEvent->isVehicle()`
+  - `EntityDespawnEvent->isItem()`
+  - `EntitySpawnEvent->getType()`
+  - `EntitySpawnEvent->getPosition()`
+  - `EntitySpawnEvent->isCreature()`
+  - `EntitySpawnEvent->isHuman()`
+  - `EntitySpawnEvent->isProjectile()`
+  - `EntitySpawnEvent->isVehicle()`
+  - `EntitySpawnEvent->isItem()`
+- Added the following API methods:
+  - `EntityDeathEvent->getXpDropAmount()`
+  - `EntityDeathEvent->setXpDropAmount()`
+- `PlayerDeathEvent::__construct()` now accepts a fourth (optional) parameter `int $xp`.
+- `EntityDeathEvent::__construct()` now accepts a third (optional) parameter `int $xp`.
+
+### Inventory
+- The following classes have been deprecated:
+  - `Recipe`
+- The following methods have been deprecated:
+  - `CraftingManager->registerRecipe()`
+  - `Recipe->registerToCraftingManager()` (and all its implementations)
+
+### Item
+- New `Enchantment` type ID constants have been added.
+- `ItemFactory::fromStringSingle()` has been added. This works exactly the same as `ItemFactory::fromString()`, but it has a return type of `Item` instead of `Item|Item[]` (more static analysis friendly).
+
+### Level
+- Added the following API methods:
+  - `Position->getLevelNonNull()`: this is the same as `Position->getLevel()`, but throws an `AssumptionFailedError` if the level is null or invalid (more static analysis friendly).
+  - `Level->getTimeOfDay()`
+- The following constants have been changed:
+  - `Level::TIME_DAY` now has a value of `1000`
+  - `Level::TIME_NIGHT` now has a value of `13000`
+- Added the following constants:
+  - `Level::TIME_MIDNIGHT`
+  - `Level::TIME_NOON`
+- The following types of particles now accept optional `Color` parameters in the constructor:
+  - `EnchantParticle`
+  - `InstantEnchantParticle`
+
+### Network
+- Added the following API methods:
+  - `RakLibInterface->setPacketLimit()`
+
+### Scheduler
+AsyncTask thread-local storage has been improved, making it simpler and easier to use.
+- `AsyncTask->fetchLocal()` no longer deletes stored thread-local data. Instead, the storage behaves more like properties, and gets deleted when the AsyncTask object goes out of scope.
+- `AsyncTask->peekLocal()` has been `@deprecated` (use `fetchLocal()` instead).
+- Notices are no longer emitted if an async task doesn't fetch its locally stored data.
+- The following methods have been deprecated:
+  - `AsyncTask->getFromThreadStore()` (use its worker's corresponding method)
+  - `AsyncTask->saveToThreadStore()` (use its worker's corresponding method)
+  - `AsyncTask->removeFromThreadStore()` (use its worker's corresponding method)
+
+### Utils
+- The following functions have been deprecated and have recommended replacements:
+  - `Utils::getMemoryUsage()` -> split into `Process::getMemoryUsage()` and `Process::getAdvancedMemoryUsage()` (not 1:1 replacement!!)
+  - `Utils::getRealMemoryUsage()` -> `Process::getRealMemoryUsage()`
+  - `Utils::getThreadCount()` -> `Process::getThreadCount()`
+  - `Utils::kill()` -> `Process::kill()`
+  - `Utils::execute()` -> `Process::execute()`
+- Added the following constants:
+  - `Utils::OS_WINDOWS`
+  - `Utils::OS_IOS`
+  - `Utils::OS_MACOS`
+  - `Utils::OS_ANDROID`
+  - `Utils::OS_LINUX`
+  - `Utils::OS_BSD`
+  - `Utils::OS_UNKNOWN`
+- Added the following API methods:
+  - `Config->getPath()`
+  - `Utils::recursiveUnlink()`
+  - `Terminal::write()`
+  - `Terminal::writeLine()`
+
+# 3.13.1
+- Fixed issues with `server.lock` not being unlocked on some platforms. Now, the server explicitly releases it before exiting.
+- `/timings` now sends a usage message when using an unknown subcommand. Previously, it would just give no output.
+- `/whitelist` now sends a usage message when using an unknown subcommand. Previously, it would just give no output.
+- The output from `/timings` is now broadcasted on the `pocketmine.broadcast.admin` broadcast channel for auditability, similarly to other operator commands.
+- Fixed `ShapedRecipe` deprecation warning on PHP 7.4.
+- Fixed some potential crashes with Bedrock worlds when chunk data is corrupted or missing.
+- Fixed a bug in region handling that caused region loaders to overestimate the amount of space used in the file. This resulted in an up to 4 MB growth of the file size every time the region was reloaded after writing a chunk.
+- Region handlers now try to reuse free space in region files before putting the chunk at the end of the file. Previously, space was only reused if the new version of the chunk was <= the size of the old. This fixes endless growth of region files.
+- Regions now never directly overwrite old copies of chunks when saving; instead they try to find an alternative location (preferring unused space within the file first). This avoids chunk corruption on power failure (the old copy of the chunk won't be damaged, so a rollback might occur instead), and as happy side effect, causes oversized regions to gradually shrink towards their most packed state over time, saving disk space.
+- Regions now have a hard size cap at 64 GB. This is because the header pointers will overflow beyond 64 GB (besides, a normal region shouldn't be this big anyway).
+- Fixed a crash that could occur when reading a too-short region header.
+- `VerifyLoginTask` now only copies JWTs to verify instead of the entire login packet. This reduces the amount of data copied between threads, improving performance.
+- Added a fast-fail check to `VerifyLoginTask` by checking the JWT header's `x5u` against the expected public key.
+- `Skin->validate()` now throws `InvalidSkinException` instead of `\InvalidArgumentException`.
+- A debug message is now logged when a player is kicked for having an invalid skin, giving a brief line of detail why.
+- Fixed players not being kicked for having an invalid `resourcePatch`.
+- Fixed block meta value of cake being preserved when using pick-block.
+- Fixed explosions not fully destroying multi-block objects like beds and doors.
+
+**For Minecraft: Bedrock Edition 1.16.0**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 3.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
+# 3.14.0
+- Added support for Minecraft: Bedrock Edition 1.16.0.
+- Removed compatibility with 1.14.60.
+
+## Known issues (please don't open issues for these)
+- Walls don't connect to each other
+- Pumpkin and melon stems may not connect to their corresponding pumpkin/melon
+- New blocks, items & mobs aren't implemented
+- Nether doesn't exist
+
+# 3.14.1
+- All skins are now trusted, bypassing the client-side trusted skin setting. Note that this means that NSFW skin filtering will **not** apply.
+- Fixed projectile motion being altered by ladders.
+- Fixed client-sided crashes when pressing E repeatedly very quickly on a high-latency connection.
+- `/plugins`, `/whitelist list`, `/banlist` and `/list` now show output in alphabetical order.
+- Some `pocketmine\event` APIs which accept arrays now have more robust type checking, fixing type errors caused by plugin input occurring in core code.
+- `Attribute::getAttributeByName()` is now aware of the `minecraft:lava_movement` attribute.
+
+# 3.14.2
+- Exception stack traces are now logged as CRITICAL. It's hoped that users will recognize that they are just as important as the error message and not leave them out when asking for help with errors on Discord.
+- `TaskScheduler` no longer accepts tasks that already have a handler. This fixes undefined behaviour which occurs when scheduling the same task instance twice, but it does break plugins such as **MyPlot** which unintentionally used this buggy behaviour.
+- Players will now correctly receive the needed number of spawn chunks if they are teleported between `PlayerLoginEvent` and `PlayerJoinEvent`. This fixes a bug that could occur when teleporting players in delayed tasks between login and join.
+- `PlayerRespawnEvent->setRespawnPosition()` now throws an exception if the provided `Position` has an invalid world associated with it (null or unloaded).
+- Fixed a crash that occurred when stats reporting was enabled.
+
+# 3.14.3
+- Fixed deprecation error when running `/whitelist list` on PHP 7.4.
+- Fixed podzol breaking animation being incorrect (incorrect hardness).
+- `Entity::getSaveId()` now reports the class name in the message thrown for unregistered entities.
+- Fixed `CraftingManager->validate()` producing different results when called multiple times for the same transaction.
+- Fixed various issues with batch-crafting items using the recipe book and shift-clicking.
+- `tests/plugins/PocketMine-DevTools` submodule has been renamed to `tests/plugins/DevTools`.
+
+**For Minecraft: Bedrock Edition 1.16.20**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 3.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
+# 3.15.0
+- Added support for Minecraft: Bedrock Edition 1.16.20.
+- Removed compatibility with 1.16.0.
+
+## Known issues (please don't open issues for these)
+- Walls don't connect to each other
+- Pumpkin and melon stems may not connect to their corresponding pumpkin/melon
+- New blocks, items & mobs aren't implemented
+- Nether doesn't exist
+
+# 3.15.1
+- Fixed various PHP 7.4 compatibility issues in Composer dependencies (primarily callback-validator).
+- Fixed LevelDB worlds with corrupted `level.dat` crashing the server instead of failing gracefully.
+- Fixed error spam when using strings for layers in flatworld presets (`e.g. bedrock,3xdirt,grass`).
+- Fixed blocks not getting updated properly on explosions.
+- Fixed `BlockGrowEvent` not being called when sugarcane grows.
+- Potato crops now drop poisonous potatoes when harvested.
+- Fixed the wrong number of potatoes being dropped when harvesting potato crops.
+- Players no longer get pullbacks when sprinting on slabs, stairs and various other blocks when `player.anti-cheat.allow-movement-cheats` is set to `false`. (This bug has been around for over 5 years, so many of you will be used to its existence.)
+- Fixed entity collision box calculation not taking clip distance into account.
+- Entities now step up the correct height of the target block, instead of jumping into the air 0.6 blocks and falling back down.
+
+# 3.15.2
+- Fixed issues with preloading `SubChunk`.
+- `/gc` and automatic garbage collection will now release unused heap blocks back to the OS. Previously, the PHP process might hold onto these blocks indefinitely even when not used, causing elevated real memory usage.
+- Added some documentation to `FurnaceBurnEvent`.
+
+# 3.15.3
+- Fixed fall damage accumulation over continuous knockbacks (e.g. combo attacks in PvP).
+- Fixed a bug in `Human->addXp()` that would cause a crash when saving player data.
+- `Human->addXp()` will no longer modify the target's total XP if `PlayerExperienceChangeEvent` was cancelled.
+- `AsyncPool->getTaskQueueSizes()` has been added to allow external detection of async pool overload. This is planned to be implemented as a core feature in the future, but it hasn't been done yet.
+- `BaseInventory->canAddItem()` behaviour now matches `addItem()` by considering the max stack size of the given item.
+- Fixed a bug in generator options handling for worlds loaded via `pocketmine.yml`. This fix has the following side effects:
+  - It's now possible to provide generator options as an `options` key when loading a world via `pocketmine.yml`.
+  - If generator options are not provided, the options from `server.properties` will be used, instead of using an empty preset. (It's not clear whether this is desired behaviour, but it was clearly intended, since there is code to do this which was broken until this release. As such, this behaviour is subject to change in the future.)
+- Fixed a bug in region-based world loading where some files without filename extensions and names containing a region filename extension (e.g a file named `amca` in a McRegion world) would cause the world not to load. These files are now ignored.
+- Default network compression level has been lowered to 6, due to level 7 being 25% more expensive for only a marginal improvement in bandwidth.
+- Fixed a performance issue with chunk requesting when players trigger chunk generation on first join.
+- Setup wizard will now always show IP information, even if the user chose to skip the setup wizard when prompted. (This doesn't affect `--no-wizard` in any way.)
+- `Maximum memory (system)` is no longer reported in `/status` due to having a misleading output (it was the same as the current memory usage).
+- The `Player Chunk Send` timer on timings reports now actually reports measurements of chunk sending, not chunk loading.
+- A new parent timer `World Load` has been added to timings reports, which aggregates timings from `syncChunkLoad` and subtimings from all worlds.
+
+# 3.15.4
+- Fixed a bug in the inventory transaction system that caused the server to freeze under some circumstances.
+
+**For Minecraft: Bedrock Edition 1.16.100**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 3.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
+# 3.16.0
+- Added support for Minecraft: Bedrock Edition 1.16.100.
+- Removed compatibility with earlier versions.
+- Added new custom composer commands `make-server` and `make-devtools` to ease setting up a development environment and building the server.
+
+## Known issues (please don't open issues for these)
+- Walls don't connect to each other
+- Pumpkin and melon stems may not connect to their corresponding pumpkin/melon
+- New blocks, items & mobs aren't implemented
+- Nether doesn't exist
+
+# 3.16.1
+- Fixed incorrect encoding of skins in the protocol.
+- `/version` no longer crashes when a plugin provides `string[]` for the `author` field in `plugin.yml`.
+- `author` in `plugin.yml` now accepts arrays, just like `authors`.
+- Fixed `HellBiome` never being registered.
+
+**For Minecraft: Bedrock Edition 1.16.200**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 3.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
+# 3.17.0
+- Added support for Minecraft: Bedrock Edition 1.16.200.
+- Removed compatibility with earlier versions.
+
+## Known issues (please don't open issues for these)
+- Walls don't connect to each other
+- Pumpkin and melon stems may not connect to their corresponding pumpkin/melon
+- New blocks, items & mobs aren't implemented
+- Nether doesn't exist
+
+# 3.17.1
+- Fixed some instances of plugin-caused crashes not being detected (eval()'d code, custom plugin paths).
+- Server uptime is now included in crash reports.
+- Hoes now take damage when used to break sponges.
+- Using lava as fuel in a furnace now leaves behind an empty bucket.
+
+# 3.17.2
+- Fixed region header corruption when chunks with larger-than-expected lengths are found. These chunks are now treated as corrupted, instead of automatically attempting to salvage them (which usually fails anyway).
+- `RegionLoader->removeChunk()` now allows the space used by the removed chunk to be reused by future region saves.
+- Extracted `Living->applyConsumptionResults()` from `Living->consumeObject()` (preparation for a future bug fix).
+
+# 3.17.3
+- Improved performance of chunk loading in Region-based worlds.
+- Improved performance of region header validation in Region-based worlds (indirect improvement to chunk loading performance).
+- Fixed some PHP 8.0 language-level compatibility issues.
+- Source installations will now exit with an error when Composer dependencies are not in sync with the current Git revision. Now, it's required to run `composer install` after every git pull to make sure the correct dependency versions are installed.
+
+# 3.17.4
+- Removed `readline` support. This hasn't been maintained for many years, never worked correctly, and isn't thread-safe in any case.
+- Fixed false-positives of region corruption in Region-based worlds (outdated file stat cache).
+- Fixed more deprecation warnings on PHP 8.0 (optional parameter before required).
+- `CraftItemEvent->getInputs()` now returns a list starting at offset 0, instead of random offsets. (Note that the contents still won't be ordered.)
+- `CraftItemEvent->getOutputs()` now returns a list starting at offset 0, instead of random offsets. (Note that the contents still won't be ordered.)
+- Fixed a bug that broke synchronized building, bridging, towering and more.
+- Objects in memory dumps no longer show inherited properties multiple times.
+
+# 3.17.5
+- Reduced CPU wastage by the logger thread.
+- Fixed LevelDB deprecation errors on PHP 8.0.
+- Added some protocol changes for 1.16.200 which were previously overlooked.
+- Player XUIDs are now tracked. If a player's XUID does not match the previously recorded XUID when they next join the server, they will be kicked. This can be disabled by the `player.verify-xuid` setting in `pocketmine.yml`.
+- `BUILDING.md` now has a note about `build/server-phar.php`'s compression bug (a bug in PHP).
+
+# 3.17.6
+- Fixed core race conditions that could have led to server freezes (race conditions in pmmp/Snooze).
+- The log message about Xbox Live authentication being enabled has been reduced to INFO, and the tip on how to turn it off removed (disabling it should usually only be done by power users anyway).
+- Fixed `PlayerMoveEvent->getFrom()` returning incorrect results for players who experienced movement reversions.
+- Fixed a bug in `ResourcePackClientResponsePacket` decoding that caused unexpected results when decoding the packet twice.
+- XUID verification now compares XUIDs against players who are already on the server to detect mismatches to avoid unnecessary loading of playerdata.
+- Fixed an inventory duplication bug which could occur when the same player joined with two devices at the same time.
+- Fixed cursor item not being synced on inventory transaction rollbacks.
+- Fixed items with TAG_Float in their NBT not being able to be moved around in the inventory.
+
+# 3.17.7
+- Fixed crash caused by preprocessor in 3.17.6.
+
+**For Minecraft: Bedrock Edition 1.16.210**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 3.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
+# 3.18.0
+- Added support for Minecraft: Bedrock Edition 1.16.210.
+- Removed compatibility with earlier versions.
+
+## Known issues (please don't open issues for these)
+- Walls don't connect to each other
+- Pumpkin and melon stems may not connect to their corresponding pumpkin/melon
+- New blocks, items & mobs aren't implemented
+- Nether doesn't exist
+- Items can't be removed from item frames in Survival mode
+
+# 3.18.1
+- UPnP is now supported on all platforms instead of just Windows. Note that it's still experimental. Please file issues for any bugs that you find.
+- Fixed server joining when default game mode is set to Spectator mode.
+- Fixed items not being able to be removed from item frames in Survival mode.
+- Fixed field order in ClientCacheBlobStatusPacket (hits and misses were inverted).
+- Fixed a deadlock that could occur when MainLogger->syncFlushBuffer() was used (usually only used during exception logging).
+- Updated constants for various things in the protocol.
+
+# 3.18.2
+- Fixed `InventoryCloseEvent` not being called on server-initiated inventory closures.
+- `PlayerToggleFlightEvent` may now be pre-cancelled if the player attempted to enable flight when flying was not allowed. This replaces the previous behaviour of kicking the player.
+- Fixed being unable to change the item in hand from the inventory window when looking at an entity.
+
+**For Minecraft: Bedrock Edition 1.16.220**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 3.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
+# 3.19.0
+- Added support for Minecraft: Bedrock Edition 1.16.220.
+- Removed compatibility with earlier versions.
+
+## Known issues (please don't open issues for these)
+- Walls don't connect to each other
+- Pumpkin and melon stems may not connect to their corresponding pumpkin/melon
+- New blocks, items & mobs aren't implemented
+- Nether doesn't exist
+
+# 3.19.1
+- Fixed some particles not working since 1.16.220.
+- Fixed issues with creative inventory items appearing in the wrong places since 1.16.220.
+- `Item->removeEnchantment()` now removes the `ench` tag from item NBT when removing the only enchantment on an item.
+- Fixed temporary memory leak of repeating tasks which cancelled themselves during their `onRun()` handler (they were pushed back onto the task queue even though cancelled, and only removed at their next attempted repeat).
+
+# 3.19.2
+- Signs can now only be edited by the player who placed them. They will become finalized if the chunk containing them is unloaded and reloaded, or if the creating player quits the server.
+
+# 3.19.3
+- Fixed `Worker->quit()` returning without stopping the thread.
+- Added some protocol constants in `SetDisplayObjectivePacket`.
+- Fixed possible client crash caused by `CraftingDataPacket`.
+
+**For Minecraft: Bedrock Edition 1.17.0**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 3.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
+# 3.20.0
+- Added support for Minecraft: Bedrock Edition 1.17.0
+- Removed compatibility with earlier versions.
+
+**For Minecraft: Bedrock Edition 1.17.0**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 3.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
+# 3.21.0
+- PHP 7.4 is now required as a minimum.
+- A workaround for player movement added in 1.14.30 has been removed.
+
+# 3.21.1
+- Fixed so-called 'pot lag' - a bug that could occur when using items while rapidly switching hotbar slots.
+- Plugins in crashdumps are now ordered alphabetically for easier reading. 
+
+**For Minecraft: Bedrock Edition 1.17.10**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 3.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
+# 3.22.0
+- Added support for Minecraft: Bedrock Edition 1.17.10.
+- Removed compatibility with earlier versions.
+
+# 3.22.1
+- Added a giant yellow startup warning if using OPcache JIT on PHP 8.0. JIT is currently considered highly unstable and not recommended for production use.
+- When using a bad PHP binary, the bootstrap will now report the used `php.ini` path. This can be useful for debugging issues with extension loading when the wrong `php.ini` file is loaded for some reason.
+- Fixed `start.cmd` causing the wrong `php.ini` to be loaded on Windows when a global PHP installation is used.
+- A debug message is now logged containing expected vs. actual XUID of players when an XUID mismatch is detected.
+- Improved the documentation for `Player->getUniqueId()`.
+- Fixed a mistake in the documentation of `PlayerAuthInputFlags`.
+- Fixed incorrect encoding of `NpcDialoguePacket`.
+
+# 3.22.2
+- PHP 8.0 is now the primary supported version. PHP 7.4 is still supported for now, but it will be dropped in the coming weeks. It's recommended to start testing your servers on 8.0 now so you're ready.
+- Fixed items in the crafting grid getting deleted on server-side disconnect or session timeout.
+- A warning is now logged on startup if a debug build of PHP is used to run the server (because it has a significant performance impact).
+- GitHub Actions is now used to build new releases, instead of Jenkins. You can see build logs [here](https://github.com/pmmp/PocketMine-MP/actions/workflows/draft-release.yml).
+
+# 3.22.3
+- Fixed a bug in the release build of 3.22.2 which caused the crash archive to reject all crashdumps.
+- Fixed possible server crash during player spawning.
+
+# 3.22.4
+- Fixed a bug which broke the build of 3.22.3.
+
+# 3.22.5
+- Added a workaround for polyfilled solid-colour Persona skin replacements turning into a corrupted mess (caused by https://bugs.mojang.com/browse/MCPE-130275).
+
+**For Minecraft: Bedrock Edition 1.17.30**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 3.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
+# 3.23.0
+- Added support for Minecraft: Bedrock Edition 1.17.30.
+- Removed compatibility with earlier versions.
+
+# 3.23.1
+- Fixed broken build of 3.23.0.
+
+**For Minecraft: Bedrock Edition 1.17.30**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 3.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
+# 3.24.0
+- PHP 8.0 is now required as a minimum.
+- Fixed stats reporting checking the wrong `pocketmine.yml` property.
+- Fixed `Projectile->move()` not respecting the given `dx`/`dy`/`dz` and using its own motion instead.
+
+**For Minecraft: Bedrock Edition 1.17.40**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 3.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
+# 3.25.0
+- Added support for Minecraft: Bedrock Edition 1.17.40.
+- Removed compatibility with earlier versions.
+
+# 3.25.1
+- Fixed autosave bug that caused unmodified chunks to be saved at least once (during the first autosave after they were loaded).
+- `Entity->spawnTo()` now has an additional sanity check for matching worlds (might expose a few new errors in plugins).
+- Fixed a missing field in `CraftRecipeAuto` item stack request type.
+
+# 3.25.2
+- Now analysed using level 9 on PHPStan 1.0.0.
+- `ext-pthreads` v4.0.0 or newer is now required.
+- Fixed crash in `Player->showPlayer()` when the target is not in the same world.
+- `Human->setLifetimeTotalXp()` now limits the maximum value to 2^31.
+- Fixed players, who died in hardcore mode and were unbanned, getting re-banned on next server join.
+
+# 3.25.3
+- Fixed crash when players try to pickup XP while already having max XP.
+- Added a sanity check to `Human->setCurrentTotalXp()` to try and catch an elusive bug that's been appearing in the wild - please get in touch if you know how to reproduce it!
+
+# 3.25.4
+- Fixed a long-standing issue with `Player->removeWindow()` breaking inventory UIs on the client.
+
+# 3.25.5
+- Protocol: Fixed incorrect encoding in `StructureSettings`
+- Fixed reading tags from non-docblock comments in script plugins.
+- Build number is now defined in phar metadata instead of being patched into the source code directly.
+
+# 3.25.6
+- Fixed borked build number in release build of 3.25.5.
+
+**For Minecraft: Bedrock Edition 1.18.0**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 3.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
+# 3.26.0
+- Added support for Minecraft: Bedrock Edition 1.18.0.
+- Removed compatibility with earlier versions.
+
+# 3.26.1
+- Fixed a bug in chunk sending that caused double chests to not be paired, signs to be blank, and various other issues.
+
+# 3.26.2
+- Improved error messages shown by `start.cmd`, `start.sh` and `start.ps1` when the PHP binary was not found.
+- The value of PHPRC is now shown when erroring out due to unsatisfied PHP requirements.
+- Removed restriction on the range of valid channels for `auto-updater.channel` in `pocketmine.yml`.
+
+# 3.26.3
+- `PlayerExperienceChangeEvent->setNewProgress()` now performs range checks. This fixes the root of a very old and confusing crash bug which took several years to identify the cause of.
+  - Note that the defective plugin(s) which caused this problem will still cause a server crash, but the plugin responsible will now get blamed correctly.
+
+# 3.26.4
+- Fixed skins appearing black when using RTX resource packs.
+- Fixed chunks containing furnaces in old worlds (pre-2017) being discarded as corrupted.
+  - This was caused by a strict corruption check detecting bad data created by a bug in PocketMine-MP that was fixed in 2017.
+
+# 3.26.5
+- Fixed several denial-of-service attack vectors related to writable book text length and encoding.
+- Fixed several denial-of-service attack vectors related to skin data field lengths.
+
+**For Minecraft: Bedrock Edition 1.18.0**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 3.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
+# 3.27.0
+- Introduced support for protocol encryption.
+  - Encryption is enabled by default.
+  - Fixes login replay attacks.
+  - This may cause some performance degradation.
+  - Encryption can be disabled by setting `network.enable-encryption` to `false` in `pocketmine.yml`. DO NOT do this unless you understand the risks involved.
+- An obsoletion notice has been added to the console during server startup.
+
+**For Minecraft: Bedrock Edition 1.18.0**
+
+# 4.0.0
+Released 1st December 2021.
+
+This major version features substantial changes throughout the core, including significant API changes, new world format support, performance improvements and a network revamp.
+
+Please also note that this changelog is provided on a best-effort basis, and it's possible some changes might not have been mentioned here.
+If you find any omissions, please submit pull requests to add them.
+
+* [Core](#core)
+  + [General](#general)
+  + [Dependency changes](#dependency-changes)
+  + [Performance](#performance)
+  + [Tools](#tools)
+  + [Commands](#commands)
+  + [Configuration](#configuration)
+  + [World handling](#world-handling)
+    - [Interface](#interface)
+    - [Functional](#functional)
+    - [Performance](#performance-1)
+  + [Logging](#logging)
+  + [Network](#network)
+    - [Performance](#performance-2)
+    - [Minecraft Bedrock packet encryption](#minecraft-bedrock-packet-encryption)
+    - [Error handling](#error-handling)
+    - [New packet handler system](#new-packet-handler-system)
+  + [Plugin loading](#plugin-loading)
+  + [Internals](#internals)
+* [API](#api)
+  + [General](#general-1)
+  + [Changes to `plugin.yml`](#changes-to-pluginyml)
+    - [Permission nesting](#permission-nesting)
+    - [`src-namespace-prefix`](#src-namespace-prefix)
+  + [Other changes](#other-changes)
+  + [Block](#block)
+  + [Command](#command)
+  + [Entity](#entity)
+    - [General](#general-2)
+    - [Effect](#effect)
+    - [Removal of runtime entity NBT](#removal-of-runtime-entity-nbt)
+    - [Entity creation](#entity-creation)
+    - [WIP removal of entity network metadata](#wip-removal-of-entity-network-metadata)
+  + [Event](#event)
+    - [Internal event system no longer depends on `Listener`s](#internal-event-system-no-longer-depends-on-listeners)
+    - [Default cancelled handling behaviour has changed](#default-cancelled-handling-behaviour-has-changed)
+    - [`PlayerPreLoginEvent` changes](#playerpreloginevent-changes)
+    - [Other changes](#other-changes-1)
+  + [Inventory](#inventory)
+  + [Item](#item)
+    - [General](#general-3)
+    - [NBT handling](#nbt-handling)
+    - [Enchantment](#enchantment)
+  + [Lang](#lang)
+  + [Network](#network-1)
+  + [Permission](#permission)
+  + [Player](#player)
+  + [Plugin](#plugin)
+  + [Promise](#promise)
+  + [Scheduler](#scheduler)
+    - [Thread-local storage for AsyncTasks](#thread-local-storage-for-asynctasks)
+    - [Other AsyncTask changes](#other-asynctask-changes)
+    - [Non-AsyncTask changes](#non-asynctask-changes)
+  + [Server](#server)
+  + [Level / World](#level--world)
+    - [General](#general-4)
+    - [Particles](#particles)
+    - [Sounds](#sounds)
+  + [Utils](#utils)
+* [Gameplay](#gameplay)
+  + [World loading](#world-loading)
+  + [Blocks](#blocks)
+  + [Items](#items)
+  + [Inventory](#inventory-1)
+  + [Misc](#misc)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+## Core
 ### General
 - Remote console (RCON) has been removed. The [RconServer](https://github.com/pmmp/RconServer) plugin is provided as a substitute.
 - Spawn protection has been removed. The [BasicSpawnProtection](https://github.com/pmmp/BasicSpawnProtection) plugin is provided as a substitute.
@@ -336,6 +3735,7 @@ However, if we add `src-namespace-prefix: pmmp\TesterPlugin` to the `plugin.yml`
 
 ### Command
 - The following classes have been removed:
+  - `PluginIdentifiableCommand` - use `PluginOwned` and `PluginOwnedTrait`
   - `RemoteConsoleCommandSender`
 - The following API methods have signature changes:
   - `Command->setPermission()` argument is now mandatory (but still nullable).
@@ -977,6 +4377,7 @@ However, if we add `src-namespace-prefix: pmmp\TesterPlugin` to the `plugin.yml`
   - `Player->addWindow()`: use `Player->setCurrentWindow()` instead
   - `Player->dataPacket()`: replaced by `NetworkSession->sendDataPacket()`
   - `Player->getAddress()`: replaced by `NetworkSession->getIp()`
+  - `Player->getClientId()`: the client ID can be found in `PlayerInfo->getExtraData()`
   - `Player->getPing()`: moved to `NetworkSession`
   - `Player->getPort()`: moved to `NetworkSession`
   - `Player->getWindow()`: use `Player->getCurrentWindow()` instead
@@ -992,6 +4393,8 @@ However, if we add `src-namespace-prefix: pmmp\TesterPlugin` to the `plugin.yml`
 - API version checks are now more strict. It is no longer legal to declare multiple minimum versions on the same major version. Doing so will now cause the plugin to fail to load with the message `Multiple minimum API versions found for some major versions`.
 - `plugin.yml` YAML commands loading is now internalized inside `PluginBase`.
 - `PluginManager->registerEvent()` now has a simpler signature: `registerEvent(string $event, \Closure $handler, int $priority, Plugin $plugin, bool $handleCancelled = false)`. The provided closure must accept the specified event class as its only parameter. See [Event API changes](#event) for more details.
+- The following classes have been added:
+  - `PluginOwned`
 - The following classes have been removed:
   - `PluginLogger`
 - The following constants have been removed:
@@ -1569,6 +4972,14 @@ Released 5th February 2022.
 - Fixed spectator players being able to drop items.
 - Fixed collision shapes of Bell in different orientations.
 
+**For Minecraft: Bedrock Edition 1.18.0**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 4.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
 # 4.1.0
 Released 7th February 2022.
 
@@ -1704,6 +5115,14 @@ Released 7th February 2022.
 ### Items
 - Dropped items of the same type now merge with each other.
 
+**For Minecraft: Bedrock Edition 1.18.10**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 4.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
 # 4.2.0
 - Added support for Minecraft: Bedrock Edition 1.18.10.
 
@@ -1812,6 +5231,20 @@ Released 19th April 2022.
 ## Fixes
 - Fixed several potential crashes when deserializing item NBT (due to insufficient validation of input data).
 
+# 4.2.10
+Released 20th April 2022.
+
+## Fixes
+- Fixed performance issue when chat messages received from the client contain many newlines. This security vulnerability was disclosed publicly necessitating a priority fix.
+
+**For Minecraft: Bedrock Edition 1.18.30**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 4.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
 # 4.3.0
 Released 20th April 2022.
 
@@ -1881,6 +5314,14 @@ Released 22nd May 2022.
   - `PlayerQuitEvent`
   - `PlayerTransferEvent`
   - `UpdateNotifyEvent`
+
+**For Minecraft: Bedrock Edition 1.18.30**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 4.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
 
 # 4.4.0
 Released 1st June 2022.
@@ -1972,6 +5413,14 @@ Released 7th June 2022.
 - Fixed saved paintings being deleted when loaded from disk (regression from 4.3.4).
 - Fixed max stack size of fishing rods.
 
+**For Minecraft: Bedrock Edition 1.19.0**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 4.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
 # 4.5.0
 Released 7th June 2022.
 
@@ -1992,6 +5441,14 @@ Released 29th June 2022.
 ## Fixes
 - Fixed terrain getting redrawn when flying in spectator mode (or when using `Player->setHasBlockCollision(false)`).
 - Fixed skulls with the `noDrops` flag set being treated as unknown blocks.
+
+**For Minecraft: Bedrock Edition 1.19.10**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 4.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
 
 # 4.6.0
 Released 13th July 2022.
@@ -2027,6 +5484,14 @@ Released 6th August 2022.
 ## Fixes
 - Fixed assert failures and debug spam on debug Minecraft clients related to abilities in `AddPlayerPacket`.
 - Fixed crash in `ReversePriorityQueue` on PHP 8.1 by adding `#[ReturnTypeWillChange]` attribute.
+
+**For Minecraft: Bedrock Edition 1.19.20**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 4.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
 
 # 4.7.0
 Released 9th August 2022.
@@ -2067,8 +5532,16 @@ Released 22nd August 2022.
 - Fixed placement conditions for vines (no longer able to be placed on the side of cacti).
 - Fixed incorrect documentation of `SignText::__construct()`.
 
+**For Minecraft: Bedrock Edition 1.19.21**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 4.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
 # 4.8.0
-Released 9th August 2022.
+Released 24th August 2022.
 
 ## General
 - Added support for Minecraft: Bedrock Edition 1.19.21.
@@ -2082,6 +5555,14 @@ Released 26th August 2022.
 
 ## Fixes
 - Fixed uninitialized offset error in `DyeColorIdMap` when given invalid dye color IDs.
+
+**For Minecraft: Bedrock Edition 1.19.30**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 4.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
 
 # 4.9.0
 Released 20th September 2022.
@@ -2112,12 +5593,29 @@ Released 11th October 2022.
 - `Item`s returned by event getters are now cloned if modifying the result will have no useful side effects.
 - Updated `pocketmine/bedrock-data` to [`1.11.1`](https://github.com/pmmp/BedrockData/tree/1.11.1%2Bbedrock-1.19.30), which reduces bandwidth consumption during logins by not sending useless biome generation data.
 
+**For Minecraft: Bedrock Edition 1.19.40**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 4.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
+
 # 4.10.0
 Released 26th October 2022.
 
 ## General
 - Added support for Minecraft: Bedrock Edition 1.19.40.
 - Removed support for older versions.
+
+## Fixes
+- Fixed incorrect command descriptions showing in `/help` when multiple commands use the same name. Previously, the most recently registered command would show, even though it wouldn't actually be invoked.
+- Fixed splash potions affecting players in spectator mode.
+- Fixed `World->addParticle()` sending particles to players who couldn't possibly see them when a list of targets was used.
+- Fixed `World->addSound()` sending sounds to players who couldn't possibly hear them when a list of targets was used.
+
+## Documentation
+- Improved type information available for various API methods in `World`.
 
 # 4.10.1
 Released 7th November 2022.
@@ -2148,6 +5646,16 @@ Released 25th November 2022.
 
 ## Internals
 - Non-arrow projectile damage is now unscaled. Scaling according to velocity is only applied to arrows. This currently doesn't cause any observable change in behaviour, but is required for future additions.
+
+**For Minecraft: Bedrock Edition 1.19.40**
+
+This is a minor feature release for PocketMine-MP, introducing some new features and improvements.
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 4.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
 
 # 4.11.0
 Released 25th November 2022.
@@ -2233,14 +5741,26 @@ Released 25th November 2022.
   - `ItemFrameRotateItemSound`
 
 ## Internals
-- Improved performance of `ContainerTrait` dropping items on block destroy. (24e72ec109c1442b09558df89b6833cf2f2e0ec7)
-- Avoid repeated calls to `Position->getWorld()` (use local variables). (2940547026db40ce76deb46e992870de3ead79ad)
-- Revamped the way `InventoryManager` handles fake inventory slot mappings for stuff like crafting tables. (e90abecf38d9c57635fa0497514bba7e546a2469)
-- Console polling is now done on the main thread (no longer a performance concern).
-- Console reader subprocess should now automatically die if the server main process is killed, instead of persisting as a zombie.
-- `ConsoleCommandSender` is no longer responsible for relaying broadcast messages to `MainLogger`. A new `BroadcastLoggerForwarder` has been added, which is subscribed to the appropriate server broadcast channels in order to relay messages. This ensures that chat messages and command audit messages are logged.
-- `DelegateInventory` now uses `WeakReference` to track its inventory listener. This allows the delegate to be reused.
+- Improved performance of `ContainerTrait` dropping items on block destroy. ([link](https://github.com/pmmp/PocketMine-MP/commits/24e72ec109c1442b09558df89b6833cf2f2e0ec7))
+- Avoid repeated calls to `Position->getWorld()` (use local variables). ([link](https://github.com/pmmp/PocketMine-MP/commit/2940547026db40ce76deb46e992870de3ead79ad))
+- Revamped the way `InventoryManager` handles fake inventory slot mappings for stuff like crafting tables. ([link](https://github.com/pmmp/PocketMine-MP/commit/e90abecf38d9c57635fa0497514bba7e546a2469))
+  - Inventories are now mapped on a per-slot basis. This means that more than one inventory can be mapped to the same window ID, which is necessary for correctly handling "UI" inventories like crafting tables.
+  - `InventoryManager->getWindow(int $windowId) : ?Inventory` is replaced by `locateWindowAndSlot` (see below).
+  - Added `InventoryManager->locateWindowAndSlot(int $windowId, int $netSlotId) : array{Inventory, int}` - accepts a window ID and absolute slot ID, and returns the associated inventory and the slot relative to the inventory's own start (for use with `getItem()` etc.).
+  - Slot offset mapping for "UI" inventories is now handled in `InventoryManager->createComplexSlotMapping()` instead of in `TypeConverter`.
+- Console polling is now done on the main thread (no longer a performance concern). ([link](https://github.com/pmmp/PocketMine-MP/commit/b3f03d7ae645de67a54b7300c09b94eeca16298e))
+- Console reader subprocess should now automatically die if the server main process is killed, instead of persisting as a zombie. ([link](https://github.com/pmmp/PocketMine-MP/commit/2585160ca2c4df5758b8b980331307402ff9f0fb))
+- `ConsoleCommandSender` is no longer responsible for relaying broadcast messages to `MainLogger`. A new `BroadcastLoggerForwarder` has been added, which is subscribed to the appropriate server broadcast channels in order to relay messages. This ensures that chat messages and command audit messages are logged. ([link](https://github.com/pmmp/PocketMine-MP/commit/83e5b0adb6fa0dddec377182bb1c7945ac8f7820))
+- `DelegateInventory` now uses `WeakReference` to track its inventory listener. This allows the delegate to be reused. ([link](https://github.com/pmmp/PocketMine-MP/commit/3feaa18f6c10c3a99c0deca75f57ec2d74b92ab4))
 - Non-arrow projectile damage is now unscaled. Scaling according to velocity is only applied to arrows. This currently doesn't cause any observable change in behaviour, but is required for future additions.
+
+**For Minecraft: Bedrock Edition 1.19.50**
+
+### Note about API versions
+Plugins which don't touch the protocol and compatible with any previous 4.x.y version will also run on these releases and do not need API bumps.
+Plugin developers should **only** update their required API to this version if you need the changes in this build.
+
+**WARNING: If your plugin uses the protocol, you're not shielded by API change constraints.** You should consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you do.
 
 # 4.12.0
 Released 30th November 2022.
