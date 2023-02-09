@@ -5958,3 +5958,10 @@ Released 30th January 2023.
 ### `pocketmine\world`
 - The following new API methods have been added:
   - `public World->requestSafeSpawn(?Vector3 $spawn = null) : Promise<Position>` - an async version of `getSafeSpawn()` which generates all the needed chunks before returning
+
+# 4.14.0
+Released 8th February 2023.
+
+## General
+- Added support for Minecraft: Bedrock Edition 1.19.60.
+- Removed support for older versions.
