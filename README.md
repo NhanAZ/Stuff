@@ -67,3 +67,34 @@
     }
 }
 ```
+
+```php
+	private function centerText(string $text): string {
+		// Tách các dòng văn bản thành mảng dựa trên ký tự xuống dòng \n
+		$lines = explode("\n", $text);
+
+		// Tìm chiều dài dòng dài nhất
+		$max_length = 0;
+		foreach ($lines as $line) {
+			$line_length = strlen($line);
+			if ($line_length > $max_length) {
+				$max_length = $line_length;
+			}
+		}
+
+		// Căn giữa từng dòng văn bản bằng cách thêm khoảng trắng vào đầu và cuối
+		$centered_lines = array();
+		foreach ($lines as $line) {
+			$line_length = strlen($line);
+			$padding_length = ($max_length - $line_length) / 2;
+			$padding = str_repeat(" ", (int) $padding_length);
+			$centered_line = $padding . $line . $padding;
+			$centered_lines[] = $centered_line;
+		}
+
+		// Gộp lại các dòng văn bản thành một chuỗi
+		$centered_text = implode("\n", $centered_lines);
+
+		return $centered_text;
+	}
+```
