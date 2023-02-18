@@ -5965,3 +5965,17 @@ Released 8th February 2023.
 ## General
 - Added support for Minecraft: Bedrock Edition 1.19.60.
 - Removed support for older versions.
+
+# 4.14.1
+Released 15th February 2023.
+
+## Fixes
+- Fixed all players getting kicked with `Receiving packets too fast` if a server tick takes longer than 5 seconds (e.g. because of autosave or GC).
+- Fixed players getting kicked when linking with entities.
+
+# 4.15.0
+Released 17th February 2023.
+
+## General
+- Added support for Minecraft: Bedrock Edition 1.19.62.
+- Removed support for older versions.
