@@ -98,3 +98,29 @@
 		return $centered_text;
 	}
 ```
+```php
+<?php
+/**
+ * Hàm căn giữa chuỗi
+ * 
+ * @param string $str Chuỗi cần căn giữa
+ * 
+ * @return string
+ */
+function centerString($str)
+{
+    $lines = explode("\n", $str);
+    $maxLen = 0;
+    foreach($lines as $line) {
+        $maxLen = max($maxLen, strlen($line));
+    }
+    $result = '';
+    foreach($lines as $line) {
+        $numSpaces = $maxLen - strlen($line);
+        $leftSpaces = floor($numSpaces/2);
+        $rightSpaces = ceil($numSpaces/2);
+        $result .= str_repeat(' ', $leftSpaces) . $line . str_repeat(' ', $rightSpaces) . "\n";
+    }
+    return $result;
+}
+```
