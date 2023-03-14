@@ -6037,3 +6037,10 @@ Released 7th March 2023.
 - Reduced and/or eliminated most usages of `PacketBatch`, since it only appeared as a throwaway object and was therefore wasting performance.
 - `Compressor` now exposes `getCompressionThreshold()` instead of `willCompress()`, which allows determining whether a batch will be compressed without allocating it.
 - Added `pocketmine\data\bedrock\BedrockDataFiles`, an auto-generated class of constants with the file paths of all BedrockData files. This makes it easier to locate usages, detect unused files and avoid typos.
+
+# 4.17.0
+Released 14th March 2023.
+
+## General
+- Added support for Minecraft: Bedrock Edition 1.19.70.
+- Removed support for older versions.
