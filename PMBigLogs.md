@@ -6044,3 +6044,87 @@ Released 14th March 2023.
 ## General
 - Added support for Minecraft: Bedrock Edition 1.19.70.
 - Removed support for older versions.
+
+# 4.17.1
+Released 22nd March 2023.
+
+## General
+- Docker images for PocketMine-MP are now published on [GitHub Container Registry](https://github.com/pmmp/PocketMine-MP/pkgs/container/pocketmine-mp). The Docker Hub images will stop being maintained in the future.
+- Updated translations.
+
+## Fixes
+- Fixed server crash on empty packets in certain cases.
+- Fixed mushroom blocks dropping the wrong items when broken with a silk-touch tool.
+- Fixed mushroom blocks giving the wrong items when block-picked.
+- Fixed missing ability flag `PRIVILEGED_BUILDER`.
+
+## Internals
+- `update-updater-api.yml` workflow now uses `github.repository_owner` to make it easier to test the workflow on forks.
+- Added version-specific channels to `update.pmmp.io`, such as `4`, `4.18-beta`, `4.17`, etc.
+- Replaced deprecated `::set-output` commands in GitHub Actions workflows.
+- `build/make-release.php` no longer automatically pushes changes, to avoid accidents when testing release workflows on forks.
+
+# 4.18.0
+Released 25th March 2023.
+
+## General
+- Significantly improved server performance in congested areas of the world (lots of players and/or entities in the same area).
+- Included more sections of the network system in `Player Network Send` performance timings.
+- Changed the names of some performance timings to make them more user-friendly.
+- Removed packet IDs from `receivePacket` and `sendPacket` performance timings, as they were not very useful.
+- Added new specialized performance timings for the following:
+  - Item entity base ticking (merging)
+  - Player movement processing
+  - Entity movement processing (collision checking section)
+  - Projectile movement (all)
+  - Projectile movement processing (ray tracing section)
+
+## API
+### `pocketmine\crafting`
+- The following new API methods have been added:
+  - `CraftingManager->getCraftingRecipeIndex() : array<int, CraftingRecipe>` - returns a list of all crafting recipes
+  - `CraftingManager->getCraftingRecipeFromIndex(int $index) : ?CraftingRecipe` - returns the crafting recipe at the given index, or null if it doesn't exist
+
+### `pocketmine\event\server`
+- The following new classes have been added:
+  - `DataPacketDecodeEvent` - called before a packet is decoded by a `NetworkSession`; useful to mitigate DoS attacks if PocketMine-MP hasn't been patched against new bugs yet
+
+### `pocketmine\inventory\transaction`
+- The following API methods have changed signatures:
+  - `CraftingTransaction->__construct()` now accepts additional arguments `?CraftingRecipe $recipe = null, ?int $repetitions = null`
+- The following new API methods have been added:
+  - `TransactionBuilderInventory->getActualInventory() : Inventory` - returns the actual inventory that this inventory is a proxy for
+
+## Internals
+### Network
+- Introduced new system for broadcasting entity events to network sessions.
+  - This change improves performance when lots of players and/or entities are in the same area.
+  - New interface `EntityEventBroadcaster` and class `StandardEntityEventBroadcaster` have been added to implement this.
+  - All entity-specific `on*()` and `sync*()` methods have been removed from `NetworkSession` (internals backwards compatibility break, not covered by API version guarantee).
+  - `NetworkSession` now accepts an `EntityEventBroadcaster` instance in its constructor.
+  - `NetworkBroadcastUtils::broadcastEntityEvent()` can be used to efficiently broadcast events to unique broadcasters shared by several network sessions.
+- All network sessions now share the same `PacketSerializerContext` and `PacketBroadcaster` by default.
+  - Previously, every session had its own context, meaning that broadcast optimisations were not used, causing significant performance losses compared to 3.x.
+  - This change improves performance in congested areas by allowing reuse of previously encoded packet buffers for all sessions sharing the same context.
+  - Packet broadcasts are automatically encoded separately per unique `PacketSerializerContext` instance. This allows, for example, a multi-version fork to have a separate context for each protocol version, to ensure maximum broadcast efficiency while encoding different packets for different versions.
+  - `PacketSerializerContext` is now passed in `NetworkSession::__construct()`, instead of being created by the session.
+- `StandardPacketBroadcaster` is now locked to a single `PacketSerializer` context, reducing complexity.
+- Introduced `NetworkBroadcastUtils::broadcastPackets()`, replacing `Server->broadcastPackets()`.
+- `Server->broadcastPackets()` has been deprecated. It will be removed in a future version.
+- Introduced support for the `ItemStackRequest` Minecraft: Bedrock network protocol.
+  - This fixes a large number of inventory- and crafting-related bugs.
+  - This also improves server security by closing off many code pathways that might have been used for exploits. `TypeConverter->netItemStackToCore()` is no longer used in server code, and remains for tool usage only.
+  - This system is also significantly more bandwidth-efficient and has lower overhead than the legacy system.
+  - This now opens the gateway to easily implement lots of gameplay features which have been missing for a long time, such as enchanting, anvils, looms, and more.
+  - Significant changes have been made to `pocketmine\network\mcpe\InventoryManager` internals. These shouldn't affect plugins, but may affect plugins which use internal network API.
+  - **No changes have been made to the plugin `InventoryTransaction` API**.
+    - This system has been implemented as a shim for the existing PocketMine-MP transaction system to preserve plugin compatibility. Plugins using `InventoryTransactionEvent` should continue to work seamlessly.
+    - The `InventoryTransaction` API will be redesigned in a future major version to make use of the new information provided by the `ItemStackRequest` system.
+  - `InventoryTransactionPacket` is no longer sent by the client for "regular" inventory actions. However, it is still sent when dropping items, interacting with blocks, and using items.
+- Inventory slot and content syncing is now buffered until the end of the tick. This reduces outbound network usage when the client performs multiple transactions in a single tick (e.g. crafting a stack of items).
+- Renamed some `InventoryManager` internal properties to make them easier to understand.
+- `TypeConverter->createInventoryAction()` has been removed.
+- Packet batch limit has been lowered to `100` packets. With the introduction of `ItemStackRequest`, this is more than sufficient for normal gameplay.
+
+### Other
+- Use `Vector3::zero()` instead of `new Vector3()` in some places.
