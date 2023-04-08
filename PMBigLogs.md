@@ -6064,6 +6064,12 @@ Released 22nd March 2023.
 - Replaced deprecated `::set-output` commands in GitHub Actions workflows.
 - `build/make-release.php` no longer automatically pushes changes, to avoid accidents when testing release workflows on forks.
 
+# 4.17.2
+Released 29th March 2023.
+
+## Fixes
+- Fixed players being unable to join due to the appearance of a new `x5t` field in the JWT header of Xbox Live authentication tokens.
+
 # 4.18.0
 Released 25th March 2023.
 
@@ -6128,3 +6134,35 @@ Released 25th March 2023.
 
 ### Other
 - Use `Vector3::zero()` instead of `new Vector3()` in some places.
+
+# 4.18.1
+Released 27th March 2023.
+
+## General
+- `RakLibInterface` now logs the name of the currently active session if a crash occurs when processing a packet. This makes it easier to reproduce bugs, which is important to be able to fix them.
+- Added more detailed debugging information to `InventoryManager->syncSelectedHotbarSlot()`.
+
+## Fixes
+- Fixed server crash when attempting to drop more of an item from a stack than available in the inventory.
+- Fixed packet processing errors when editing writable books.
+- Fixed packet processing errors when shift-clicking on the recipe book to craft recipes which draw from a large number of inventory slots.
+
+# 4.18.2
+Released 29th March 2023.
+
+## Fixes
+- Fixed players being unable to join due to the appearance of a new `x5t` field in the JWT header of Xbox Live authentication tokens.
+- Fixed items' durability appearing to reset when moving them around in the inventory.
+
+# 4.18.3
+Released 5th April 2023.
+
+## Fixes
+- Fixed Average Players not being shown on timings reports when custom player classes are used.
+- Fixed incorrect tick violation calculation in timings reports.
+- Fixed not being able to add or remove items from the offhand slot.
+- Fixed creative inventory item count corruption when taking items (some players would see 64x items in the creative inventory after rejoining or changing gamemode).
+- Fixed not being able to drop items directly from the creative inventory on mobile.
+- Fixed `DataPacketReceiveEvent` not being called for packets sent by `EntityEventBroadcaster`.
+- `CreativeInventory::getItem()` and `CreativeInventory::getAll()` now return cloned itemstacks, to prevent accidental modification of the creative inventory.
+
