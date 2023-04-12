@@ -6166,3 +6166,65 @@ Released 5th April 2023.
 - Fixed `DataPacketReceiveEvent` not being called for packets sent by `EntityEventBroadcaster`.
 - `CreativeInventory::getItem()` and `CreativeInventory::getAll()` now return cloned itemstacks, to prevent accidental modification of the creative inventory.
 
+# 4.19.0
+Released 11th April 2023.
+
+## General
+- Updated the Timings system.
+  - Timings records now include parent information, allowing them to be displayed in a tree view (e.g. https://timings.pmmp.io/?id=303556).
+  - Timings records now include additional information, such as Peak (max time spent on any single tick), and Ticks (number of ticks the timer was active on).
+  - New timings have been added for every event.
+  - A new timer `Player Network Send - Pre-Spawn Game Data` has been added, and covers most of the time spent handling `ResourcePackClientResponsePacket`, giving a clearer picture of what's happening.
+- Improved performance of the plugin event system.
+  - By introducing some caching, the event system now has 90% less overhead than in previous versions.
+- Improved performance of the random chunk ticking system.
+  - The selection of ticked random chunks, and their validation for ticking, is now cached. This significantly reduces the overhead of chunk selection.
+  - Factions servers and other game modes with big maps and sparsely populated areas will see the most benefit from this change.
+  - Real-world performance benefit of this change is anywhere from 0-20%, depending on server type and configuration.
+- The `timings paste` command now logs a debug message with the server response on failure to paste a timings report.
+
+## API
+### `pocketmine\entity\object`
+- The following API constants have been added:
+  - `ExperienceOrb::DEFAULT_DESPAWN_DELAY` - the default delay in ticks before an experience orb despawns
+  - `ExperienceOrb::NEVER_DESPAWN` - magic value for `setDespawnDelay()` to make an experience orb never despawn
+  - `ExperienceOrb::MAX_DESPAWN_DELAY` - the maximum delay in ticks before an experience orb despawns
+- The following API methods have been added:
+  - `public ExperienceOrb->getDespawnDelay() : int` - returns the delay in ticks before this experience orb despawns
+  - `public ExperienceOrb->setDespawnDelay(int $despawnDelay) : void` - sets the delay in ticks before this experience orb despawns
+- The following properties have been deprecated
+  - `ExperienceOrb->age` - superseded by despawn delay methods
+
+### `pocketmine\event`
+- The following API methods have been added:
+  - `public HandlerList->getListenerList() : list<RegisteredListener>` - returns an ordered list of handlers to be called for the event
+
+### `pocketmine\player`
+- The following API methods have behavioural changes:
+  - `ChunkSelector->selectChunks()` now yields the distance in chunks from the center as the key, instead of an incrementing integer.
+- The following classes have been deprecated:
+  - `PlayerChunkLoader` (this was technically internal, but never marked as such)
+
+### `pocketmine\timings`
+- The following API constants have been deprecated:
+- `Timings::INCLUDED_BY_OTHER_TIMINGS_PREFIX` - this is superseded by timings group support (see `Timings::GROUP_BREAKDOWN`)
+- The following API constants have been added:
+- `Timings::GROUP_BREAKDOWN` - this group makes a timer appear in the `Minecraft - Breakdown` section of a timings report
+- The following API methods have been added:
+- `public TimingsHandler->getGroup() : string` - returns the name of the table in which this timer will appear in a timings report
+- The following API methods have changed signatures:
+- `TimingsHandler->__construct()` now accepts an additional, optional `string $group` parameter, which defaults to `Minecraft`.
+
+### `pocketmine\world`
+#### Highlights
+Ticking chunks is now done using the `ChunkTicker` system, which has a much more fine-grained API than the old `TickingChunkLoader` system, as well as better performance.
+It works similarly to the `ChunkLoader` system, in that chunks will be ticked as long as at least one `ChunkTicker` is registered for them.
+
+#### API changes
+- The following classes have been deprecated:
+  - `TickingChunkLoader` - this has been superseded by the more powerful and performant `ChunkTicker` APIs
+- The following classes have been added:
+  - `ChunkTicker` - an opaque object used for `registerTickingChunk()` to instruct the `World` that we want a chunk to be ticked
+- The following API methods have been added:
+  - `public World->registerTickingChunk(ChunkTicker $ticker, int $chunkX, int $chunkZ) : void` - registers a chunk to be ticked by the given `ChunkTicker`
+  - `public World->unregisterTickingChunk(ChunkTicker $ticker, int $chunkX, int $chunkZ) : void` - unregisters a chunk from being ticked by the given `ChunkTicker`
