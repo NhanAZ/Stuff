@@ -6262,3 +6262,35 @@ Released 21st April 2023.
 ## Internals
 - `TimingsHandler->stopTiming()` now logs an error message if a subtimer wasn't stopped, rather than throwing an exception.
   - Due to interactions between `try...finally` and unexpected errors, throwing exceptions made it difficult for plugin developers to debug errors in their plugins, since it obscured the original error.
+
+# 4.20.0
+Released 26th April 2023.
+
+## General
+- Added support for Minecraft: Bedrock Edition 1.19.80.
+- Removed support for older versions.
+
+## Fixes
+- Fixed packet processing error when attempting to use a stonecutter.
+- Fixed armor slots containing ghost items when cancelling right-click to equip armor.
+- Fixed crash in `HandlerList->getListenersByPriority()` when no listeners are registered at the given priority.
+
+## API
+### `pocketmine\block`
+- The following API methods have been added:
+  - `public BaseSign->getEditorEntityRuntimeId() : int` - returns the entity runtime ID of the player currently editing this sign, or `null` if none
+  - `public BaseSign->setEditorEntityRuntimeId(?int $editorEntityRuntimeId) : $this` - sets the entity runtime ID of the player currently editing this sign
+
+### `pocketmine\player`
+- The following API methods have been added:
+  - `public Player->openSignEditor(Vector3 $position) : void` - opens the client-side sign editor GUI for the given position
+
+# 4.20.1
+Released 27th April 2023.
+
+## Fixes
+- Fixed server crash when firing a bow while holding arrows in the offhand slot.
+
+## Internals
+- `ItemStackContainerIdTranslator::translate()` now requires an additional `int $slotId` parameter and returns `array{int, int}` (translated window ID, translated slot ID) to be used with `InventoryManager->locateWindowAndSlot()`.
+- `InventoryManager->locateWindowAndSlot()` now checks if the translated slot actually exists in the requested inventory, and returns `null` if not. Previously, it would return potentially invalid slot IDs without checking them, potentially leading to crashes.
