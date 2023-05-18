@@ -6314,3 +6314,72 @@ Released 6th May 2023.
   - This was caused by creating a new timings handler for each call, regardless of whether a timer already existed for the given event and callback.
 - Fixed `Full Server Tick` and other records being missing from timings reports.
   - This was caused by timings handler depth not getting reset when timings was disabled and later re-enabled.
+
+# 4.20.4
+Released 6th May 2023.
+
+## Fixes
+- Fixed players being forced into flight mode in every game mode.
+  - Moral of the story: do not assume anything in Mojang internals does what its name suggests...
+
+# 4.21.0
+Released 17th May 2023.
+
+## General
+- PHP 8.1 is now required. Most plugins should run without changes, but some might need to be updated due to language-level deprecations.
+- Ticking chunk count is now shown separately from loaded chunk count in the `/status` command, providing useful performance information.
+- Further improved performance of ticking chunk selection.
+- Improved performance of some inventory functions.
+- Reduced server memory footprint in most cases by ~9 MB per thread.
+- Due to large overhead, async network compression is now only used for packets larger than 10 KB by default.
+
+## Configuration
+- Added the following new `pocketmine.yml` configuration options:
+  - `network.async-compression-threshold` - minimum size of packet which will be compressed using `AsyncTask`
+    - Default is 10 KB, which means that very few packets will use async compression in practice. This is because the overhead of compressing async is currently so high that it's not worth it for smaller packets.
+
+## Timings
+- Timings reports no longer include the unused metadata fields `Entities` and `LivingEntities`.
+- Timings reports now correctly calculate the peak time of a timer.
+  - Previously it was incorrectly recorded as the longest time spent in a single tick, rather than the longest time spent in a single activation.
+  - Timings report version has been bumped to `2` to reflect this change.
+- All world-specific timers now have generic aggregate timings, making it much easier to locate performance patterns across all worlds.
+
+## Gameplay
+- Players in spectator mode are no longer able to pick blocks, and now have finite resources similar to survival mode.
+
+## API
+### `pocketmine\world`
+- The following API methods have been added:
+  - `public World->getTickingChunks() : list<int>` - returns a list of chunk position hashes (a la `World::chunkHash()`) which are currently valid for random ticking
+
+### `pocketmine\inventory`
+- The following API methods have been added:
+  - `protected BaseInventory->getMatchingItemCount(int $slot, Item $test, bool $checkDamage, bool $checkTags) : int` - returns the number of items in the given stack if the content of the slot matches the test item, or zero otherwise
+    - This should be overridden if directly extending `BaseInventory` to provide a performance-optimised version. A slow default implementation is provided, but it will be removed in the future.
+  
+## Internals
+### Entity
+- Unused `NameTag` tag is no longer saved for `Human` entities.
+
+### Inventory
+- `BaseInventory` now uses a new internal method `getMatchingItemCount()` to locate items in the inventory without useless cloning. This improves performance of various API methods, such as `addItem()`, `contains()`, and more.
+- Specialization of `Inventory->isSlotEmpty()` in `BaseInventory` subclasses has been added to improve performance of some API methods.
+
+### Network
+- `RuntimeBlockMapping` no longer keeps all block palette NBT data in memory.
+  - This significantly reduces server idle memory footprint.
+  - For multi-version implementations, this will have a significant impact on memory usage, since a different block palette is often required to support each version.
+  - NBT will be lazy-loaded into memory and cached if `getBedrockKnownStates()` is called. However, this is not used by PocketMine-MP under normal circumstances.
+- Removed unnecessary usage of `Utils::validateCallableSignature()` from some internal network pathways, improving performance.
+
+### Scheduler
+- `AsyncPool` no longer double-checks progress updates on completed tasks.
+
+### World
+- Ticking chunks are now tracked in `World->validTickingChunks` and `World->recheckTickingChunks`.
+    - This allows avoiding rechecking every ticking chunk for validity during ticking chunk selection, improving performance.
+    - In some cases, this allows bypassing chunk selection entirely, reducing selection cost to zero.
+- Registered but ineligible ticking chunks are no longer rechecked every tick.
+    - This was causing wasted cycles during async worker backlog.
+    - The internal system must call `markTickingChunkForRecheck()` whenever a ticking chunk's eligibility for ticking has potentially changed, rather than just when it has changed from a yes to a no.
