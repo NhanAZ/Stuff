@@ -119,3 +119,20 @@ int main() {
 	return 0;
 }
 ```
+
+9. Chương trình nhập vào bàn phím số nguyên n và hiển thị ra các số chẵn từ n tới 100.
+```cpp
+#include <iostream>
+
+int main() {
+	int n;
+	std::cin >> n;
+	while (n <= 100) {
+		if (n % 2 == 0) {
+			std::cout << n << " ";
+		}
+		n++;
+	}
+	return 0;
+}
+```
