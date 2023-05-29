@@ -10,3 +10,16 @@ int main() {
 	}
 }
 ```
+
+2. Bạn hãy viết chương trình nhập vào từ bàn phím số nguyên n và hiển thị ra các số từ 1 tới n.
+```cpp
+#include <iostream>
+
+int main() {
+	int a, b;
+	std::cin >> a >> b;
+	for (int i = a; i <= b; i++) {
+		std::cout << i << " ";
+	}
+}
+```
