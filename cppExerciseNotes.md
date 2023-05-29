@@ -1,4 +1,4 @@
-1. Bạn hãy viết chương trình nhập vào từ bàn phím số nguyên n và hiển thị ra các số từ 1 tới n.
+1. Chương trình nhập vào từ bàn phím số nguyên n và hiển thị ra các số từ 1 tới n.
 ```cpp
 #include <iostream>
 
@@ -11,7 +11,7 @@ int main() {
 }
 ```
 
-2. Bạn hãy viết chương trình nhập vào từ bàn phím số nguyên n và hiển thị ra các số từ 1 tới n.
+2. Chương trình nhập vào từ bàn phím số nguyên n và hiển thị ra các số từ 1 tới n.
 ```cpp
 #include <iostream>
 
@@ -24,7 +24,7 @@ int main() {
 }
 ```
 
-3. Bạn hãy viết chương trình nhập vào từ bàn phím số nguyên n và thực hiện hiển thị các số từ n về -5.
+3. Chương trình nhập vào từ bàn phím số nguyên n và thực hiện hiển thị các số từ n về -5.
 ```cpp
 #include <iostream>
 
