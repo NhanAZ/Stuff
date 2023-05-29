@@ -103,3 +103,19 @@ int main() {
 	return 0;
 }
 ```
+
+8. Chương trình nhập từ bàn phím một số nguyên n và hiển thị ra màn hình các ước của n với n > 0.
+```cpp
+#include <iostream>
+
+int main() {
+	int n;
+	std::cin >> n;
+	for (int i = 1; i <= n; i++) {
+		if (n % i == 0) {
+			std::cout << i << " ";
+		}
+	}
+	return 0;
+}
+```
