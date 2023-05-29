@@ -23,3 +23,16 @@ int main() {
 	}
 }
 ```
+
+3. Bạn hãy viết chương trình nhập vào từ bàn phím số nguyên n và thực hiện hiển thị các số từ n về -5.
+```cpp
+#include <iostream>
+
+int main() {
+	int n;
+	std::cin >> n;
+	for (int i = n; i >= -5; i--) {
+		std::cout << i << " ";
+	}
+}
+```
