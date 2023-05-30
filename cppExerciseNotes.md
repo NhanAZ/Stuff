@@ -150,6 +150,7 @@ int main() {
 	return 0;
 }
 ```
+
 10. Chương trình nhập từ bàn phím số nguyên n và hiển thị ra màn hình số các ước số của n.
 ```cpp
 #include <iostream>
@@ -182,6 +183,68 @@ int main() {
 		}
 	}
 	std::cout << count;
+	return 0;
+}
+```
+
+11. Chương trình nhập từ bàn phím hai số nguyên dương a và b. Sau đó hiển thị ra màn hình kết quả của a^b.
+```cpp
+#include <iostream>
+
+int main() {
+	int a, b;
+	std::cin >> a >> b;
+	int answer = 1;
+	while (b > 0) {
+		answer *= a;
+		b--;
+	}
+	std::cout << answer;
+	return 0;
+}
+```
+```cpp
+#include <iostream>
+
+int main() {
+	int a, b;
+	std::cin >> a >> b;
+	int answer = 1;
+	for (; b > 0; b--) {
+		answer *= a;
+	}
+	std::cout << answer;
+	return 0;
+}
+```
+
+12. Chương trình nhập từ bàn phím hai số nguyên a và b. Sau đó hiển thị ra màn hình các số từ a tới b mà chia hết cho cả 3 và 5.
+```cpp
+#include <iostream>
+
+int main() {
+	int a, b;
+	std::cin >> a >> b;
+	while (a <= b) {
+		if (a % 3 == 0 && a % 5 == 0) {
+			std::cout << a << " ";
+		}
+		a++;
+	}
+	return 0;
+}
+```
+```cpp
+#include <iostream>
+
+int main() {
+	int a, b;
+	std::cin >> a >> b;
+	for (; a <= b; a++) {
+		if (a % 3 == 0 && a % 5 == 0) {
+			std::cout << a << " ";
+		}
+	}
 	return 0;
 }
 ```
