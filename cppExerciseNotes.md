@@ -136,3 +136,52 @@ int main() {
 	return 0;
 }
 ```
+```cpp
+#include <iostream>
+
+int main() {
+	int n;
+	std::cin >> n;
+	for (; n <= 100; n++) {
+		if (n % 2 == 0) {
+			std::cout << n << " ";
+		}
+	}
+	return 0;
+}
+```
+10. Chương trình nhập từ bàn phím số nguyên n và hiển thị ra màn hình số các ước số của n.
+```cpp
+#include <iostream>
+
+int main() {
+	int n;
+	std::cin >> n;
+	int i = 1;
+	int count = 0;
+	while (i <= n) {
+		if (n % i == 0) {
+			count++;
+		}
+		i++;
+	}
+	std::cout << count;
+	return 0;
+}
+```
+```cpp
+#include <iostream>
+
+int main() {
+	int n;
+	std::cin >> n;
+	int count = 0;
+	for (int i = 1; i <= n; i++) {
+		if (n % i == 0) {
+			count++;
+		}
+	}
+	std::cout << count;
+	return 0;
+}
+```
