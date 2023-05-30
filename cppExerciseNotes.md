@@ -498,3 +498,45 @@ int main() {
     return 0;
 }
 ```
+
+13. Chương trình hiển thị ra màn hình các số từ 1 tới 5 sử dụng vòng lặp do-while.
+```cpp
+#include <iostream>
+
+int main() {
+	int i = 1;
+	do {
+		std::cout << i << " ";
+		i++;
+	} while (i <= 5);
+	return 0;
+}
+```
+
+14. Chương trình hiển thị ra màn hình các số có số 0 ở cuối từ 1 tới 1000 (màn hình sẽ hiển thị lên các số 10, 20, 30, ..., 990, 1000).
+```cpp
+#include <iostream>
+
+int main() {
+	int i = 1;
+	do {
+		if (i % 10 == 0) {
+			std::cout << i << " ";
+		}
+		i++;
+	} while (i <= 1000);
+	return 0;
+}
+```
+```cpp
+#include <iostream>
+
+int main() {
+    int i = 10;
+    do {
+        std::cout << i << " ";
+        i += 10;
+    } while (i <= 1000);
+    return 0;
+}
+```
