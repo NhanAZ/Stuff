@@ -7175,3 +7175,9 @@ Released 3rd June 2023.
 
 ## Documentation
 - Added documentation for `BlockSpreadEvent->__construct()` parameters.
+
+# 5.1.1
+Released 7th June 2023.
+
+## Fixes
+- Fixed blockstates being saved with the wrong version ID for 1.20.0.
