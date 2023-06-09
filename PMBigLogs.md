@@ -6322,6 +6322,12 @@ Released 6th May 2023.
 - Fixed players being forced into flight mode in every game mode.
   - Moral of the story: do not assume anything in Mojang internals does what its name suggests...
 
+# 4.20.5
+Released 30th May 2023.
+
+## Fixes
+- Fixed server crash due to a bug in upstream dependency [`netresearch/jsonmapper`](https://github.com/cweiske/JsonMapper).
+
 # 4.21.0
 Released 17th May 2023.
 
@@ -6383,6 +6389,47 @@ Released 17th May 2023.
 - Registered but ineligible ticking chunks are no longer rechecked every tick.
     - This was causing wasted cycles during async worker backlog.
     - The internal system must call `markTickingChunkForRecheck()` whenever a ticking chunk's eligibility for ticking has potentially changed, rather than just when it has changed from a yes to a no.
+
+# 4.21.1
+Released 30th May 2023.
+
+# 4.22.0
+Released 7th June 2023.
+
+**For Minecraft: Bedrock Edition 1.20.0**
+
+This is a support release for Minecraft: Bedrock Edition 1.20.0.
+
+**Plugin compatibility:** Plugins for previous 4.x versions will run unchanged on this release, unless they use internal APIs, reflection, or packages like the `pocketmine\network\mcpe` namespace.
+Do not update plugin minimum API versions unless you need new features added in this release.
+
+**WARNING: If your plugin uses the `pocketmine\network\mcpe` namespace, you're not shielded by API change constraints.**
+Consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you're using packets directly.
+
+## Interim releases
+If you're upgrading from 4.20.x directly to 4.22.x, please also read the following changelogs, as the interim releases contain important changes:
+- [4.21.0](https://github.com/pmmp/PocketMine-MP/blob/4.22.0/changelogs/4.21.md#4210) - PHP 8.1 minimum version, minor performance improvements
+
+## General
+- Added support for Minecraft: Bedrock Edition 1.20.0.
+- Removed support for older versions.
+
+## Fixes
+- Removed deprecated `ReflectionProperty::setAccessible()` calls.
+- Fixed jukebox music not stopping when destroyed by an explosion.
+
+# 4.22.1
+Released 9th June 2023.
+
+## Fixes
+- Reokaced workaround for an old teleporting client bug:
+  - This workaround broke due to an additional client bug introduced by 1.20, causing players to become frozen to observers when teleported.
+  - The original client bug has still not been fixed, meaning a new workaround was needed, but no perfect solution could be found.
+  - The new workaround involves broadcasting teleport movements as regular movements, which causes unwanted interpolation between the old and new positions, but otherwise works correctly. This solution is not ideal, but it is the best we can do for now.
+  - See issues [#4394](https://github.com/pmmp/PocketMine-MP/issues/4394) and [#5810](https://github.com/pmmp/PocketMine-MP/issues/5810) for more details.
+
+## Fixes
+- Fixed server crash due to a bug in upstream dependency [`netresearch/jsonmapper`](https://github.com/cweiske/JsonMapper).
 
 # 5.0.0
 Released 1st June 2023.
@@ -7175,6 +7222,23 @@ Released 3rd June 2023.
 
 ## Documentation
 - Added documentation for `BlockSpreadEvent->__construct()` parameters.
+
+# 5.1.0
+Released 7th June 2023.
+
+**For Minecraft: Bedrock Edition 1.20.0**
+
+This is a support release for Minecraft: Bedrock Edition 1.20.0.
+
+**Plugin compatibility:** Plugins for previous 5.x versions will run unchanged on this release, unless they use internal APIs, reflection, or packages like the `pocketmine\network\mcpe` namespace.
+Do not update plugin minimum API versions unless you need new features added in this release.
+
+**WARNING: If your plugin uses the `pocketmine\network\mcpe` namespace, you're not shielded by API change constraints.**
+Consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you're using packets directly.
+
+## General
+- Added support for Minecraft: Bedrock Edition 1.20.0.
+- Removed support for older versions.
 
 # 5.1.1
 Released 7th June 2023.
