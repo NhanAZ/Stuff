@@ -6431,6 +6431,16 @@ Released 9th June 2023.
 ## Fixes
 - Fixed server crash due to a bug in upstream dependency [`netresearch/jsonmapper`](https://github.com/cweiske/JsonMapper).
 
+# 4.22.1
+Released 9th June 2023.
+
+## Fixes
+- Reokaced workaround for an old teleporting client bug:
+  - This workaround broke due to an additional client bug introduced by 1.20, causing players to become frozen to observers when teleported.
+  - The original client bug has still not been fixed, meaning a new workaround was needed, but no perfect solution could be found.
+  - The new workaround involves broadcasting teleport movements as regular movements, which causes unwanted interpolation between the old and new positions, but otherwise works correctly. This solution is not ideal, but it is the best we can do for now.
+  - See issues [#4394](https://github.com/pmmp/PocketMine-MP/issues/4394) and [#5810](https://github.com/pmmp/PocketMine-MP/issues/5810) for more details.
+
 # 5.0.0
 Released 1st June 2023.
 
