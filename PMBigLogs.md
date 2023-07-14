@@ -7398,3 +7398,45 @@ Consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if 
 - `AsyncTask::$threadLocalStorage` now uses a plain `array` instead of `ArrayObject`. The `ArrayObject` was a workaround for `ext-pthreads` to prevent thread-locals getting copied to the worker thread, and is no longer necessary.
 - Regenerated `pocketmine\data\bedrock\item\ItemTypeNames` for Bedrock 1.20 (BC breaking, some item names have changed).
 - Fixed `build/generate-item-type-names.php` not including some newer blockitems, such as doors and hanging signs.
+
+# 5.2.1
+Released 11th July 2023.
+
+**This release includes changes from the following releases:**
+- [4.22.3](https://github.com/pmmp/PocketMine-MP/blob/4.22.3/changelogs/4.22.md#4223) - Fixes for some crash issues
+
+This release contains no other changes.
+
+# 5.3.0
+Released 12th July 2023.
+
+**For Minecraft: Bedrock Edition 1.20.10**
+
+This is a support release for Minecraft: Bedrock Edition 1.20.10.
+
+**Plugin compatibility:** Plugins for previous 5.x versions will run unchanged on this release, unless they use internal APIs, reflection, or packages like the `pocketmine\network\mcpe`  or `pocketmine\data` namespace.
+Do not update plugin minimum API versions unless you need new features added in this release.
+
+**WARNING: If your plugin uses the `pocketmine\network\mcpe` namespace, you're not shielded by API change constraints.**
+Consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you're using packets directly.
+
+## Interim releases
+If you're upgrading directly from 5.1.x to 5.3.x, please also read the following changelogs, as the interim releases contain important changes:
+- [5.2.0](https://github.com/pmmp/PocketMine-MP/blob/5.2.0/changelogs/5.2.md#520)
+
+## Included releases
+**This release includes changes from the following releases:**
+- [4.23.0](https://github.com/pmmp/PocketMine-MP/blob/4.23.0/changelogs/4.23.md#4230) - Support for Minecraft: Bedrock Edition 1.20.10
+
+## Internals
+- `BlockTypeNames`, `BlockStateNames`, `BlockStateStringValues` and `ItemTypeNames` in the `pocketmine\data\bedrock` package have BC-breaking changes to accommodate Bedrock 1.20.10.
+
+# 5.3.1
+Released 14th July 2023.
+
+## Included releases
+**This release includes changes from the following releases:**
+- [4.23.1](https://github.com/pmmp/PocketMine-MP/blob/4.23.1/changelogs/4.23.md#4231) - Security fixes
+
+## General
+- Updated `build/php` submodule to pmmp/PHP-Binaries@e0c918d1379465964acefd562d9e48f87cfc2c9e.
