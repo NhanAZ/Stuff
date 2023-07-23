@@ -6482,6 +6482,12 @@ Released 14th July 2023.
 - Hardened validation of JWT signing keys in `LoginPacket`.
 - Fixed server crash due to a bug in upstream dependency [`netresearch/jsonmapper`](https://github.com/cweiske/JsonMapper).
 
+# 4.23.2
+Released 18th July 2023.
+
+## Fixes
+- Fixed login errors due to a new `sandboxId` field appearing in the Xbox Live authentication data in `LoginPacket`. All clients, regardless of version, are affected by this change.
+
 # 5.0.0
 Released 1st June 2023.
 
@@ -7437,6 +7443,22 @@ Released 14th July 2023.
 ## Included releases
 **This release includes changes from the following releases:**
 - [4.23.1](https://github.com/pmmp/PocketMine-MP/blob/4.23.1/changelogs/4.23.md#4231) - Security fixes
+
+# 5.3.2
+Released 18th July 2023.
+
+## Included releases
+**This release includes changes from the following releases:**
+- [4.23.2](https://github.com/pmmp/PocketMine-MP/blob/4.23.2/changelogs/4.23.md#4232) - Fix for `sandboxId`-related login errors
+
+## Documentation
+- Fixed documentation error in `StringToTParser`.
+
+## Fixes
+- Fixed turtle helmet not being able to be unequipped.
+
+## Internals
+- Armor pieces are no longer set back into the armor inventory if no change was made. This reduces the number of slot updates sent to clients, as well as avoiding unnecessary updates for armor pieces which have Unbreaking enchantments.
 
 ## General
 - Updated `build/php` submodule to pmmp/PHP-Binaries@e0c918d1379465964acefd562d9e48f87cfc2c9e.
