@@ -7444,6 +7444,12 @@ Released 14th July 2023.
 **This release includes changes from the following releases:**
 - [4.23.1](https://github.com/pmmp/PocketMine-MP/blob/4.23.1/changelogs/4.23.md#4231) - Security fixes
 
+# 4.23.2
+Released 18th July 2023.
+
+## Fixes
+- Fixed login errors due to a new `sandboxId` field appearing in the Xbox Live authentication data in `LoginPacket`. All clients, regardless of version, are affected by this change.
+
 # 5.3.2
 Released 18th July 2023.
 
