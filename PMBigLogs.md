@@ -6488,6 +6488,36 @@ Released 18th July 2023.
 ## Fixes
 - Fixed login errors due to a new `sandboxId` field appearing in the Xbox Live authentication data in `LoginPacket`. All clients, regardless of version, are affected by this change.
 
+# 4.23.3
+Released 24th July 2023.
+
+## Documentation
+- Fixed typo in `ChunkSelector::selectChunks()` documentation.
+
+## Fixes
+- Fixed the server not stopping properly during crash conditions on *nix platforms.
+- Fixed `HORSE_EQUIP` and `SMITHING_TABLE_TEMPLATE` container UI types not being handled by `ItemStackContainerIdTranslator`. This bug prevented plugins from implementing missing inventory types.
+- Player emotes no longer broadcast messages to other players. This was unintended behaviour caused by a client-side behavioural change.
+- Shulker boxes no longer support the placement of torches or other similar blocks.
+- Fire can now be placed on upper slabs and the top of upside-down stairs.
+
+# 4.23.4
+Released 1st August 2023.
+
+## Fixes
+- Fixed exponentially increasing lag when many hundreds of non-mergeable dropped items occupied the same space. This disproportionately affected SkyBlock servers due to large cactus farms using water to collect items together. 
+
+# 4.23.5
+Released 9th August 2023.
+
+## General
+- Updated translation data to [pmmp/Language 2.19.6](https://github.com/pmmp/Language/releases/tag/2.19.6).
+
+## Fixes
+- Fixed `PluginBase->saveResource()` leaking file resources when the data file already exists in the plugin's data folder. This bug existed since 2014 and was only discovered recently.
+- Fixed coral blocks becoming dead after calling `getDropsForCompatibleTool()` on them.
+- Fixed `BlockDeathEvent->getOldState()` returning a block which is already dead.
+
 # 5.0.0
 Released 1st June 2023.
 
@@ -7590,3 +7620,29 @@ Consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if 
   - In addition, this change facilitates the use of the newly introduced `Block->getAdjacentSupportType()` API method, reducing boilerplate support-type checking code.
 - Bell block code has been simplified and cleaned up.
 - `TallGrass` and `DoubleTallGrass` now use a shared `TallGrassTrait` to reduce code duplication.
+
+# 5.4.1
+Released 8th August 2023.
+
+## General
+- Updated translation data to [pmmp/Language 2.19.6](https://github.com/pmmp/Language/releases/tag/2.19.6).
+- [`ext-pmmpthread` 6.0.7](https://github.com/pmmp/ext-pmmpthread/releases/tag/6.0.7) is now required (needed for bug fixes).
+
+## Fixes
+- Fixed Podzol not dropping itself when mined with Silk Touch.
+- Fixed `World->getSafeSpawn()` not accepting positions below `y=0` (world height limit change).
+- Fixed `pocketmine\thread\Thread` and `pocketmine\thread\Worker` instances not logging any information when they crash.
+- Fixed `CraftItemEvent` not cloning returned items.
+
+## Internals
+- Foreach by-reference is now disallowed via a custom PHPStan rule.
+
+# 5.4.2
+Released 9th August 2023.
+
+## Included releases
+- [4.23.5](https://github.com/pmmp/PocketMine-MP/releases/tag/4.23.5) - Minor bug fixes
+
+## Fixes
+- Fixed cake accepting candle placement when slices have already been eaten.
+- Fixed fire charges not lighting candles.
