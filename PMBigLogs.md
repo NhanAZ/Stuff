@@ -6518,6 +6518,12 @@ Released 9th August 2023.
 - Fixed coral blocks becoming dead after calling `getDropsForCompatibleTool()` on them.
 - Fixed `BlockDeathEvent->getOldState()` returning a block which is already dead.
 
+# 4.23.6
+Released 21st August 2023.
+
+## Fixes
+- Added a workaround for armor and other inventories not working correctly after inventory sync. This is caused by a client bug.
+
 # 5.0.0
 Released 1st June 2023.
 
@@ -7646,3 +7652,15 @@ Released 9th August 2023.
 ## Fixes
 - Fixed cake accepting candle placement when slices have already been eaten.
 - Fixed fire charges not lighting candles.
+
+# 5.4.3
+Released 21st August 2023.
+
+## Included releases
+- [4.23.6](https://github.com/pmmp/PocketMine-MP/blob/4.23.6/changelogs/4.23.md#4236) - Armor inventory client bug workaround
+
+## Fixes
+- Fixed crashdumps not generating correctly on fatal errors.
+- Fixed `PotionCauldron::setPotionItem()` not validating the item type.
+- Fixed chorus fruit not considering teleport destinations below y=0.
+- Fixed cake dropping itself when mined.
