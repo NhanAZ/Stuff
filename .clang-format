@@ -1,6 +1,6 @@
 AlignAfterOpenBracket: AlwaysBreak
-BasedOnStyle: Google
-ColumnLimit: 0
+BasedOnStyle: Chromium
+ColumnLimit: 1024
 IndentWidth: 4
 TabWidth: 4
 UseTab: Always
