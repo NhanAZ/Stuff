@@ -6524,6 +6524,24 @@ Released 21st August 2023.
 ## Fixes
 - Added a workaround for armor and other inventories not working correctly after inventory sync. This is caused by a client bug.
 
+# 4.24.0
+Released 20th September 2023.
+
+**For Minecraft: Bedrock Edition 1.20.30**
+
+This is a support release for Minecraft: Bedrock Edition 1.20.30.
+
+**Plugin compatibility:** Plugins for previous 4.x versions will run unchanged on this release, unless they use internal APIs, reflection, or packages like the `pocketmine\network\mcpe` namespace.
+Do not update plugin minimum API versions unless you need new features added in this release.
+
+**WARNING: If your plugin uses the `pocketmine\network\mcpe` namespace, you're not shielded by API change constraints.**
+Consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you're using packets directly.
+
+## General
+- Added support for Minecraft: Bedrock Edition 1.20.30.
+- Removed support for older versions.
+- Updated 4.x obsoletion message.
+
 # 5.0.0
 Released 1st June 2023.
 
@@ -7826,3 +7844,24 @@ Consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if 
 - Various `TypeIdMap` classes in the `pocketmine\data\bedrock` package now use the new `IntSaveIdMapTrait` to reduce code duplication.
 - Added a new `ServerProperties` class containing constants for all known `server.properties` keys.
 - Added a new `YmlServerProperties` class containing generated constants for all known `pocketmine.yml` keys. These keys can be used with `Config->getNested()`.
+
+# 5.6.0
+Released 20th September 2023.
+
+**For Minecraft: Bedrock Edition 1.20.30**
+
+This is a support release for Minecraft: Bedrock Edition 1.20.30.
+
+**Plugin compatibility:** Plugins for previous 5.x versions will run unchanged on this release, unless they use internal APIs, reflection, or packages like the `pocketmine\network\mcpe`  or `pocketmine\data` namespace.
+Do not update plugin minimum API versions unless you need new features added in this release.
+
+**WARNING: If your plugin uses the `pocketmine\network\mcpe` namespace, you're not shielded by API change constraints.**
+Consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you're using packets directly.
+
+## General
+- Added support for Minecraft: Bedrock Edition 1.20.30.
+- Removed support for older versions.
+
+## Fixes
+- Fixed support conditions for hanging roots, cave vines and dead bushes.
+- Fixed connection conditions for fences, glass panes, iron bars, and walls.
