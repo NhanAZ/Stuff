@@ -6559,6 +6559,23 @@ Consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if 
 - Added support for Minecraft: Bedrock Edition 1.20.40.
 - Removed support for older versions.
 
+# 4.26.0
+Released 6th December 2023.
+
+**For Minecraft: Bedrock Edition 1.20.50**
+
+This is a support release for Minecraft: Bedrock Edition 1.20.50.
+
+**Plugin compatibility:** Plugins for previous 4.x versions will run unchanged on this release, unless they use internal APIs, reflection, or packages like the `pocketmine\network\mcpe` namespace.
+Do not update plugin minimum API versions unless you need new features added in this release.
+
+**WARNING: If your plugin uses the `pocketmine\network\mcpe` namespace, you're not shielded by API change constraints.**
+Consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you're using packets directly.
+
+## General
+- Added support for Minecraft: Bedrock Edition 1.20.50.
+- Removed support for older versions.
+
 # 5.0.0
 Released 1st June 2023.
 
@@ -8044,3 +8061,100 @@ Consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if 
 - Removed code generation step for `RuntimeDataDescriber` enum serialization. All described enums now use PHP 8.1 native enums, which can be described without codegen using `RuntimeDataDescriber->enum()`.
 - Added `DeprecatedLegacyEnumAccessRule` custom PHPStan rule to flag legacy `EnumTrait` case accessors.
 - Cleaned up remaining hardcoded `Config` keys in `SetupWizard`. These usages now use auto-generated constants like the rest of the codebase.
+
+# 5.8.2
+Released 9th November 2023.
+
+## Performance
+- Improved performance of small packet zero-compression (unintended use of slow zlib compressor instead of fast libdeflate one).
+  - This affected the majority of outbound packets, as most packets are below the 256-byte threshold for compression.
+  - This faster method is over 20x faster than the old method, producing noticeable performance gains for large servers.
+
+## Fixes
+- Fixed melons and pumpkins not growing.
+- Fixed melon and pumpkin stems not attaching to the grown melon/pumpkin.
+- Fixed iron and gold ores not being affected by the Fortune enchantment.
+- Fixed ancient debris burning in lava.
+- Fixed sign (front) text loading from vanilla world saves (back text is not yet supported).
+
+## Internals
+- Removed bogus optimization from `tools/generate-blockstate-upgrade-schema.php` that could cause incorrect `remappedStates` generation when some of the states stayed under the old ID.
+- Fixed possible crash in `BlockStateUpgrader` name flattening rule handling with invalid blockstate NBT data.
+
+# 5.9.0
+Released 6th December 2023.
+
+**For Minecraft: Bedrock Edition 1.20.50**
+
+This is a support release for Minecraft: Bedrock Edition 1.20.50.
+
+**Plugin compatibility:** Plugins for previous 5.x versions will run unchanged on this release, unless they use internal APIs, reflection, or packages like the `pocketmine\network\mcpe`  or `pocketmine\data` namespace.
+Do not update plugin minimum API versions unless you need new features added in this release.
+
+**WARNING: If your plugin uses the `pocketmine\network\mcpe` namespace, you're not shielded by API change constraints.**
+Consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you're using packets directly.
+
+## General
+- Added support for Minecraft: Bedrock Edition 1.20.50.
+- Removed support for older versions.
+
+## Fixes
+- Fixed `pitcher_plant` and `pitcher_pod` not being accepted by `StringToItemParser` (and therefore not being usable in commands).
+- Rotation of items in item frames in worlds from newer versions of Bedrock is now correctly loaded.
+- Fixed possible crash in block update sending if a chunk was unloaded during a previous chunk's block update syncing.
+- Fixed `AsyncTask::fetchLocal()` throwing an exception if `null` was stored in the local storage.
+
+## Documentation
+- `Server::prepareBatch()` is now correctly marked as `@internal`.
+- Updated documentation for `Server::prepareBatch()` to accurately reflect its behaviour.
+- Fixed incorrect path in doc comments of `EnumTrait` and `RegistryTrait`.
+
+## Internals
+- Added PHP 8.3 to the test matrix. This has not been thoroughly tested yet, so it should only be used for testing purposes.
+
+# 5.10.0
+Released 14th December 2023.
+
+**For Minecraft: Bedrock Edition 1.20.50**
+
+This is a minor feature release, including new gameplay features and minor performance improvements.
+
+**Plugin compatibility:** Plugins for previous 5.x versions will run unchanged on this release, unless they use internal APIs, reflection, or packages like the `pocketmine\network\mcpe`  or `pocketmine\data` namespace.
+Do not update plugin minimum API versions unless you need new features added in this release.
+
+**WARNING: If your plugin uses the `pocketmine\network\mcpe` namespace, you're not shielded by API change constraints.**
+Consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you're using packets directly.
+
+## General
+- PHP 8.2 is now used by default. PHP 8.1 is still supported, but will be removed in a future 5.x release.
+- Improved timings reports by removing `Breakdown` timings group. This group serves no purpose with tree timings and made for confusing reading.
+
+## Performance
+- Improved performance of `Block::encodeFullState()` in most conditions. This in turn improves performance of `World::setBlock()` and `World::setBlockAt()`.
+- Improved network compression performance by avoiding unnecessary object allocations.
+- Timings now report time spent in individual `Snooze` handlers, making it easier to debug performance issues.
+
+## Gameplay
+### Blocks
+- Implemented crop growth speed modifiers.
+  - The following things now positively affect crop growth speed:
+    - Being planted on or being adjacent to farmland (hydrated farmland offers a larger benefit than dry farmland)
+    - Potential light level of at least 9
+    - Being planted in rows with space between them (or a different type of crop)
+  - The following things now negatively affect crop growth speed:
+    - Improper arrangement (e.g. the same crop on all sides)
+    - Insufficient light level (below 9)
+  - Poorly arranged crops will grow slower in this version. Past versions behaved as if crops were always planted in ideal conditions.
+  - Crops planted in ideal conditions will grow at the same speed as before.
+
+### Items
+- Added the following new items:
+  - All types of Smithing Template
+- Pitcher Pod is now correctly registered. In previous versions, it was mapped to the Pitcher Crop block, causing incorrect name display in commands.
+
+## Internals
+- Cleaned up various getter usages where direct property access is possible.
+- Avoided unnecessary repeated getter calls in some loops.
+- `NetworkSession` may now track `string` instead of `CompressBatchPromise` when a batch was synchronously compressed. This significantly reduces object allocations and improves performance.
+- `NetworkSession` now sends less information to clients on login validation failure. This avoids leaking potentially sensitive error information to clients.
+  - Clients can correlate their disconnects with server-side logs using the `Error ID` shown on the disconnect screen.
