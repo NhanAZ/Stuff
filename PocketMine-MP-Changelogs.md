@@ -8259,3 +8259,29 @@ Consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if 
 - Authentication system no longer accepts logins signed with the old Mojang root public key.
 - ID to enum mappings in `pocketmine\data` now use a new `match` convention to allow static analysis to ensure that all enum cases are handled.
 - Updated version of `pocketmine/bedrock-protocol` allows avoiding decoding of some itemstack data from the client in most cases, improving performance.
+
+# 5.12.1
+Released 13th March 2024.
+
+## Fixes
+- Fixed `Player Network Receive - Decompression` timings not being stopped correctly when receiving an uncompressed packet.
+
+## Internals
+- Removed hardcoded batch packet size limit. This was already covered by other limits anyway.
+
+# 5.13.0
+Released 13th March 2024.
+
+**For Minecraft: Bedrock Edition 1.20.70**
+
+This is a support release for Minecraft: Bedrock Edition 1.20.70.
+
+**Plugin compatibility:** Plugins for previous 5.x versions will run unchanged on this release, unless they use internal APIs, reflection, or packages like the `pocketmine\network\mcpe`  or `pocketmine\data` namespace.
+Do not update plugin minimum API versions unless you need new features added in this release.
+
+**WARNING: If your plugin uses the `pocketmine\network\mcpe` namespace, you're not shielded by API change constraints.**
+Consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you're using packets directly.
+
+## General
+- Added support for Minecraft: Bedrock Edition 1.20.70.
+- Removed support for earlier versions.
