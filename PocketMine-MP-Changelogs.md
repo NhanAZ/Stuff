@@ -8450,3 +8450,538 @@ Consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if 
 ## Fixes
 - Bowl can now be used as fuel.
 - Bells always drops themselves even when using an incompatible tool.
+
+# 5.17.1
+Released 13th August 2024.
+
+## Documentation
+- Added a note about `BlockStateData::CURRENT_VERSION`.
+
+## Fixes
+- Fixed anvil placement rotation to match vanilla.
+- Fixed outdated `BedrockWorldData` version, this was preventing use newer worlds.
+
+## Internals
+- Dependabot: PHPStan and patch updates are now grouped into a single PR.
+
+# 5.18.0
+Released 16th August 2024.
+
+**For Minecraft: Bedrock Edition 1.21.20**
+
+This is a support release for Minecraft: Bedrock Edition 1.21.20.
+
+**Plugin compatibility:** Plugins for previous 5.x versions will run unchanged on this release, unless they use internal APIs, reflection, or packages like the `pocketmine\network\mcpe`  or `pocketmine\data` namespace.
+Do not update plugin minimum API versions unless you need new features added in this release.
+
+**WARNING: If your plugin uses the `pocketmine\network\mcpe` namespace, you're not shielded by API change constraints.**
+Consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you're using packets directly.
+
+## General
+- Added support for Minecraft: Bedrock Edition 1.21.20.
+- Removed support for earlier versions.
+
+## Fixes
+- Use `VISIBLE_MOB_EFFECTS` actor metadata property to send effect bubbles, this fixes effect bubbles not showing
+
+# 5.18.1
+Released 2nd September 2024.
+
+## Fixes
+- Fixed shift-crafting.
+- Blue Ice block no longer emits light & it's now dropped when mined with a tool with silk touch enchantment.
+
+## Internals
+- Pull Requests from team members now get an approval automatically. This means that if a team member makes a PR, only one other approval should be needed.
+- Added [ShellCheck](https://github.com/koalaman/shellcheck) to the CI tests.
+
+# 5.19.0
+Released 21tst September 2024.
+
+**For Minecraft: Bedrock Edition 1.21.30**
+
+This is a support release for Minecraft: Bedrock Edition 1.21.30.
+
+**Plugin compatibility:** Plugins for previous 5.x versions will run unchanged on this release, unless they use internal APIs, reflection, or packages like the `pocketmine\network\mcpe`  or `pocketmine\data` namespace.
+Do not update plugin minimum API versions unless you need new features added in this release.
+
+**WARNING: If your plugin uses the `pocketmine\network\mcpe` namespace, you're not shielded by API change constraints.**
+Consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you're using packets directly.
+
+## General
+- Added support for Minecraft: Bedrock Edition 1.21.30.
+- Removed support for earlier versions.
+
+# 5.20.0
+Released 26th October 2024.
+
+**For Minecraft: Bedrock Edition 1.21.40**
+
+This is a support release for Minecraft: Bedrock Edition 1.21.40.
+
+**Plugin compatibility:** Plugins for previous 5.x versions will run unchanged on this release, unless they use internal APIs, reflection, or packages like the `pocketmine\network\mcpe`  or `pocketmine\data` namespace.
+Do not update plugin minimum API versions unless you need new features added in this release.
+
+**WARNING: If your plugin uses the `pocketmine\network\mcpe` namespace, you're not shielded by API change constraints.**
+Consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you're using packets directly.
+
+## General
+- Added support for Minecraft: Bedrock Edition 1.21.40.
+- Removed support for earlier versions.
+
+## Fixes
+- Fixed a bug in `tools/generate-blockstate-upgrade-schema.php` that caused it to fail on 1.21.40 with the new mushroom block changes.
+
+# 5.20.1
+Released 31st October 2024.
+
+## Fixes
+- Workaround old mob heads in world saves not being upgraded correctly and causing crashes.
+
+# 5.21.0
+Released 3rd November 2024.
+
+This is a minor feature release, including gameplay features and minor internals improvements.
+
+**Plugin compatibility:** Plugins for previous 5.x versions will run unchanged on this release, unless they use internal APIs, reflection, or packages like the `pocketmine\network\mcpe`  or `pocketmine\data` namespace.
+Do not update plugin minimum API versions unless you need new features added in this release.
+
+**WARNING: If your plugin uses the `pocketmine\network\mcpe` namespace, you're not shielded by API change constraints.**
+Consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you're using packets directly.
+
+## Gameplay
+- Added the following new blocks:
+  - Campfire
+  - Chiseled Copper
+  - Chiseled Tuff
+  - Chiseled Tuff Bricks
+  - Copper Bulb
+  - Copper Door
+  - Copper Grate
+  - Copper Trapdoor
+  - Polished Tuff, Slabs, Stairs and Walls
+  - Soul Campfire
+  - Tuff Bricks, Slabs, Stairs and Walls
+  - Tuff Slab, Stairs and Walls
+- Added the following new types of painting:
+  - backyard
+  - baroque
+  - bouquet
+  - cavebird
+  - changing
+  - cotan
+  - endboss
+  - fern
+  - finding
+  - humble
+  - lowmist
+  - meditative
+  - orb
+  - owlemons
+  - passage
+  - pond
+  - prairie_ride
+  - sunflowers
+  - tides
+  - unpacked
+- Armor slots are now properly restricted (on the server side) to only contain the appropriate type of armor or headwear.
+- Implemented Aqua Affinity enchantment. Since the server doesn't currently enforce any movement restrictions in water, this enchantment works based on client-side behaviour only.
+
+## API
+### `pocketmine\block`
+- The following new API methods have been added:
+  - `public ChiseledBookshelf->getLastInteractedSlot() : ?ChiseledBookshelfSlot`
+  - `public ChiseledBookshelf->setLastInteractedSlot(?ChiseledBookshelfSlot $lastInteractedSlot) : $this`
+- The following new classes have been added: 
+  - `utils\CopperMaterial` - interface implemented by all copper-like blocks with oxidation and waxed properties
+  - `CopperBulb`
+  - `CopperDoor`
+  - `CopperGrate`
+  - `CopperTrapdoor`
+  - `SoulCampfire`
+  - `Campfire`
+- The following enums have new cases:
+  - `utils\BannerPatternType` has new cases `FLOW` and `GUSTER`
+
+### `pocketmine\crafting`
+- The following enums have new cases:
+  - `FurnaceType` has new cases `CAMPFIRE` and `SOUL_CAMPFIRE`
+
+### `pocketmine\event`
+- The following new classes have been added:
+  - `block\CampfireCookEvent` - called when a campfire finishes cooking an item
+
+### `pocketmine\inventory`
+- Added support for slot validators, which permit restricting the types of items a player can put into an inventory slot.
+  - The following new classes have been added:
+    - `transaction\action\SlotValidator` - interface
+    - `transaction\action\CallbackSlotValidator` - class allowing a closure to be used for slot content validation
+    - `SlotValidatedInventory` - implemented by inventories which support the use of slot validators
+
+### `pocketmine\item`
+- The following new API methods have been added:
+  - `public Item->getCooldownTag() : ?string` - returns the cooldown group this item belongs to, used for ensuring that, for example, different types of goat horns all respect a general horn cooldown
+- The following new classes have been added:
+  - `ItemCooldownTags` - list of cooldown group tags used by PocketMine-MP
+
+### `pocketmine\world\sound`
+- The following new classes have been added
+  - `CampfireSound` - sound made by campfires while lit
+
+## Tools
+- `tools/blockstate-upgrade-schema-utils.php` (formerly `generate-blockstate-upgrade-schema.php`) has several improvements:
+  - Support for generating `flattenedProperties` rules as per [BedrockBlockUpgradeSchema 5.0.0](https://github.com/pmmp/BedrockBlockUpgradeSchema/releases/tag/5.0.0)
+  - Improved criteria for flattened property selection to minimize the amount of rules required
+  - Several subcommands are now available:
+    - `generate` - generates a schema from provided data
+    - `update` - regenerates an existing schema in a newer format
+    - `update-all` - regenerates a folder of existing schemas in a newer format (useful for updating `BedrockBlockUpgradeSchema` en masse)
+    - `test` - verifies that a schema produces the results expected by provided data
+
+## Internals
+- Fixed incorrect visibility of `createEntity` in spawn eggs.
+- Added support for newer `BedrockBlockUpgradeSchema` in `BlockStateUpgrader`.
+
+# 5.21.1
+Released 12th November 2024.
+
+## Fixes
+- Fixed server crash when applying a cooldown to an item with 1 count.
+- Fixed garbage collector cycle count increase on player disconnect.
+- Fixed weakness effect being applied to all attack types, causing damage splash potions to become weaker.
+- Fixed Enchanted Golden Apple regeneration effect amplifier to match vanilla.
+
+# 5.21.2
+Released 29th November 2024.
+
+## Fixes
+- Fixed blocks destroyable by water being able to be placed inside water.
+- Fixed deprecation warnings about nullable typehints on PHP 8.4.
+- Fixed `Utils::getNiceClosureName()` not working correctly on PHP 8.4.
+- Fixed incorrect break animations when breaking the block behind an instantly-breakable block like a torch.
+- Fixed candle extinguish logic.
+- Fixed various documentation issues around array key types.
+- Introduced a new PHPStan rule along with `Utils::promoteKeys()` to improve PHPStan error reporting around unspecified array key types. Previously, some errors were missed due to PHPStan's BenevolentUnionType.
+
+## DevOps
+- `pmmp/server-developers` team is now automatically requested for review on any new PR.
+- `Status: Waiting on Author` label is now automatically removed from PRs when they are updated.
+
+# 5.22.0
+Released 4th December 2024.
+
+**For Minecraft: Bedrock Edition 1.21.50**
+
+This is a support release for Minecraft: Bedrock Edition 1.21.50.
+
+**Plugin compatibility:** Plugins for previous 5.x versions will run unchanged on this release, unless they use internal APIs, reflection, or packages like the `pocketmine\network\mcpe`  or `pocketmine\data` namespace.
+Do not update plugin minimum API versions unless you need new features added in this release.
+
+**WARNING: If your plugin uses the `pocketmine\network\mcpe` namespace, you're not shielded by API change constraints.**
+Consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you're using packets directly.
+
+## General
+- Added support for Minecraft: Bedrock Edition 1.21.50.
+- Removed support for earlier versions.
+
+# 5.23.0
+Released 5th December 2024.
+
+This is a minor feature release, including new gameplay features, internals improvements, API additions and
+deprecations, and improvements to timings.
+
+**Plugin compatibility:** Plugins for previous 5.x versions will run unchanged on this release, unless they use internal APIs, reflection, or packages like the `pocketmine\network\mcpe` or `pocketmine\data` namespace.
+Do not update plugin minimum API versions unless you need new features added in this release.
+
+**WARNING: If your plugin uses the `pocketmine\network\mcpe` namespace, you're not shielded by API change constraints.**
+Consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you're using packets directly.
+
+## General
+- `/timings` now supports collecting timings from async task workers. These new timings will be shown alongside `Full Server Tick` timings, but will not be counted in total load.
+- Added `/xp` command.
+- `start.sh` will now emit warnings when the server process exits with an unusual exit code. This helps to detect unexpected segmentation faults and other kinds of native errors.
+
+## Gameplay
+- Added the following new items:
+  - End Crystal
+  - Goat Horn (all variants)
+  - Ice Bomb (from Education Edition)
+  - Recovery Compass
+- Added the following enchantments:
+  - Frost Walker
+- Sugarcane now self-destructs when there is no water adjacent to the base block.
+- Added basic support for middle-clicking on entities to get their spawn eggs.
+- Added sounds when drinking potions.
+- Eating food is now allowed in creative mode and in peaceful difficulty.
+
+## API
+### `pocketmine\block`
+- Extracted `MultiAnyFacingTrait` and `MultiAnySupportTrait` from `GlowLichen` to enable reuse in other blocks.
+- The following API methods have been deprecated:
+  - `Campfire->getInventory()` - this was added by mistake and can't be well-supported given the way that blocks work
+
+### `pocketmine\command`
+- The following classes have been added:
+  - `ClosureCommand` - allows registering a closure to execute a command
+
+### `pocketmine\event`
+- Added APIs to `PlayerInteractEvent` to allow toggling item and block interactions.
+  - This allows various customisations, such as allowing interactions when sneaking, selectively disabling item or block reactions, etc.
+  - If both item and block interactions are disabled, the event is **not** cancelled (blocks can still be placed).
+  - The following API methods have been added:
+    - `public PlayerInteractEvent->setUseBlock(bool $useBlock) : void`
+    - `public PlayerInteractEvent->setUseItem(bool $useItem) : void`
+    - `public PlayerInteractEvent->useBlock() : bool` - returns whether the block can respond to the interaction (toggling levers, opening/closing doors, etc).
+    - `public PlayerInteractEvent->useItem() : bool` - returns whether the item can respond to the interaction (spawn eggs, flint & steel, etc).
+- The following new classes have been added:
+  - `player\PlayerEntityPickEvent` - called when a player middle-clicks on an entity
+
+### `pocketmine\inventory\transaction`
+- The following API methods have been deprecated:
+  - `InventoryAction->onAddToTransaction()`
+
+### `pocketmine\permission`
+- The following API methods have been deprecated:
+  - `PermissionManager->getPermissionSubscriptions()`
+  - `PermissionManager->subscribeToPermission()`
+  - `PermissionManager->unsubscribeFromAllPermissions()`
+  - `PermissionManager->unsubscribeFromPermission()`
+
+### `pocketmine\plugin`
+- The following classes have been deprecated:
+  - `DiskResourceProvider`
+  - `ResourceProvider`
+
+### `pocketmine\promise`
+- `Promise::all()` now accepts zero promises. This will return an already-resolved promise with an empty array.
+
+### `pocketmine\scheduler`
+- Added PHPStan generic types to `TaskHandler` and related APIs in `TaskScheduler` and `Task`.
+- The following API methods have been deprecated
+  - `AsyncTask->publishProgress()`
+  - `AsyncTask->onProgressUpdate()`
+
+### `pocketmine\timings`
+- Timings can now notify other code when timings are enabled/disabled, reloaded, or collected.
+  - The intent of this is to facilitate timings usage on other threads, and have the results collected into a single timings report.
+  - Timings cannot directly control timings on other threads, so these callbacks allow plugins to use custom mechanisms to toggle, reset and collect timings.
+  - PocketMine-MP currently uses this to collect timings from async task workers. More internal threads may be supported in the future.
+- The following API methods have been added:
+  - `public static TimingsHandler::getCollectCallbacks() : ObjectSet<\Closure() : list<Promise<list<string>>>` - callbacks for (asynchronously) collecting timings (typically from other threads). The returned promises should be resolved with the result of `TimingsHandler::printCurrentThreadRecords()`.
+  - `public static TimingsHandler::getReloadCallbacks() : ObjectSet<\Closure() : void>` - callbacks called when timings are reset
+  - `public static TimingsHandler::getToggleCallbacks() : ObjectSet<\Closure(bool $enable) : void>` - callbacks called when timings are enabled/disabled
+  - `public static TimingsHandler::requestPrintTimings() : Promise<list<string>>` - asynchronously collects timing results from all threads and assembles them into a single report
+- The following API methods have been deprecated:
+  - `TimingsHandler::printTimings()` - this function cannot support async timings collection. Use `TimingsHandler::requestPrintTimings()` instead.
+  - `Timings::getAsyncTaskErrorTimings()` - internal method that is no longer needed
+- The following constants have been deprecated:
+  - `Timings::GROUP_BREAKDOWN` - no longer used
+
+### `pocketmine\utils`
+- The following API methods have been added:
+  - `public static Utils::getRandomFloat() : float` - returns a random float between 0 and 1. Drop-in replacement for `lcg_value()` in PHP 8.4.
+
+## Internals
+- Blocks are now always synced with the client during a right-click-block interaction. This clears mispredictions on the client in case the new `PlayerInteractEvent` flags were customized by plugins.
+- `VanillaBlocks` and `VanillaItems` now use reflection to lookup TypeId constants by registration name, instead of requiring TypeIds to be manually specified.
+  - While this is obviously a hack, it prevents incorrect constants from being used when adding new blocks, and guarantees that the names of constants in `BlockTypeIds` and `ItemTypeIds` will match their corresponding entries in `VanillaBlocks` and `VanillaItems` respectively.
+  - It also significantly improves readability of `VanillaBlocks` and `VanillaItems`, as well as eliminating ugly code like `WoodLikeBlockIdHelper`.
+  - In PM6, the team is exploring options to redesign `VanillaBlocks` and `VanillaItems` to eliminate the need for defining separate TypeIds entirely.
+- `ConsoleReader` now uses socket support in `proc_open()` to transmit IPC messages to the server process. Previously, a temporary socket server was used, which was unreliable in some conditions.
+- Event handler tests have been converted to PHPUnit tests by mocking `Server` and `Plugin` instances. Previously, these required integration tests for these dependencies.
+- Fixed various deprecation warnings in PHP 8.4.
+- `netresearch/jsonmapper` is now used at `5.0.0`. The PMMP fork of this library has been removed, as it is no longer needed.
+
+# 5.23.1
+Released 5th December 2024.
+
+## Fixes
+- Fixed signs not creating a tile when placed.
+
+## Internals
+- Improved blockstate consistency check to detect tiles disappearing during refactors.
+
+# 5.23.2
+Released 9th December 2024.
+
+## General
+- Updated translations for Russian and Korean.
+
+## Fixes
+- Fixed server build number.
+- Fixed some crashes being misreported as plugin-involved.
+
+## Internals
+- Removed legacy `build/make-release.php` script. This script is no longer used, as all releases should now follow the PR workflow.
+
+# 5.23.3
+Released 22nd January 2025.
+
+## Fixes
+- Fixed crashes with PHP internal stack frames being flagged as plugin crashes.
+- Fixed note block instrument sounds in 1.21.50.
+
+## Internals
+- Updated GitHub issue templates to use issue forms.
+
+# 5.24.0
+Released 22nd January 2025.
+
+This is a minor feature release, including new gameplay features, performance improvements, and minor API additions.
+
+**Plugin compatibility:** Plugins for previous 5.x versions will run unchanged on this release, unless they use internal APIs, reflection, or packages like the `pocketmine\network\mcpe` or `pocketmine\data` namespace.
+Do not update plugin minimum API versions unless you need new features added in this release.
+
+**WARNING: If your plugin uses the `pocketmine\network\mcpe` namespace, you're not shielded by API change constraints.**
+Consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you're using packets directly.
+
+## Performance
+- PHP garbage collection is now managed by the server, instead of being automatically triggered by PHP.
+  - The mechanism for GC triggering is designed to mimic PHP's to avoid behavioural changes. Only the place it's triggered from should be significantly different.
+  - This change also avoids unnecessary GCs during object-heavy operations, such as encoding `CraftingDataPacket`. As such, performance during server join should see an improvement.
+  - Timings is now able to directly measure the impact of GC. Previously, GC would show up as random spikes under random timers, skewing timing results.
+- `ChunkCache` now uses `string` for completed caches directly instead of keeping them wrapped in `CompressBatchPromise`s. This reduces memory usage, improves performance, and reduces GC workload.
+
+## Configuration
+- The following settings have been removed from `pocketmine.yml` and will no longer have any effect:
+  - `memory.garbage-collection.collect-async-worker` (now always `true`)
+  - `memory.garbage-collection.low-memory-trigger` (now always `true`)
+  - `memory.max-chunks.trigger-chunk-collect` (now always `true`)
+  - `memory.world-caches.disable-chunk-cache` (now always `true`)
+  - `memory.world-caches.low-memory-trigger` (now always `true`)
+
+## Gameplay
+- Added the following new blocks:
+  - All types of pale oak wood, and leaves
+  - Resin
+  - Resin Bricks, Slabs, Stairs, and Walls
+  - Resin Clump
+  - Chiseled Resin Bricks
+- Some blocks have had their tool tier requirements adjusted to match latest Bedrock updates.
+- Added the following new items:
+  - Resin Brick
+  - Music Disc - Creator
+  - Music Disc - Creator (Music Box)
+  - Music Disc - Precipice
+  - Music Disc - Relic
+
+## API
+### General
+- Many places had their PHPDoc improved to address issues highlighted by PHPStan 2.x. This may cause new, previously unreported issues to be reported in plugins using PHPStan.
+
+### `pocketmine`
+- The following methods have been deprecated:
+  - `MemoryManager->canUseChunkCache()`
+  - `MemoryManager::dumpMemory()` - relocated to `MemoryDump` class
+
+### `pocketmine\item`
+- The following new enum cases have been added:
+  - `RecordType::DISK_CREATOR`
+  - `RecordType::DISK_CREATOR_MUSIC_BOX`
+  - `RecordType::DISK_PRECIPICE`
+  - `RecordType::DISK_RELIC`
+
+### `pocketmine\player`
+- The following new methods have been added:
+  - `public Player->getFlightSpeedMultiplier() : float` - a base multiplier for player's flight speed
+  - `public Player->setFlightSpeedMultiplier(float $flightSpeedMultiplier) : void` - sets the player's flight speed multiplier
+- The following new constants have been added:
+  - `Player::DEFAULT_FLIGHT_SPEED_MULTIPLIER`
+
+### `pocketmine\utils`
+- The following new methods have been added:
+  - `public static TextFormat::javaToBedrock(string $string) : string` - removes unsupported Java Edition format codes to prevent them being incorrectly displayed on Bedrock
+- The following methods have behavioural changes:
+  - `TextFormat::toHTML()` now converts `§m` to redstone red (instead of strikethrough), and `§n` to copper orange (instead of underline). This is because the codes previously used for `STRIKETHROUGH` and `UNDERLINE` conflict with the new material codes introduced by Minecraft Bedrock.
+  - `Terminal::toANSI()` now converts `§m` to redstone red (instead of strikethrough), and `§n` to copper orange (instead of underline), as above. However, underline and strikethrough can still be used on the terminal using `Terminal::$FORMAT_UNDERLINE` and `Terminal::$FORMAT_STRIKETHROUGH` respectively.
+- The following new constants have been added:
+  - `TextFormat::MATERIAL_QUARTZ`
+  - `TextFormat::MATERIAL_IRON`
+  - `TextFormat::MATERIAL_NETHERITE`
+  - `TextFormat::MATERIAL_REDSTONE`
+  - `TextFormat::MATERIAL_COPPER`
+  - `TextFormat::MATERIAL_GOLD`
+  - `TextFormat::MATERIAL_EMERALD`
+  - `TextFormat::MATERIAL_DIAMOND`
+  - `TextFormat::MATERIAL_LAPIS`
+  - `TextFormat::MATERIAL_AMETHYST`
+- The following constants have been deprecated:
+  - `TextFormat::STRIKETHROUGH`
+  - `TextFormat::UNDERLINE`
+- The following static properties have been added:
+  - `Terminal::$COLOR_MATERIAL_QUARTZ`
+  - `Terminal::$COLOR_MATERIAL_IRON`
+  - `Terminal::$COLOR_MATERIAL_NETHERITE`
+  - `Terminal::$COLOR_MATERIAL_REDSTONE`
+  - `Terminal::$COLOR_MATERIAL_COPPER`
+  - `Terminal::$COLOR_MATERIAL_GOLD`
+  - `Terminal::$COLOR_MATERIAL_EMERALD`
+  - `Terminal::$COLOR_MATERIAL_DIAMOND`
+  - `Terminal::$COLOR_MATERIAL_LAPIS`
+  - `Terminal::$COLOR_MATERIAL_AMETHYST`
+
+## Tools
+- Fixed some UI issues in `tools/convert-world.php`
+
+## Internals
+- Block cache in `World` is now size-limited. This prevents memory exhaustion when plugins call `getBlock()` many thousands of times with cache misses.
+- `RakLibServer` now disables PHP GC. As RakLib doesn't generate any unmanaged cycles, GC is just a waste of CPU time in this context.
+- `MemoryManager` now has the responsibility for triggering cycle GC. It's checked every tick, but GC won't take place unless the GC threshold is exceeded, similar to PHP.
+  - This mechanism could probably do with alterations to better suit PocketMine-MP, but it was chosen to mimic PHP's own GC to minimize behavioural changes for now.
+- `AsyncTask` now triggers cycle GC after `onRun()` completes. As with `MemoryManager`, this is based on a threshold designed to mimic PHP's own behaviour.
+- `FormatConverter` now performs world provider GC periodically. This is not needed with current active providers, but was found to be a problem while developing custom providers.
+- Various internal adjustments were made to avoid returning incorrectly-keyed arrays in the code. These changes shouldn't affect anything as the arrays should have been properly ordered anyway.
+- Many places that previously used `==` and `!=` have been updated to use strict variants. This kind of change needs to be done carefully to avoid breaking `int|float` comparisons.
+
+# 5.25.0
+Released 16th February 2025.
+
+This is a support release for Minecraft: Bedrock Edition 1.21.60. It also includes some minor API additions supporting new features in this version.
+
+**Plugin compatibility:** Plugins for previous 5.x versions will run unchanged on this release, unless they use internal APIs, reflection, or packages like the `pocketmine\network\mcpe` or `pocketmine\data` namespace.
+Do not update plugin minimum API versions unless you need new features added in this release.
+
+**WARNING: If your plugin uses the `pocketmine\network\mcpe` namespace, you're not shielded by API change constraints.**
+Consider using the `mcpe-protocol` directive in `plugin.yml` as a constraint if you're using packets directly.
+
+## General
+- Added support for Minecraft: Bedrock Edition 1.21.60.
+- Removed support for earlier versions.
+
+## Documentation
+- Fixed the documentation of `Utils::getOS()`. It now refers to the `Utils::OS_*` constants instead of a list of hardcoded strings.
+
+## API
+### `pocketmine\inventory`
+This release allows plugins to decide which creative tab they want to add their new items to.
+It also allows creating new collapsible groups of items, and modifying or removing existing ones.
+
+- The following new methods have been added:
+  - `public CreativeInventory->getAllEntries() : list<CreativeInventoryEntry>` - returns an array of objects, each containing a creative item and information about its category and collapsible group (if applicable).
+  - `public CreativeInventory->getEntry(int $index) : ?CreativeInventoryEntry` - returns the creative item with the specified identifier, or `null` if not found
+- The following methods have signature changes:
+  - `CreativeInventory->add()` now accepts two additional optional parameters: `CreativeCategory $category, ?CreativeGroup $group`. If not specified, the item will be added to the Items tab without a group.
+- The following new classes have been added:
+  - `CreativeCategory` - enum of possible creative inventory categories (each has its own tab on the GUI)
+  - `CreativeGroup` - contains information about a collapsible group of creative items, including tooltip text and icon
+  - `CreativeInventoryEntry` - contains information about a creative inventory item, including its category and collapsible group (if applicable)
+
+## Internals
+- `CreativeContentPacket` is no longer fully cached due to the requirement for translation context during construction. The individual items are still cached (which is the most expensive part), but the packet itself is now constructed on demand, and group entries are constructed on the fly. This may affect performance, but this has not been investigated.
+- `BedrockDataFiles` now includes constants for folders at the top level of `BedrockData` as well as files.
+- The structure of creative data in `BedrockData` was changed to accommodate item category and grouping information. `creativeitems.json` has been replaced by `creative/*.json`, which contain information about item grouping and also segregates item lists per category.
+- New information was added to `required_item_list.json` in `BedrockData`, as the server is now required to send item component NBT data in some cases.
+
+# 5.25.1
+Released 26th February 2025.
+
+## Fixes
+- Fixed confusing exception message when a block-breaking tool has an efficiency value of zero.
+- Fixed incorrect facing of doors since 1.21.60 (resulted in mismatched AABBs between client & server, rendering glitches etc.)
+- Resource pack UUIDs are now validated on load. Previously, invalid UUIDs would be accepted, and potentially cause a server crash on player join.
+
+# 5.25.2
+Released 4th March 2025.
+
+## Fixes
+- Added limits to various `explode()` calls.
